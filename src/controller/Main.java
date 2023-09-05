@@ -4,19 +4,19 @@
  * and open the template in the editor.
  */
 package controller;
-import vista.JFramePrincipal;
+
+import view.ViewMenuPrincipal;
 
 /**
  *
- * @author Salvador
+ * @author Alex
  */
 public class Main {
+
     public static void main(String[] args) {
-        
-        
-        JFramePrincipal oPrincipal = new JFramePrincipal();
-        oPrincipal.setVisible(true);
-        oPrincipal.setLocationRelativeTo(null);
+        ViewMenuPrincipal viewMenuPrincipal = new ViewMenuPrincipal();
+        viewMenuPrincipal.setVisible(true);
+        viewMenuPrincipal.setLocationRelativeTo(null);
     }
-    
+
 }
