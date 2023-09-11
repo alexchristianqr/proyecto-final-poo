@@ -1,13 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package models;
 
-/**
- *
- * @author alex
- */
-public class Cliente {
+public class Cliente extends Persona{
     
+    private int codigo;
+
+    public Cliente(int codigo, int dni, String nombre, String apellidos, String sexo, int edad, String ciudad, int telefono) {
+        super(dni, nombre, apellidos, sexo, edad, ciudad, telefono);
+        this.codigo = codigo;
+    }
+
+
+ 
 }
