@@ -3,9 +3,11 @@ package controllers;
 import models.Cliente;
 
 public class ClienteController {
+    
+    Cliente cliente;
 
     public Cliente crearCliente(int codigo, int dni, String nombre, String apellidos, String sexo, int edad, String ciudad, int telefono) {
-        Cliente cliente = new Cliente(codigo, dni, nombre, apellidos, sexo, edad, ciudad, telefono);
+        cliente = new Cliente(codigo, dni, nombre, apellidos, sexo, edad, ciudad, telefono);
         return cliente;
     }
 
@@ -19,7 +21,7 @@ public class ClienteController {
 ////    }
        
     
-    public String mostrarCliente(Cliente cliente){
+    public String mostrarCliente(){
         return "Datos del Cliente\n"+
                 "Codigo\t\t: "+ cliente.getCodigo()+
                 "DNI\t\t: "+cliente.getDni()+

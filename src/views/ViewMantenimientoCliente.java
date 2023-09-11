@@ -1,18 +1,16 @@
-
 package views;
 
 import controllers.ClienteController;
 import javax.swing.JOptionPane;
 import models.Cliente;
 
-
 public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
-
 
     public ViewMantenimientoCliente() {
         initComponents();
     }
-ClienteController oClienteController;
+    ClienteController oClienteController = new ClienteController();
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -222,26 +220,31 @@ ClienteController oClienteController;
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         // TODO add your handling code here:
-        int codigo= Integer.parseInt(txtCodigo.getText());
-        int dni=Integer.parseInt(txtDni.getText());
-        String nombre= txtNombre.getText();
-        String apellidos=this.txtApellidos.getText();
-        String sexo="";
-        if(this.rbnSi.isSelected()==true) sexo="Femenino";
-        else sexo="Masculino";
+        int codigo = Integer.parseInt(txtCodigo.getText());
+        int dni = Integer.parseInt(txtDni.getText());
+        String nombre = txtNombre.getText();
+        String apellidos = this.txtApellidos.getText();
         
-        int edad=Integer.parseInt(txtEdad.getText());
-        String ciudad=this.txtCiudad.getText();
-        int telefono=Integer.parseInt(this.txtTelefono.getText());
-        
-        //oClienteController.crearCliente(codigo, dni, nombre, apellidos, sexo, edad, ciudad, telefono);
-        JOptionPane.showMessageDialog(null,"Cliente creado");
-       //txtArea.append(oClienteController.mostrarCliente(client));
+        String sexo = "";
+        if (this.rbnSi.isSelected() == true) {
+            sexo = "Femenino";
+        } else {
+            sexo = "Masculino";
+        }
+
+        int edad = Integer.parseInt(txtEdad.getText());
+        String ciudad = this.txtCiudad.getText();
+        int telefono = Integer.parseInt(this.txtTelefono.getText());
+
+        oClienteController.crearCliente(codigo, dni, nombre, apellidos, sexo, edad, ciudad, telefono);
+        JOptionPane.showMessageDialog(null, "Cliente creado");
+        System.out.println(oClienteController.mostrarCliente());
+        txtArea.append(oClienteController.mostrarCliente());
     }//GEN-LAST:event_btnCrearActionPerformed
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
         // TODO add your handling code here:
-      
+
     }//GEN-LAST:event_btnMostrarActionPerformed
 
 
