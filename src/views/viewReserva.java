@@ -71,7 +71,6 @@ public class ViewReserva extends javax.swing.JInternalFrame {
         jLabel1.setText("Habitación:");
 
         txtNumeroHabitacion.setEditable(false);
-        txtNumeroHabitacion.setBackground(new java.awt.Color(255, 255, 255));
         txtNumeroHabitacion.setText("202");
 
         btnSeleccionarHabitacion.setBackground(new java.awt.Color(204, 204, 204));
@@ -80,7 +79,6 @@ public class ViewReserva extends javax.swing.JInternalFrame {
         jLabel2.setText("Cliente:");
 
         txtCliente.setEditable(false);
-        txtCliente.setBackground(new java.awt.Color(255, 255, 255));
         txtCliente.setText("Maria Flores Gallardo");
 
         btnSeleccionarCliente.setBackground(new java.awt.Color(204, 204, 204));
