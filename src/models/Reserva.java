@@ -1,63 +1,73 @@
-
 package models;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
-
+import java.sql.Date;
 
 public class Reserva {
- 
-    private int codigo;
+
+    private int idReserva;
+    private int idCliente;
+    private int idHabitacion;
+    private int idEmpleado;
     private String tipo;
-    private Date fechaIngreso;
-    private Date fechaSalida;
-    Habitacion habitacion = new Habitacion();  
-    
-    public Reserva(int codigo, String tipo, Date fechaIngreso, Date fechaSalida) {
-        this.codigo = codigo;
-        this.tipo = tipo;
-        this.fechaIngreso = fechaIngreso;
-        this.fechaSalida = fechaSalida;
-    }
+    private String estado;
+//    private Date fechaReservado,fechaCreado,fechaActualizado;
+    private String fechaReservado, fechaCreado, fechaActualizado, fechaIngreso, fechaSalida;
 
     public Reserva() {
     }
 
-    public long calcularDias(Date fechaIngreso,Date fechaSalida){
-        SimpleDateFormat fechaf= new SimpleDateFormat("dd/mm/yyyy");
-        long diasTotales= fechaSalida.getTime()-fechaIngreso.getTime();
-        TimeUnit unidad=TimeUnit.DAYS;
-        long dias =unidad.convert(diasTotales, TimeUnit.MILLISECONDS);
-        return dias;
-    }
-    
-    public double calcularCosto(long dias){
-          double costo=0;
-        costo =dias * habitacion.calcularPrecioBase();
-        return costo;
-    }
- 
-    public String mostrarInfo(){
-        long dias = calcularDias(fechaIngreso, fechaSalida);
-        return //"Reserva : \n"+
-//                "Nombre de cliente: "+ 
-//                "Apellido de cliente"+
-                "Tipo de habitacion"+ habitacion.getTipo()+
-                "Costo por habitacion"+habitacion.calcularPrecioBase()+
-                "Fecha de ingreso"+fechaIngreso+
-                "Fecha de salida"+fechaSalida+
-                "Cantidad de dias"+ calcularDias(fechaIngreso, fechaSalida)+               
-                "Costo Total"+ calcularCosto(dias)+ "\n"  ;
-       
-    }
-    
-    public int getCodigo() {
-        return codigo;
+    public Reserva(Reserva reserva) {
+        this.idCliente = reserva.idCliente;
+        this.idHabitacion = reserva.idHabitacion;
+        this.idEmpleado = reserva.idEmpleado;
+        this.tipo = reserva.tipo;
+        this.fechaReservado = reserva.fechaReservado;
+        this.fechaIngreso = reserva.fechaIngreso;
+        this.fechaSalida = reserva.fechaSalida;
+        this.estado = reserva.estado;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public String mostrarInfo() {
+        return "Cliente: " + idCliente
+                + "\t\tHabitacion: " + idHabitacion
+                + "\t\tEmpleado: " + idEmpleado
+                + "\t\tTipo: " + tipo
+                + "\t\tEstado: " + estado
+                + "\t\tFecha de reserva: " + fechaReservado
+                + "\t\tFecha de ingreso: " + fechaIngreso
+                + "\t\tFecha de salida: " + fechaSalida + " \n";
+    }
+
+    public int getIdReserva() {
+        return idReserva;
+    }
+
+    public void setIdReserva(int idReserva) {
+        this.idReserva = idReserva;
+    }
+
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public int getIdHabitacion() {
+        return idHabitacion;
+    }
+
+    public void setIdHabitacion(int idHabitacion) {
+        this.idHabitacion = idHabitacion;
+    }
+
+    public int getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(int idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 
     public String getTipo() {
@@ -68,21 +78,52 @@ public class Reserva {
         this.tipo = tipo;
     }
 
-    public Date getFechaIngreso() {
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getFechaReservado() {
+        return fechaReservado;
+    }
+
+    public void setFechaReservado(String fechaReservado) {
+        this.fechaReservado = fechaReservado;
+    }
+
+    public String getFechaCreado() {
+        return fechaCreado;
+    }
+
+    public void setFechaCreado(String fechaCreado) {
+        this.fechaCreado = fechaCreado;
+    }
+
+    public String getFechaActualizado() {
+        return fechaActualizado;
+    }
+
+    public void setFechaActualizado(String fechaActualizado) {
+        this.fechaActualizado = fechaActualizado;
+    }
+
+    public String getFechaIngreso() {
         return fechaIngreso;
     }
 
-    public void setFechaIngreso(Date fechaIngreso) {
+    public void setFechaIngreso(String fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
 
-    public Date getFechaSalida() {
+    public String getFechaSalida() {
         return fechaSalida;
     }
 
-    public void setFechaSalida(Date fechaSalida) {
+    public void setFechaSalida(String fechaSalida) {
         this.fechaSalida = fechaSalida;
     }
-    
-    
+
 }

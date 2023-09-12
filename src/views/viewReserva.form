@@ -33,7 +33,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jpanelCrearReserva" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jpanelListarReservas" max="32767" attributes="0"/>
+              <Component id="jpanelListarReservas" pref="795" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -43,7 +43,7 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jpanelListarReservas" pref="373" max="32767" attributes="0"/>
+                  <Component id="jpanelListarReservas" pref="552" max="32767" attributes="0"/>
                   <Component id="jpanelCrearReserva" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -392,7 +392,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextArea" name="jTextArea1">
+            <Component class="javax.swing.JTextArea" name="txtLista">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>

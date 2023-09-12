@@ -5,11 +5,21 @@
  */
 package views;
 
+import controllers.ReservaController;
+import java.util.Calendar;
+import java.sql.Date;
+import models.Reserva;
+
 /**
  *
  * @author Alex
  */
 public class ViewReserva extends javax.swing.JInternalFrame {
+
+    ReservaController reservaController;
+    Reserva reserva;
+    Calendar calendar;
+    int day, month, year;
 
     /**
      * Creates new form viewReserva
@@ -54,7 +64,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
         jdateFechaSalida = new com.toedter.calendar.JDateChooser();
         jpanelListarReservas = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtLista = new javax.swing.JTextArea();
 
         setClosable(true);
         setIconifiable(true);
@@ -232,10 +242,10 @@ public class ViewReserva extends javax.swing.JInternalFrame {
         jpanelListarReservas.setForeground(new java.awt.Color(0, 0, 0));
         jpanelListarReservas.setPreferredSize(new java.awt.Dimension(600, 121));
 
-        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtLista.setBackground(new java.awt.Color(255, 255, 255));
+        txtLista.setColumns(20);
+        txtLista.setRows(5);
+        jScrollPane1.setViewportView(txtLista);
 
         javax.swing.GroupLayout jpanelListarReservasLayout = new javax.swing.GroupLayout(jpanelListarReservas);
         jpanelListarReservas.setLayout(jpanelListarReservasLayout);
@@ -262,7 +272,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jpanelCrearReserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpanelListarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jpanelListarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -270,7 +280,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jpanelListarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
+                    .addComponent(jpanelListarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
                     .addComponent(jpanelCrearReserva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -280,14 +290,46 @@ public class ViewReserva extends javax.swing.JInternalFrame {
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         // TODO add your handling code here:
-        
+
         dispose();
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        
-        
+
+        reserva = new Reserva();
+        reserva.setIdCliente(1);
+        reserva.setIdHabitacion(1);
+        reserva.setIdEmpleado(1);
+
+        calendar = jdateFechaReserva.getCalendar();
+//        day = calendar.get(Calendar.DAY_OF_MONTH);
+//        month = calendar.get(Calendar.MONTH);
+//        year = calendar.get(Calendar.YEAR);
+//        reserva.setFechaReservado(new Date(year, month, day));
+        reserva.setFechaReservado("12/09/2023 16:11:03");
+        System.out.println("aquiii" + reserva.getFechaReservado());
+
+        calendar = jdateFechaIngreso.getCalendar();
+//        day = calendar.get(Calendar.DAY_OF_MONTH);
+//        month = calendar.get(Calendar.MONTH);
+//        year = calendar.get(Calendar.YEAR);
+//        reserva.setFechaCreado(new Date(year, month, day));
+        reserva.setFechaIngreso("12/09/2023 16:11:03");
+
+        calendar = jdateFechaSalida.getCalendar();
+//        day = calendar.get(Calendar.DAY_OF_MONTH);
+//        month = calendar.get(Calendar.MONTH);
+//        year = calendar.get(Calendar.YEAR);
+//        reserva.setFechaActualizado(new Date(year, month, day));
+        reserva.setFechaSalida("12/09/2023 16:11:03");
+
+        reserva.setEstado("Disponible");
+        reserva.setTipo("Por horas");
+        reservaController = new ReservaController();
+        String mensaje = reservaController.reservar(reserva);
+        txtLista.append(mensaje);
+
     }//GEN-LAST:event_btnGuardarActionPerformed
 
 
@@ -310,7 +352,6 @@ public class ViewReserva extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private com.toedter.calendar.JDateChooser jdateFechaIngreso;
     private com.toedter.calendar.JDateChooser jdateFechaReserva;
     private com.toedter.calendar.JDateChooser jdateFechaSalida;
@@ -319,6 +360,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtCliente;
     private javax.swing.JTextField txtCosto;
     private javax.swing.JTextField txtEmpleado;
+    private javax.swing.JTextArea txtLista;
     private javax.swing.JTextField txtNumeroHabitacion;
     // End of variables declaration//GEN-END:variables
 }
