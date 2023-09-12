@@ -9,11 +9,14 @@ import controllers.ClienteController;
 
 /**
  *
- * @author Salvador
+ * @author Alex
  */
 public class ViewMenuPrincipal extends javax.swing.JFrame {
 
     ClienteController clienteController;
+    ViewMantenimientoCliente viewMantenimientoCliente = new ViewMantenimientoCliente();
+    ViewReserva viewReserva = new ViewReserva();
+    ViewAcercaDe viewAcercaDe = new ViewAcercaDe();
 
     /**
      * Creates new form Principal
@@ -35,15 +38,15 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
-        jPanel1 = new javax.swing.JPanel();
-        escritorioPrincipal = new javax.swing.JLabel();
+        contenedor = new javax.swing.JPanel();
+        jlabelEscritorioPrincipal = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu5 = new javax.swing.JMenu();
+        jmenuArchivo = new javax.swing.JMenu();
         menuItemSalir = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
+        jmenuReserva = new javax.swing.JMenu();
+        jmenuMantenimiento = new javax.swing.JMenu();
         menuItemMantenimientoCliente = new javax.swing.JMenuItem();
-        jMenu7 = new javax.swing.JMenu();
+        jmenuAyuda = new javax.swing.JMenu();
         menuItemAcercaDe = new javax.swing.JMenuItem();
 
         jMenu3.setText("File");
@@ -54,13 +57,15 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Programa");
+        setPreferredSize(new java.awt.Dimension(1200, 400));
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        contenedor.setPreferredSize(new java.awt.Dimension(1200, 400));
+        contenedor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        escritorioPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/fondo.jpg"))); // NOI18N
-        jPanel1.add(escritorioPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 940));
+        jlabelEscritorioPrincipal.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        contenedor.add(jlabelEscritorioPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 1900, 1200));
 
-        jMenu5.setText("Archivo");
+        jmenuArchivo.setText("Archivo");
 
         menuItemSalir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0));
         menuItemSalir.setText("Salir");
@@ -69,12 +74,28 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
                 menuItemSalirActionPerformed(evt);
             }
         });
-        jMenu5.add(menuItemSalir);
+        jmenuArchivo.add(menuItemSalir);
 
-        jMenuBar1.add(jMenu5);
-        jMenuBar1.add(jMenu6);
+        jMenuBar1.add(jmenuArchivo);
 
-        jMenu1.setText("Mantenimiento");
+        jmenuReserva.setText("Reserva");
+        jmenuReserva.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jmenuReservaMenuSelected(evt);
+            }
+        });
+        jmenuReserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmenuReservaActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(jmenuReserva);
+
+        jmenuMantenimiento.setText("Mantenimiento");
 
         menuItemMantenimientoCliente.setText("Cliente");
         menuItemMantenimientoCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -82,11 +103,11 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
                 menuItemMantenimientoClienteActionPerformed(evt);
             }
         });
-        jMenu1.add(menuItemMantenimientoCliente);
+        jmenuMantenimiento.add(menuItemMantenimientoCliente);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(jmenuMantenimiento);
 
-        jMenu7.setText("Ayuda");
+        jmenuAyuda.setText("Ayuda");
 
         menuItemAcercaDe.setText("Acerca de");
         menuItemAcercaDe.addActionListener(new java.awt.event.ActionListener() {
@@ -94,9 +115,9 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
                 menuItemAcercaDeActionPerformed(evt);
             }
         });
-        jMenu7.add(menuItemAcercaDe);
+        jmenuAyuda.add(menuItemAcercaDe);
 
-        jMenuBar1.add(jMenu7);
+        jMenuBar1.add(jmenuAyuda);
 
         setJMenuBar(jMenuBar1);
 
@@ -104,11 +125,13 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(contenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(contenedor, javax.swing.GroupLayout.DEFAULT_SIZE, 1206, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -121,29 +144,56 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
 
     private void menuItemAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAcercaDeActionPerformed
 
-        ViewAcercaDe viewAcercaDe = new ViewAcercaDe();
-        viewAcercaDe.setVisible(true);
-        viewAcercaDe.setLocationRelativeTo(null);
+        if (viewAcercaDe.isVisible()) {
+            viewAcercaDe.setAlwaysOnTop(true);
+        } else {
+            viewAcercaDe.setVisible(true);
+            viewAcercaDe.setLocationRelativeTo(null);
+        }
     }//GEN-LAST:event_menuItemAcercaDeActionPerformed
 
     private void menuItemMantenimientoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemMantenimientoClienteActionPerformed
         // TODO add your handling code here:
-        ViewMantenimientoCliente viewMantenimientoCliente = new ViewMantenimientoCliente();
-        escritorioPrincipal.add(viewMantenimientoCliente);
-        viewMantenimientoCliente.show();
+
+        if (viewMantenimientoCliente.isShowing()) {
+            viewMantenimientoCliente.setVisible(true);
+            viewMantenimientoCliente.toFront();
+        } else {
+            jlabelEscritorioPrincipal.add(viewMantenimientoCliente);
+            viewMantenimientoCliente.show();
+        }
     }//GEN-LAST:event_menuItemMantenimientoClienteActionPerformed
 
+    private void jmenuReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmenuReservaActionPerformed
+        // TODO add your handling code here:
+
+        
+
+    }//GEN-LAST:event_jmenuReservaActionPerformed
+
+    private void jmenuReservaMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jmenuReservaMenuSelected
+        // TODO add your handling code here:
+        if (viewReserva.isShowing()) {
+            viewReserva.setVisible(true);
+            viewReserva.toFront();
+        } else {
+            jlabelEscritorioPrincipal.add(viewReserva);
+            viewReserva.show();
+        }
+
+    }//GEN-LAST:event_jmenuReservaMenuSelected
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel escritorioPrincipal;
-    private javax.swing.JMenu jMenu1;
+    private javax.swing.JPanel contenedor;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jlabelEscritorioPrincipal;
+    private javax.swing.JMenu jmenuArchivo;
+    private javax.swing.JMenu jmenuAyuda;
+    private javax.swing.JMenu jmenuMantenimiento;
+    private javax.swing.JMenu jmenuReserva;
     private javax.swing.JMenuItem menuItemAcercaDe;
     private javax.swing.JMenuItem menuItemMantenimientoCliente;
     private javax.swing.JMenuItem menuItemSalir;

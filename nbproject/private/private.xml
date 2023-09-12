@@ -3,17 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Aplicaciones/proyecto-final-poo/src/controllers/ClienteController.java</file>
-            <file>file:/C:/Aplicaciones/proyecto-final-poo/src/views/ViewMenuPrincipal.java</file>
-            <file>file:/C:/Aplicaciones/proyecto-final-poo/src/controllers/Main.java</file>
-            <file>file:/C:/Aplicaciones/proyecto-final-poo/src/models/Reserva.java</file>
-            <file>file:/C:/Aplicaciones/proyecto-final-poo/src/models/Cliente.java</file>
-            <file>file:/C:/Aplicaciones/proyecto-final-poo/src/views/viewReserva.java</file>
-            <file>file:/C:/Aplicaciones/proyecto-final-poo/src/models/Empleado.java</file>
-            <file>file:/C:/Aplicaciones/proyecto-final-poo/src/views/ViewAcercaDe.java</file>
-            <file>file:/C:/Aplicaciones/proyecto-final-poo/src/views/ViewMantenimientoCliente.java</file>
-            <file>file:/C:/Aplicaciones/proyecto-final-poo/src/models/Habitacion.java</file>
-            <file>file:/C:/Aplicaciones/proyecto-final-poo/src/models/Persona.java</file>
+            <file>file:/D:/Apps/src/src-utp/proyecto-final-poo/src/views/ViewReserva.java</file>
+            <file>file:/D:/Apps/src/src-utp/proyecto-final-poo/src/views/ViewAcercaDe.java</file>
+            <file>file:/D:/Apps/src/src-utp/proyecto-final-poo/src/views/ViewMenuPrincipal.java</file>
+            <file>file:/D:/Apps/src/src-utp/proyecto-final-poo/src/views/ViewMantenimientoCliente.java</file>
         </group>
     </open-files>
 </project-private>

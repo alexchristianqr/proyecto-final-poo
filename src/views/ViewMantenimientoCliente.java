@@ -43,6 +43,10 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
         txtCodigo = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(0, 204, 153));
+        setClosable(true);
+        setIconifiable(true);
+        setResizable(true);
+        setTitle("Cliente");
 
         btnCerrar.setText("Cerrar");
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {
@@ -187,7 +191,7 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(rbnSi)
                                             .addComponent(rbnNo))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel6))
