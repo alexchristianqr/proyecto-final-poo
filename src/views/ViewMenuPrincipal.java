@@ -5,15 +5,12 @@
  */
 package views;
 
-import controllers.ClienteController;
-
 /**
  *
  * @author Alex
  */
 public class ViewMenuPrincipal extends javax.swing.JFrame {
 
-    ClienteController clienteController;
     ViewMantenimientoCliente viewMantenimientoCliente = new ViewMantenimientoCliente();
     ViewReserva viewReserva = new ViewReserva();
     ViewAcercaDe viewAcercaDe = new ViewAcercaDe();
@@ -23,7 +20,6 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
      */
     public ViewMenuPrincipal() {
         initComponents();
-        clienteController = new ClienteController();
     }
 
     /**
@@ -167,7 +163,6 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
     private void jmenuReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmenuReservaActionPerformed
         // TODO add your handling code here:
 
-        
 
     }//GEN-LAST:event_jmenuReservaActionPerformed
 

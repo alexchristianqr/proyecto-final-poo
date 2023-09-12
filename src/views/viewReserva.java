@@ -7,7 +7,7 @@ package views;
 
 import controllers.ReservaController;
 import java.util.Calendar;
-import java.sql.Date;
+//import java.sql.Date;
 import models.Reserva;
 
 /**
@@ -19,7 +19,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
     ReservaController reservaController;
     Reserva reserva;
     Calendar calendar;
-    int day, month, year;
+//    int day, month, year;
 
     /**
      * Creates new form viewReserva
@@ -307,22 +307,21 @@ public class ViewReserva extends javax.swing.JInternalFrame {
 //        month = calendar.get(Calendar.MONTH);
 //        year = calendar.get(Calendar.YEAR);
 //        reserva.setFechaReservado(new Date(year, month, day));
-        reserva.setFechaReservado("12/09/2023 16:11:03");
-        System.out.println("aquiii" + reserva.getFechaReservado());
+        reserva.setFechaReservado(calendar.getTime().toString());
 
         calendar = jdateFechaIngreso.getCalendar();
 //        day = calendar.get(Calendar.DAY_OF_MONTH);
 //        month = calendar.get(Calendar.MONTH);
 //        year = calendar.get(Calendar.YEAR);
 //        reserva.setFechaCreado(new Date(year, month, day));
-        reserva.setFechaIngreso("12/09/2023 16:11:03");
+        reserva.setFechaIngreso(calendar.getTime().toString());
 
         calendar = jdateFechaSalida.getCalendar();
 //        day = calendar.get(Calendar.DAY_OF_MONTH);
 //        month = calendar.get(Calendar.MONTH);
 //        year = calendar.get(Calendar.YEAR);
 //        reserva.setFechaActualizado(new Date(year, month, day));
-        reserva.setFechaSalida("12/09/2023 16:11:03");
+        reserva.setFechaSalida(calendar.getTime().toString());
 
         reserva.setEstado("Disponible");
         reserva.setTipo("Por horas");
