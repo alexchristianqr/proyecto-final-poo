@@ -12,7 +12,7 @@ package views;
 public class ViewMenuPrincipal extends javax.swing.JFrame {
 
     ViewMantenimientoCliente viewMantenimientoCliente = new ViewMantenimientoCliente();
-    ViewCreateReserva viewReserva = new ViewCreateReserva();
+    ViewReserva viewReserva = new ViewReserva();
     ViewAcercaDe viewAcercaDe = new ViewAcercaDe();
 
     /**

@@ -14,7 +14,7 @@ import models.Reserva;
  *
  * @author Alex
  */
-public class ViewCreateReserva extends javax.swing.JInternalFrame {
+public class ViewReserva extends javax.swing.JInternalFrame {
 
     ReservaController reservaController;
     Reserva reserva;
@@ -24,7 +24,7 @@ public class ViewCreateReserva extends javax.swing.JInternalFrame {
     /**
      * Creates new form viewReserva
      */
-    public ViewCreateReserva() {
+    public ViewReserva() {
         initComponents();
     }
 
