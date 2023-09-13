@@ -17,6 +17,7 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
 
         jTextField5 = new javax.swing.JTextField();
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jSeparator1 = new javax.swing.JSeparator();
         btnCerrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -42,7 +43,7 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(0, 204, 153));
+        setBackground(new java.awt.Color(255, 255, 204));
         setClosable(true);
         setIconifiable(true);
         setResizable(true);
@@ -268,6 +269,7 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JRadioButton rbnNo;
     private javax.swing.JRadioButton rbnSi;

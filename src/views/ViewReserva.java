@@ -68,6 +68,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
+        setMaximizable(true);
         setResizable(true);
         setTitle("Reserva");
         setToolTipText("");
@@ -75,7 +76,6 @@ public class ViewReserva extends javax.swing.JInternalFrame {
 
         jpanelCrearReserva.setBackground(new java.awt.Color(255, 204, 204));
         jpanelCrearReserva.setBorder(javax.swing.BorderFactory.createTitledBorder("Reserva de Habitación"));
-        jpanelCrearReserva.setForeground(new java.awt.Color(0, 0, 0));
         jpanelCrearReserva.setToolTipText("");
         jpanelCrearReserva.setAutoscrolls(true);
 
@@ -85,7 +85,6 @@ public class ViewReserva extends javax.swing.JInternalFrame {
         txtNumeroHabitacion.setEditable(false);
         txtNumeroHabitacion.setText("202");
 
-        btnSeleccionarHabitacion.setForeground(new java.awt.Color(0, 0, 0));
         btnSeleccionarHabitacion.setText("...");
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
@@ -94,7 +93,6 @@ public class ViewReserva extends javax.swing.JInternalFrame {
         txtCliente.setEditable(false);
         txtCliente.setText("Maria Flores Gallardo");
 
-        btnSeleccionarCliente.setForeground(new java.awt.Color(0, 0, 0));
         btnSeleccionarCliente.setText("...");
 
         jLabel3.setText("Empleado:");
@@ -239,10 +237,8 @@ public class ViewReserva extends javax.swing.JInternalFrame {
 
         jpanelListarReservas.setBackground(new java.awt.Color(255, 255, 204));
         jpanelListarReservas.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de Reservas"));
-        jpanelListarReservas.setForeground(new java.awt.Color(0, 0, 0));
         jpanelListarReservas.setPreferredSize(new java.awt.Dimension(600, 121));
 
-        txtLista.setBackground(new java.awt.Color(255, 255, 255));
         txtLista.setColumns(20);
         txtLista.setRows(5);
         jScrollPane1.setViewportView(txtLista);
@@ -272,7 +268,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jpanelCrearReserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpanelListarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
+                .addComponent(jpanelListarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, 793, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -280,7 +276,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jpanelListarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
+                    .addComponent(jpanelListarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE)
                     .addComponent(jpanelCrearReserva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
