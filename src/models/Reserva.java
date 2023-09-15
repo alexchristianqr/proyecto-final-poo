@@ -8,7 +8,6 @@ public class Reserva {
     private int idEmpleado;
     private String tipo;
     private String estado;
-//    private Date fechaReservado,fechaCreado,fechaActualizado;
     private String fechaReservado, fechaCreado, fechaActualizado, fechaIngreso, fechaSalida;
 
     public Reserva() {
