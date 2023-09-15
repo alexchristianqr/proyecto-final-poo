@@ -222,20 +222,20 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
 
         int codigo = Integer.parseInt(txtCodigo.getText());
-        int dni = Integer.parseInt(txtDni.getText());
+        String dni = txtDni.getText();
         String nombre = txtNombre.getText();
-        String apellidos = this.txtApellidos.getText();
+        String apellidos = txtApellidos.getText();
 
         String sexo;
-        if (this.rbnSi.isSelected() == true) {
+        if (rbnSi.isSelected() == true) {
             sexo = "Femenino";
         } else {
             sexo = "Masculino";
         }
 
-        int edad = Integer.parseInt(txtEdad.getText());
-        String ciudad = this.txtCiudad.getText();
-        int telefono = Integer.parseInt(this.txtTelefono.getText());
+        String edad = txtEdad.getText();
+        String ciudad = txtCiudad.getText();
+        String telefono = txtTelefono.getText();
 
         // Guardar cliente
         clienteController = new ClienteController();// Crear instancia de la clase ClienteController

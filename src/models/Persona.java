@@ -2,15 +2,16 @@ package models;
 
 public abstract class Persona {
 
-    private int dni;
+    private int idPersona;
+    private String dni;
     private String nombre;
     private String apellidos;
     private String sexo;
-    private int edad;
+    private String edad;
     private String ciudad;
-    private int telefono;
+    private String telefono;
 
-    public Persona(int dni, String nombre, String apellidos, String sexo, int edad, String ciudad, int telefono) {
+    public Persona(String dni, String nombre, String apellidos, String sexo, String edad, String ciudad, String telefono) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -20,11 +21,19 @@ public abstract class Persona {
         this.telefono = telefono;
     }
 
-    public int getDni() {
+    public int getIdPersona() {
+        return idPersona;
+    }
+
+    public void setIdPersona(int idPersona) {
+        this.idPersona = idPersona;
+    }
+
+    public String getDni() {
         return dni;
     }
 
-    public void setDni(int dni) {
+    public void setDni(String dni) {
         this.dni = dni;
     }
 
@@ -52,11 +61,11 @@ public abstract class Persona {
         this.sexo = sexo;
     }
 
-    public int getEdad() {
+    public String getEdad() {
         return edad;
     }
 
-    public void setEdad(int edad) {
+    public void setEdad(String edad) {
         this.edad = edad;
     }
 
@@ -68,11 +77,12 @@ public abstract class Persona {
         this.ciudad = ciudad;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
 }
