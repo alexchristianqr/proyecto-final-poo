@@ -34,7 +34,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jpanelCrearReserva" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jpanelListarReservas" pref="793" max="32767" attributes="0"/>
+              <Component id="jpanelListarReservas" pref="795" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -44,7 +44,7 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jpanelListarReservas" pref="548" max="32767" attributes="0"/>
+                  <Component id="jpanelListarReservas" pref="552" max="32767" attributes="0"/>
                   <Component id="jpanelCrearReserva" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>

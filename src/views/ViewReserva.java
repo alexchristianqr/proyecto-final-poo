@@ -7,19 +7,14 @@ package views;
 
 import controllers.ReservaController;
 import java.util.Calendar;
-//import java.sql.Date;
+import javax.swing.JOptionPane;
 import models.Reserva;
 
-/**
- *
- * @author Alex
- */
 public class ViewReserva extends javax.swing.JInternalFrame {
 
     ReservaController reservaController;
     Reserva reserva;
     Calendar calendar;
-//    int day, month, year;
 
     /**
      * Creates new form viewReserva
@@ -293,37 +288,29 @@ public class ViewReserva extends javax.swing.JInternalFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
 
-        reserva = new Reserva();
-        reserva.setIdCliente(1);
-        reserva.setIdHabitacion(1);
-        reserva.setIdEmpleado(1);
+        reserva = new Reserva();// Crear instancia de la clase Reserva
+        
+        reserva.setIdCliente(1);// ID del objeto Cliente
+        reserva.setIdHabitacion(1);// ID del objeto Habitacion
+        reserva.setIdEmpleado(1);// ID del objeto Empleado
 
         calendar = jdateFechaReserva.getCalendar();
-//        day = calendar.get(Calendar.DAY_OF_MONTH);
-//        month = calendar.get(Calendar.MONTH);
-//        year = calendar.get(Calendar.YEAR);
-//        reserva.setFechaReservado(new Date(year, month, day));
         reserva.setFechaReservado(calendar.getTime().toString());
-
         calendar = jdateFechaIngreso.getCalendar();
-//        day = calendar.get(Calendar.DAY_OF_MONTH);
-//        month = calendar.get(Calendar.MONTH);
-//        year = calendar.get(Calendar.YEAR);
-//        reserva.setFechaCreado(new Date(year, month, day));
         reserva.setFechaIngreso(calendar.getTime().toString());
-
         calendar = jdateFechaSalida.getCalendar();
-//        day = calendar.get(Calendar.DAY_OF_MONTH);
-//        month = calendar.get(Calendar.MONTH);
-//        year = calendar.get(Calendar.YEAR);
-//        reserva.setFechaActualizado(new Date(year, month, day));
         reserva.setFechaSalida(calendar.getTime().toString());
 
         reserva.setEstado("Disponible");
         reserva.setTipo("Por horas");
+
+        // Guardar reserva
         reservaController = new ReservaController();
-        String mensaje = reservaController.reservar(reserva);
-        txtLista.append(mensaje);
+        reservaController.reservar(reserva);
+
+        // Notificar mensaje creado
+        JOptionPane.showMessageDialog(null, "Reserva creado con éxito");
+        txtLista.append(reservaController.mostrarInfo());
 
     }//GEN-LAST:event_btnGuardarActionPerformed
 

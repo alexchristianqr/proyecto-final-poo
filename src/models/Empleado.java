@@ -9,8 +9,31 @@ package models;
  *
  * @author Luis
  */
-public class Empleado {
+public class Empleado extends Persona {
+
     String rol;
     double sueldo;
-    
+
+    public Empleado(int dni, String nombre, String apellidos, String sexo, int edad, String ciudad, int telefono, String rol, double sueldo) {
+        super(dni, nombre, apellidos, sexo, edad, ciudad, telefono);
+        this.rol = rol;
+        this.sueldo = sueldo;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
+    public double getSueldo() {
+        return sueldo;
+    }
+
+    public void setSueldo(double sueldo) {
+        this.sueldo = sueldo;
+    }
+
 }

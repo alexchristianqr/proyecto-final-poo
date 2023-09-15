@@ -1,7 +1,7 @@
-
 package models;
 
-public class Persona {
+public abstract class Persona {
+
     private int dni;
     private String nombre;
     private String apellidos;
@@ -9,10 +9,6 @@ public class Persona {
     private int edad;
     private String ciudad;
     private int telefono;
-    
-
-      public Persona() {
-    }
 
     public Persona(int dni, String nombre, String apellidos, String sexo, int edad, String ciudad, int telefono) {
         this.dni = dni;
@@ -24,7 +20,6 @@ public class Persona {
         this.telefono = telefono;
     }
 
-    
     public int getDni() {
         return dni;
     }
@@ -80,8 +75,4 @@ public class Persona {
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
-    
- 
-    
-    
 }

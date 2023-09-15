@@ -7,15 +7,12 @@ package controllers;
 
 import views.ViewMenuPrincipal;
 
-/**
- *
- * @author Alex
- */
+
 public class Main {
 
     public static void main(String[] args) {
-        ViewMenuPrincipal viewMenuPrincipal = new ViewMenuPrincipal();
-        viewMenuPrincipal.setVisible(true);
+        ViewMenuPrincipal viewMenuPrincipal = new ViewMenuPrincipal();// Crear objeto del JFrame principal
+        viewMenuPrincipal.setVisible(true);// Visualizar frame
         viewMenuPrincipal.setLocationRelativeTo(null);
     }
 

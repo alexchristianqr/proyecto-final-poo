@@ -1,8 +1,7 @@
-
 package models;
 
-public class Cliente extends Persona{
-    
+public class Cliente extends Persona {
+
     private int codigo;
 
     public Cliente(int codigo, int dni, String nombre, String apellidos, String sexo, int edad, String ciudad, int telefono) {
@@ -17,7 +16,4 @@ public class Cliente extends Persona{
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
-    
-    
- 
 }

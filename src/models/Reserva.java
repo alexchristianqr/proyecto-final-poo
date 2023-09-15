@@ -1,7 +1,5 @@
 package models;
 
-
-
 public class Reserva {
 
     private int idReserva;
@@ -25,17 +23,6 @@ public class Reserva {
         this.fechaIngreso = reserva.fechaIngreso;
         this.fechaSalida = reserva.fechaSalida;
         this.estado = reserva.estado;
-    }
-
-    public String mostrarInfo() {
-        return "Cliente: " + idCliente
-                + "\t\tHabitacion: " + idHabitacion
-                + "\t\tEmpleado: " + idEmpleado
-                + "\t\tTipo: " + tipo
-                + "\t\tEstado: " + estado
-                + "\t\tFecha de reserva: " + fechaReservado
-                + "\t\tFecha de ingreso: " + fechaIngreso
-                + "\t\tFecha de salida: " + fechaSalida + " \n";
     }
 
     public int getIdReserva() {
@@ -125,5 +112,4 @@ public class Reserva {
     public void setFechaSalida(String fechaSalida) {
         this.fechaSalida = fechaSalida;
     }
-
 }

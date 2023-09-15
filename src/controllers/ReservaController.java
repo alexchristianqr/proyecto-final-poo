@@ -9,29 +9,24 @@ package controllers;
 import javax.swing.JOptionPane;
 import models.Reserva;
 
-/**
- *
- * @author alex
- */
-//public class ReservaController extends DatabaseController {
 public class ReservaController {
 
-//    private String querySQL = "";
-    public String reservar(Reserva reserva) {
+    Reserva oReserva;
 
-        try {
-            Reserva oReserva = new Reserva(reserva);
-            oReserva.setIdReserva(1);
-            System.out.println("El id es: " + oReserva.getIdReserva());
-            return reserva.mostrarInfo();
-//            querySQL = "";
-//            PreparedStatement ps = connection.prepareStatement(querySQL);
-//            System.out.println("El id de reserva creada es: " + reserva.getIdReserva());
-        } catch (Exception e) {
-            JOptionPane.showConfirmDialog(null, e);
-        }
-        return null;
+    public void reservar(Reserva reserva) {
+        oReserva = new Reserva(reserva);
+        oReserva.setIdReserva(1);
+    }
 
+    public String mostrarInfo() {
+        return "Cliente: " + oReserva.getIdCliente()
+                + "\t\tHabitacion: " + oReserva.getIdHabitacion()
+                + "\t\tEmpleado: " + oReserva.getIdEmpleado()
+                + "\t\tTipo: " + oReserva.getTipo()
+                + "\t\tEstado: " + oReserva.getEstado()
+                + "\t\tFecha de reserva: " + oReserva.getFechaReservado()
+                + "\t\tFecha de ingreso: " + oReserva.getFechaIngreso()
+                + "\t\tFecha de salida: " + oReserva.getFechaSalida() + " \n";
     }
 
 }
