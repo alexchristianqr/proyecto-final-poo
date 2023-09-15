@@ -305,7 +305,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
         reserva.setTipo("Por horas");
 
         // Guardar reserva
-        reservaController = new ReservaController();
+        reservaController = new ReservaController();// Crear instancia
         reservaController.reservar(reserva);
 
         // Notificar mensaje creado

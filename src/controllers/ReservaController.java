@@ -4,9 +4,6 @@
  */
 package controllers;
 
-//import java.sql.PreparedStatement;
-//import java.sql.SQLException;
-import javax.swing.JOptionPane;
 import models.Reserva;
 
 public class ReservaController {
