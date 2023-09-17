@@ -34,8 +34,7 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
-        contenedor = new javax.swing.JPanel();
-        jlabelEscritorioPrincipal = new javax.swing.JLabel();
+        escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmenuArchivo = new javax.swing.JMenu();
         menuItemSalir = new javax.swing.JMenuItem();
@@ -53,13 +52,20 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Programa");
-        setPreferredSize(new java.awt.Dimension(1200, 400));
+        setPreferredSize(new java.awt.Dimension(800, 600));
 
-        contenedor.setPreferredSize(new java.awt.Dimension(1200, 400));
-        contenedor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        escritorio.setAutoscrolls(true);
 
-        jlabelEscritorioPrincipal.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        contenedor.add(jlabelEscritorioPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 1900, 1200));
+        javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
+        escritorio.setLayout(escritorioLayout);
+        escritorioLayout.setHorizontalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1200, Short.MAX_VALUE)
+        );
+        escritorioLayout.setVerticalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 478, Short.MAX_VALUE)
+        );
 
         jmenuArchivo.setText("Archivo");
 
@@ -121,13 +127,11 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(contenedor, javax.swing.GroupLayout.DEFAULT_SIZE, 1206, Short.MAX_VALUE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(escritorio)
         );
 
         pack();
@@ -155,7 +159,7 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
             viewMantenimientoCliente.setVisible(true);
             viewMantenimientoCliente.toFront();
         } else {
-            jlabelEscritorioPrincipal.add(viewMantenimientoCliente);
+            escritorio.add(viewMantenimientoCliente);
             viewMantenimientoCliente.show();
         }
     }//GEN-LAST:event_menuItemMantenimientoClienteActionPerformed
@@ -172,19 +176,18 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
             viewReserva.setVisible(true);
             viewReserva.toFront();
         } else {
-            jlabelEscritorioPrincipal.add(viewReserva);
+            escritorio.add(viewReserva);
             viewReserva.show();
         }
 
     }//GEN-LAST:event_jmenuReservaMenuSelected
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel contenedor;
+    private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JLabel jlabelEscritorioPrincipal;
     private javax.swing.JMenu jmenuArchivo;
     private javax.swing.JMenu jmenuAyuda;
     private javax.swing.JMenu jmenuMantenimiento;
