@@ -38,7 +38,8 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jmenuArchivo = new javax.swing.JMenu();
         menuItemSalir = new javax.swing.JMenuItem();
-        jmenuReserva = new javax.swing.JMenu();
+        jmenuHotel = new javax.swing.JMenu();
+        menuItemReservar = new javax.swing.JMenuItem();
         jmenuMantenimiento = new javax.swing.JMenu();
         menuItemMantenimientoCliente = new javax.swing.JMenuItem();
         jmenuAyuda = new javax.swing.JMenu();
@@ -55,17 +56,20 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(800, 600));
 
         escritorio.setAutoscrolls(true);
+        escritorio.setDragMode(javax.swing.JDesktopPane.OUTLINE_DRAG_MODE);
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1200, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 478, Short.MAX_VALUE)
         );
+
+        jMenuBar1.setAutoscrolls(true);
 
         jmenuArchivo.setText("Archivo");
 
@@ -80,22 +84,17 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jmenuArchivo);
 
-        jmenuReserva.setText("Reserva");
-        jmenuReserva.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
-            }
-            public void menuDeselected(javax.swing.event.MenuEvent evt) {
-            }
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                jmenuReservaMenuSelected(evt);
-            }
-        });
-        jmenuReserva.addActionListener(new java.awt.event.ActionListener() {
+        jmenuHotel.setText("Hotel");
+
+        menuItemReservar.setText("Reservar");
+        menuItemReservar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmenuReservaActionPerformed(evt);
+                menuItemReservarActionPerformed(evt);
             }
         });
-        jMenuBar1.add(jmenuReserva);
+        jmenuHotel.add(menuItemReservar);
+
+        jMenuBar1.add(jmenuHotel);
 
         jmenuMantenimiento.setText("Mantenimiento");
 
@@ -127,7 +126,7 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
+            .addComponent(escritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,8 +137,8 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuItemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSalirActionPerformed
-        dispose();
         // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_menuItemSalirActionPerformed
 
     private void menuItemAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAcercaDeActionPerformed
@@ -148,7 +147,6 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
             viewAcercaDe.setAlwaysOnTop(true);
         } else {
             viewAcercaDe.setVisible(true);
-            viewAcercaDe.setLocationRelativeTo(null);
         }
     }//GEN-LAST:event_menuItemAcercaDeActionPerformed
 
@@ -156,31 +154,31 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         if (viewMantenimientoCliente.isShowing()) {
-            viewMantenimientoCliente.setVisible(true);
             viewMantenimientoCliente.toFront();
         } else {
-            escritorio.add(viewMantenimientoCliente);
-            viewMantenimientoCliente.show();
+            if (viewMantenimientoCliente.isSelected()) {
+                escritorio.setSelectedFrame(viewMantenimientoCliente);
+            } else {
+                escritorio.add(viewMantenimientoCliente);
+                viewMantenimientoCliente.show();
+            }
         }
     }//GEN-LAST:event_menuItemMantenimientoClienteActionPerformed
 
-    private void jmenuReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmenuReservaActionPerformed
+    private void menuItemReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemReservarActionPerformed
         // TODO add your handling code here:
-
-
-    }//GEN-LAST:event_jmenuReservaActionPerformed
-
-    private void jmenuReservaMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jmenuReservaMenuSelected
-        // TODO add your handling code here:
-        if (viewReserva.isShowing()) {
-            viewReserva.setVisible(true);
+        
+         if (viewReserva.isShowing()) {
             viewReserva.toFront();
         } else {
-            escritorio.add(viewReserva);
-            viewReserva.show();
+            if (viewReserva.isSelected()) {
+                escritorio.setSelectedFrame(viewReserva);
+            } else {
+                escritorio.add(viewReserva);
+                viewReserva.show();
+            }
         }
-
-    }//GEN-LAST:event_jmenuReservaMenuSelected
+    }//GEN-LAST:event_menuItemReservarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
@@ -190,10 +188,11 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenu jmenuArchivo;
     private javax.swing.JMenu jmenuAyuda;
+    private javax.swing.JMenu jmenuHotel;
     private javax.swing.JMenu jmenuMantenimiento;
-    private javax.swing.JMenu jmenuReserva;
     private javax.swing.JMenuItem menuItemAcercaDe;
     private javax.swing.JMenuItem menuItemMantenimientoCliente;
+    private javax.swing.JMenuItem menuItemReservar;
     private javax.swing.JMenuItem menuItemSalir;
     // End of variables declaration//GEN-END:variables
 }
