@@ -307,7 +307,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
 
         // Guardar reserva
         reservaController = new ReservaController();// Crear instancia
-        reservaController.reservar(reserva);
+        reservaController.crearReserva(reserva);
 
         // Notificar mensaje creado
         JOptionPane.showMessageDialog(null, "Reserva creado con éxito");

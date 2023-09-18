@@ -10,7 +10,7 @@ public class ReservaController {
 
     Reserva oReserva;
 
-    public void reservar(Reserva reserva) {
+    public void crearReserva(Reserva reserva) {
         oReserva = new Reserva(reserva);
         oReserva.setIdReserva(1);
     }
