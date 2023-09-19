@@ -16,14 +16,15 @@ public class ReservaController {
     }
 
     public String mostrarInfo() {
-        return "Cliente: " + oReserva.getIdCliente()
-                + "\t\tHabitacion: " + oReserva.getIdHabitacion()
-                + "\t\tEmpleado: " + oReserva.getIdEmpleado()
-                + "\t\tTipo: " + oReserva.getTipo()
-                + "\t\tEstado: " + oReserva.getEstado()
-                + "\t\tFecha de reserva: " + oReserva.getFechaReservado()
-                + "\t\tFecha de ingreso: " + oReserva.getFechaIngreso()
-                + "\t\tFecha de salida: " + oReserva.getFechaSalida() + " \n";
+        return "Reserva: " + oReserva.getIdReserva()
+                + "Cliente: " + oReserva.getIdCliente()
+                + "\tHabitacion: " + oReserva.getIdHabitacion()
+                + "\tEmpleado: " + oReserva.getIdEmpleado()
+                + "\tTipo: " + oReserva.getTipo()
+                + "\tEstado: " + oReserva.getEstado()
+                + "\tFecha de reserva: " + oReserva.getFechaReservado()
+                + "\tFecha de ingreso: " + oReserva.getFechaIngreso()
+                + "\tFecha de salida: " + oReserva.getFechaSalida() + " \n";
     }
 
 }

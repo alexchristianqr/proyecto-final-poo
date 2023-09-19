@@ -11,6 +11,10 @@ public abstract class Persona {
     private String ciudad;
     private String telefono;
 
+    public Persona(){
+        
+    }
+    
     public Persona(String dni, String nombre, String apellidos, String sexo, String edad, String ciudad, String telefono) {
         this.dni = dni;
         this.nombre = nombre;

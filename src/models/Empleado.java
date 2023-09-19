@@ -11,13 +11,22 @@ package models;
  */
 public class Empleado extends Persona {
 
+    int idEmpleado;
     String rol;
     double sueldo;
 
-    public Empleado(String dni, String nombre, String apellidos, String sexo, String edad, String ciudad, String telefono, String rol, double sueldo) {
-        super(dni, nombre, apellidos, sexo, edad, ciudad, telefono);
-        this.rol = rol;
-        this.sueldo = sueldo;
+    public Empleado(Empleado empleado) {
+        super(empleado.getDni(), empleado.getNombre(), empleado.getApellidos(), empleado.getSexo(), empleado.getEdad(), empleado.getCiudad(), empleado.getTelefono());
+        this.rol = empleado.getRol();
+        this.sueldo = empleado.getSueldo();
+    }
+
+    public int getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(int idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 
     public String getRol() {

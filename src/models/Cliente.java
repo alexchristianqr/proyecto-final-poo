@@ -4,9 +4,13 @@ public class Cliente extends Persona {
 
     private int codigo;
 
-    public Cliente(int codigo, String dni, String nombre, String apellidos, String sexo, String edad, String ciudad, String telefono) {
-        super(dni, nombre, apellidos, sexo, edad, ciudad, telefono);
-        this.codigo = codigo;
+    public Cliente() {
+        
+    }
+    
+    public Cliente(Cliente cliente) {
+        super(cliente.getDni(), cliente.getNombre(), cliente.getApellidos(), cliente.getSexo(), cliente.getEdad(), cliente.getCiudad(), cliente.getTelefono());
+        this.codigo = cliente.getCodigo();
     }
 
     public int getCodigo() {

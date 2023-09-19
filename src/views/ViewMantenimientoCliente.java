@@ -2,10 +2,12 @@ package views;
 
 import controllers.ClienteController;
 import javax.swing.JOptionPane;
+import models.Cliente;
 
 public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
 
     ClienteController clienteController;
+    Cliente cliente;
 
     public ViewMantenimientoCliente() {
         initComponents();
@@ -216,10 +218,15 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         // TODO add your handling code here:
 
-        int codigo = Integer.parseInt(txtCodigo.getText());
-        String dni = txtDni.getText();
-        String nombre = txtNombre.getText();
-        String apellidos = txtApellidos.getText();
+        cliente = new Cliente();// Crear instancia
+        
+        cliente.setCodigo(Integer.parseInt(txtCodigo.getText()));
+        cliente.setDni(txtDni.getText());
+        cliente.setNombre(txtNombre.getText());
+        cliente.setApellidos(txtApellidos.getText());
+        cliente.setEdad(txtEdad.getText());
+        cliente.setCiudad(txtCiudad.getText());
+        cliente.setTelefono(txtTelefono.getText());
 
         String sexo;
         if (rbnSi.isSelected() == true) {
@@ -227,14 +234,12 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
         } else {
             sexo = "Masculino";
         }
-
-        String edad = txtEdad.getText();
-        String ciudad = txtCiudad.getText();
-        String telefono = txtTelefono.getText();
+        
+        cliente.setSexo(sexo);
 
         // Guardar cliente
         clienteController = new ClienteController();// Crear instancia
-        clienteController.crearCliente(codigo, dni, nombre, apellidos, sexo, edad, ciudad, telefono);
+        clienteController.crearCliente(cliente);
 
         // Notificar mensaje creado
         JOptionPane.showMessageDialog(null, "Cliente creado con éxito");

@@ -4,22 +4,22 @@ import models.Cliente;
 
 public class ClienteController {
 
-    Cliente cliente;
+    Cliente oCliente;
 
-    public Cliente crearCliente(int codigo, String dni, String nombre, String apellidos, String sexo, String edad, String ciudad, String telefono) {
-        cliente = new Cliente(codigo, dni, nombre, apellidos, sexo, edad, ciudad, telefono);
-        return cliente;
+    public void crearCliente(Cliente cliente) {
+        oCliente = new Cliente(cliente);
+        oCliente.setIdPersona(1);
     }
 
     public String mostrarInfo() {
-        return "Codigo: " + cliente.getCodigo()
-                + "\tDNI: " + cliente.getDni()
-                + "\tNombres: " + cliente.getNombre()
-                + "\tApellidos: " + cliente.getApellidos()
-                + "\tSexo: " + cliente.getSexo()
-                + "\tEdad: " + cliente.getEdad()
-                + "\tCiudad: " + cliente.getCiudad()
-                + "\tTelefono: " + cliente.getTelefono();
+        return "Id: " + oCliente.getCodigo()
+                + "\tDNI: " + oCliente.getDni()
+                + "\tNombres: " + oCliente.getNombre()
+                + "\tApellidos: " + oCliente.getApellidos()
+                + "\tSexo: " + oCliente.getSexo()
+                + "\tEdad: " + oCliente.getEdad()
+                + "\tCiudad: " + oCliente.getCiudad()
+                + "\tTelefono: " + oCliente.getTelefono() + " \n";
 
     }
 }
