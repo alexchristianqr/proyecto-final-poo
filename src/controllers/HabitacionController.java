@@ -16,6 +16,16 @@ public class HabitacionController {
 
     List<Habitacion> lista = new ArrayList<>();
 
+    public String mostrarInfo(int idHabitacion) {
+        Habitacion oHabitacion = encontrarHabitacion(idHabitacion);
+
+        return "ID: " + oHabitacion.getIdHabitacion()
+                + "\tDescripcion: " + oHabitacion.getDescripcion()
+                + "\tTipo: " + oHabitacion.getTipo()
+                + "\tPrecio: " + oHabitacion.getPrecio()
+                + "\tEstado: " + oHabitacion.getEstado() + " \n";
+    }
+
     public List<Habitacion> listarHabitaciones() {
         return lista;
     }
@@ -24,13 +34,16 @@ public class HabitacionController {
         return lista.size() + 1;
     }
 
-    public void crearHabitacion(Habitacion habitacion) {
+    public Habitacion crearHabitacion(Habitacion habitacion) {
 
         Habitacion oHabitacion = new Habitacion(habitacion);
+        System.out.println("new ID: " + getNuevoId());
         int newIdHabitacion = getNuevoId();
         oHabitacion.setIdHabitacion(newIdHabitacion);
 
         lista.add(oHabitacion);
+
+        return oHabitacion;
     }
 
     public Habitacion encontrarHabitacion(int idHabitacion) {
@@ -40,7 +53,6 @@ public class HabitacionController {
                 return oHabitacion;
             }
         }
-
         return null;
     }
 
@@ -53,7 +65,6 @@ public class HabitacionController {
                 oHabitacion.setTipo(habitacion.getTipo());
                 break;
             }
-
         }
     }
 
@@ -64,7 +75,6 @@ public class HabitacionController {
                 lista.remove(oHabitacion);
                 break;
             }
-
         }
     }
 }

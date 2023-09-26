@@ -12,6 +12,7 @@ package views;
 public class ViewMenuPrincipal extends javax.swing.JFrame {
 
     ViewMantenimientoCliente viewMantenimientoCliente = new ViewMantenimientoCliente();
+    ViewMantenimientoHabitacion viewMantenimientoHabitacion = new ViewMantenimientoHabitacion();
     ViewReserva viewReserva = new ViewReserva();
     ViewAcercaDe viewAcercaDe = new ViewAcercaDe();
 
@@ -42,6 +43,7 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
         menuItemReservar = new javax.swing.JMenuItem();
         jmenuMantenimiento = new javax.swing.JMenu();
         menuItemMantenimientoCliente = new javax.swing.JMenuItem();
+        menuItemMantenimientoHabitacion = new javax.swing.JMenuItem();
         jmenuAyuda = new javax.swing.JMenu();
         menuItemAcercaDe = new javax.swing.JMenuItem();
 
@@ -106,6 +108,14 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
         });
         jmenuMantenimiento.add(menuItemMantenimientoCliente);
 
+        menuItemMantenimientoHabitacion.setText("Habitación");
+        menuItemMantenimientoHabitacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemMantenimientoHabitacionActionPerformed(evt);
+            }
+        });
+        jmenuMantenimiento.add(menuItemMantenimientoHabitacion);
+
         jMenuBar1.add(jmenuMantenimiento);
 
         jmenuAyuda.setText("Ayuda");
@@ -167,8 +177,8 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
 
     private void menuItemReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemReservarActionPerformed
         // TODO add your handling code here:
-        
-         if (viewReserva.isShowing()) {
+
+        if (viewReserva.isShowing()) {
             viewReserva.toFront();
         } else {
             if (viewReserva.isSelected()) {
@@ -179,6 +189,21 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_menuItemReservarActionPerformed
+
+    private void menuItemMantenimientoHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemMantenimientoHabitacionActionPerformed
+        // TODO add your handling code here:
+        
+        if (viewMantenimientoHabitacion.isShowing()) {
+            viewMantenimientoHabitacion.toFront();
+        } else {
+            if (viewMantenimientoHabitacion.isSelected()) {
+                escritorio.setSelectedFrame(viewMantenimientoHabitacion);
+            } else {
+                escritorio.add(viewMantenimientoHabitacion);
+                viewMantenimientoHabitacion.show();
+            }
+        }
+    }//GEN-LAST:event_menuItemMantenimientoHabitacionActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
@@ -192,6 +217,7 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jmenuMantenimiento;
     private javax.swing.JMenuItem menuItemAcercaDe;
     private javax.swing.JMenuItem menuItemMantenimientoCliente;
+    private javax.swing.JMenuItem menuItemMantenimientoHabitacion;
     private javax.swing.JMenuItem menuItemReservar;
     private javax.swing.JMenuItem menuItemSalir;
     // End of variables declaration//GEN-END:variables
