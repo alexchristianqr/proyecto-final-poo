@@ -6,6 +6,7 @@ package views;
 
 import controllers.HabitacionController;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import models.Habitacion;
 
 /**
@@ -16,12 +17,91 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
 
     HabitacionController habitacionController = new HabitacionController();
     Habitacion habitacion, oHabitacion;
+    String accion = null;
 
     /**
      * Creates new form ViewMantenimientoHabitacion
      */
     public ViewMantenimientoHabitacion() {
         initComponents();
+        listarHabitaciones("");
+        deshabilitarFormulario();
+    }
+
+    protected final void controlAccionFormulario() {
+        switch (accion) {
+            case "GUARDAR":
+                lblIdHabitacion.setVisible(false);
+                lblIdHabitacion.setEnabled(false);
+                txtIdHabitacion.setVisible(false);
+                txtIdHabitacion.setEnabled(false);
+                btnGuardar.setText("Guardar");
+                break;
+            case "ACTUALIZAR":
+                lblIdHabitacion.setVisible(true);
+                lblIdHabitacion.setEnabled(false);
+                txtIdHabitacion.setVisible(true);
+                txtIdHabitacion.setEnabled(false);
+                btnGuardar.setText("Actualizar");
+                break;
+            default:
+                throw new Error("Error en la acción del formulario");
+        }
+    }
+
+    protected final void deshabilitarFormulario() {
+
+        lblIdHabitacion.setVisible(false);
+        lblIdHabitacion.setEnabled(false);
+        txtIdHabitacion.setVisible(false);
+        txtIdHabitacion.setEnabled(false);
+
+        txtDescripcion.setEnabled(false);
+        cbxTipo.setEnabled(false);
+        txtPrecio.setEnabled(false);
+        cbxEstado.setEnabled(false);
+
+        // --
+        txtDescripcion.setText(null);
+        txtPrecio.setText(null);
+
+        // --
+        btnNuevo.setEnabled(true);// Habilitar boton nuevo
+        btnGuardar.setEnabled(false);
+        btnCancelar.setEnabled(false);
+    }
+
+    protected final void habilitarFormulario() {
+
+        txtDescripcion.setVisible(true);
+        cbxTipo.setVisible(true);
+        txtPrecio.setVisible(true);
+        cbxEstado.setVisible(true);
+
+        // --
+        txtDescripcion.setEnabled(true);
+        cbxTipo.setEnabled(true);
+        txtPrecio.setEnabled(true);
+        cbxEstado.setEnabled(true);
+
+        // --
+        txtDescripcion.setText(null);
+        txtPrecio.setText(null);
+
+        // --
+        btnNuevo.setEnabled(false);// Deshabilitar boton nuevo
+        btnGuardar.setEnabled(true);
+        btnCancelar.setEnabled(true);
+    }
+
+    protected final void listarHabitaciones(String buscar) {
+        try {
+            DefaultTableModel modelo;
+            modelo = habitacionController.listarHabitaciones(buscar);
+            tblListado.setModel(modelo);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e, "Error", ERROR);
+        }
     }
 
     /**
@@ -34,8 +114,8 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jpanelListarReservas = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtLista = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblListado = new javax.swing.JTable();
         jpanelCrearReserva = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txtDescripcion = new javax.swing.JTextField();
@@ -49,6 +129,8 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
         btnGuardar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         btnCerrar = new javax.swing.JButton();
+        lblIdHabitacion = new javax.swing.JLabel();
+        txtIdHabitacion = new javax.swing.JTextField();
 
         setClosable(true);
         setMaximizable(true);
@@ -58,25 +140,39 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
         jpanelListarReservas.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de Habitaciones"));
         jpanelListarReservas.setPreferredSize(new java.awt.Dimension(600, 121));
 
-        txtLista.setColumns(20);
-        txtLista.setRows(5);
-        jScrollPane1.setViewportView(txtLista);
+        tblListado.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tblListado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblListadoMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblListado);
 
         javax.swing.GroupLayout jpanelListarReservasLayout = new javax.swing.GroupLayout(jpanelListarReservas);
         jpanelListarReservas.setLayout(jpanelListarReservasLayout);
         jpanelListarReservasLayout.setHorizontalGroup(
             jpanelListarReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpanelListarReservasLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelListarReservasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jpanelListarReservasLayout.setVerticalGroup(
             jpanelListarReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanelListarReservasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         jpanelCrearReserva.setBackground(new java.awt.Color(255, 204, 204));
@@ -101,6 +197,11 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
         txtPrecio.setText("229");
 
         btnNuevo.setText("Nuevo");
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
 
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -110,6 +211,11 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
         });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         btnCerrar.setText("Cerrar");
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {
@@ -117,6 +223,8 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
                 btnCerrarActionPerformed(evt);
             }
         });
+
+        lblIdHabitacion.setText("Código:");
 
         javax.swing.GroupLayout jpanelCrearReservaLayout = new javax.swing.GroupLayout(jpanelCrearReserva);
         jpanelCrearReserva.setLayout(jpanelCrearReservaLayout);
@@ -138,19 +246,24 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel6))
+                            .addComponent(jLabel6)
+                            .addComponent(lblIdHabitacion))
                         .addGap(58, 58, 58)
-                        .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtPrecio, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbxEstado, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cbxTipo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtDescripcion))))
+                        .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPrecio)
+                            .addComponent(cbxEstado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbxTipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtDescripcion, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtIdHabitacion))))
                 .addContainerGap())
         );
         jpanelCrearReservaLayout.setVerticalGroup(
             jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanelCrearReservaLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtIdHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblIdHabitacion))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -183,7 +296,7 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jpanelCrearReserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpanelListarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+                .addComponent(jpanelListarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -191,7 +304,7 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jpanelListarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(jpanelListarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
                     .addComponent(jpanelCrearReserva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -208,15 +321,37 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
         habitacion.setPrecio(Double.parseDouble(txtPrecio.getText()));
         habitacion.setEstado(cbxEstado.getSelectedItem().toString());
 
-        // Guardar habitacion
-        oHabitacion = habitacionController.crearHabitacion(habitacion);
-        
-        // Obtener nuevo ID
-        habitacion.setIdHabitacion(oHabitacion.getIdHabitacion());
+        if (accion.equals("GUARDAR")) {
+            // Guardar habitación
+            oHabitacion = habitacionController.crearHabitacion(habitacion);
 
-        // Notificar mensaje creado
-        JOptionPane.showMessageDialog(null, "Habitación creado con éxito");
-        txtLista.append(habitacionController.mostrarInfo(habitacion.getIdHabitacion()));
+            // Obtener ID nuevo
+            habitacion.setIdHabitacion(oHabitacion.getIdHabitacion());
+
+            // Notificar mensaje
+            JOptionPane.showMessageDialog(rootPane, "Guardado con éxito");
+
+            // Listar registros
+            listarHabitaciones("");
+
+            // Reiniciar formulario
+            deshabilitarFormulario();
+        } else if (accion.equals("ACTUALIZAR")) {
+            // Obtener ID guardado
+            habitacion.setIdHabitacion(Integer.parseInt(txtIdHabitacion.getText()));
+
+            // Actualizar habitación
+            habitacionController.actualizarHabitacion(habitacion);
+
+            // Notificar mensaje
+            JOptionPane.showMessageDialog(rootPane, "Actualizado con éxito");
+
+            // Listar registros
+            listarHabitaciones("");
+
+            // Reiniciar formulario
+            deshabilitarFormulario();
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
@@ -224,6 +359,39 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
 
         dispose();
     }//GEN-LAST:event_btnCerrarActionPerformed
+
+    private void tblListadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblListadoMouseClicked
+        // TODO add your handling code here:
+
+        accion = "ACTUALIZAR";
+        controlAccionFormulario();
+        habilitarFormulario();
+
+        int fila = tblListado.rowAtPoint(evt.getPoint());
+
+        txtIdHabitacion.setText(tblListado.getValueAt(fila, 0).toString());
+        txtDescripcion.setText(tblListado.getValueAt(fila, 1).toString());
+        cbxTipo.setSelectedItem(tblListado.getValueAt(fila, 2).toString());
+        txtPrecio.setText(tblListado.getValueAt(fila, 3).toString());
+        cbxEstado.setSelectedItem(tblListado.getValueAt(fila, 4).toString());
+
+    }//GEN-LAST:event_tblListadoMouseClicked
+
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        // TODO add your handling code here:
+
+        accion = "GUARDAR";
+        controlAccionFormulario();
+        habilitarFormulario();
+    }//GEN-LAST:event_btnNuevoActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+
+        accion = "GUARDAR";
+        controlAccionFormulario();
+        deshabilitarFormulario();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
@@ -236,11 +404,13 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel jpanelCrearReserva;
     private javax.swing.JPanel jpanelListarReservas;
+    private javax.swing.JLabel lblIdHabitacion;
+    private javax.swing.JTable tblListado;
     private javax.swing.JTextField txtDescripcion;
-    private javax.swing.JTextArea txtLista;
+    private javax.swing.JTextField txtIdHabitacion;
     private javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables
 }

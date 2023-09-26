@@ -69,6 +69,5 @@ public class Habitacion {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
-    
+
 }
