@@ -2,14 +2,18 @@ package models;
 
 public class Habitacion {
 
+    private int idHabitacion;
     private String tipo;
     private String descripcion;
     private double precio;
 
-    public Habitacion(String tipo, String descripcion, double precio) {
-        this.tipo = tipo;
-        this.descripcion = descripcion;
-        this.precio = precio;
+    public Habitacion() {
+    }
+
+    public Habitacion(Habitacion habitacion) {
+        this.tipo = habitacion.getTipo();
+        this.descripcion = habitacion.getDescripcion();
+        this.precio = habitacion.getPrecio();
     }
 
     public double calcularPrecioBase() {
@@ -24,7 +28,12 @@ public class Habitacion {
         return precioBase;
     }
 
-    public Habitacion() {
+    public int getIdHabitacion() {
+        return idHabitacion;
+    }
+
+    public void setIdHabitacion(int idHabitacion) {
+        this.idHabitacion = idHabitacion;
     }
 
     public String getTipo() {
