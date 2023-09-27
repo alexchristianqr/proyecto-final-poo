@@ -17,64 +17,37 @@ import models.Habitacion;
 public class HabitacionController {
 
     List<Habitacion> lista = new ArrayList<>();
-    private int totalRegistros;
-
-    public String mostrarInfo(int idHabitacion) {
-        Habitacion oHabitacion = encontrarHabitacion(idHabitacion);
-
-        return "ID: " + oHabitacion.getIdHabitacion()
-                + "\tDescripcion: " + oHabitacion.getDescripcion()
-                + "\tTipo: " + oHabitacion.getTipo()
-                + "\tPrecio: " + oHabitacion.getPrecio()
-                + "\tEstado: " + oHabitacion.getEstado() + " \n";
-    }
 
     public DefaultTableModel listarHabitaciones(String buscar) {
         DefaultTableModel modelo;
-        String[] titulos = {"Id", "Descripción", "Tipo", "Precio", "Estado"};
-        String[] registro = new String[5];
-        modelo = new DefaultTableModel(null, titulos);
+        String[] columnNames = {"Id", "Descripción", "Tipo", "Precio", "Estado"};
+        String[] data = new String[columnNames.length];
+        modelo = new DefaultTableModel(null, columnNames);
 
-        totalRegistros = 0;
-
-        try {
-
-            for (Habitacion oHabitacion : lista) {
-                registro[0] = Integer.toString(oHabitacion.getIdHabitacion());
-                registro[1] = oHabitacion.getDescripcion();
-                registro[2] = oHabitacion.getTipo();
-                registro[3] = Double.toString(oHabitacion.getPrecio());
-                registro[4] = oHabitacion.getEstado();
-                totalRegistros = totalRegistros + 1;
-                modelo.addRow(registro);
-            }
-
-            return modelo;
-
-        } catch (Exception e) {
-            JOptionPane.showConfirmDialog(null, e);
-            return null;
+        for (Habitacion oHabitacion : lista) {
+            data[0] = Integer.toString(oHabitacion.getIdHabitacion());
+            data[1] = oHabitacion.getDescripcion();
+            data[2] = oHabitacion.getTipo();
+            data[3] = Double.toString(oHabitacion.getPrecio());
+            data[4] = oHabitacion.getEstado();
+            modelo.addRow(data);
         }
+
+        return modelo;
     }
 
-    public int getNuevoId() {
+    public int generarIdHabitacion() {
         return lista.size() + 1;
     }
 
     public Habitacion crearHabitacion(Habitacion habitacion) {
-
         Habitacion oHabitacion = new Habitacion(habitacion);
-        System.out.println("new ID: " + getNuevoId());
-        int newIdHabitacion = getNuevoId();
-        oHabitacion.setIdHabitacion(newIdHabitacion);
-
+        oHabitacion.setIdHabitacion(generarIdHabitacion());
         lista.add(oHabitacion);
-
         return oHabitacion;
     }
 
     public Habitacion encontrarHabitacion(int idHabitacion) {
-
         for (Habitacion oHabitacion : lista) {
             if (oHabitacion.getIdHabitacion() == idHabitacion) {
                 return oHabitacion;
@@ -84,7 +57,6 @@ public class HabitacionController {
     }
 
     public void actualizarHabitacion(Habitacion habitacion) {
-
         for (Habitacion oHabitacion : lista) {
             if (oHabitacion.getIdHabitacion() == habitacion.getIdHabitacion()) {
                 oHabitacion.setDescripcion(habitacion.getDescripcion());
@@ -97,7 +69,6 @@ public class HabitacionController {
     }
 
     public void eliminarHabitacion(int idHabitacion) {
-
         for (Habitacion oHabitacion : lista) {
             if (oHabitacion.getIdHabitacion() == idHabitacion) {
                 lista.remove(oHabitacion);
