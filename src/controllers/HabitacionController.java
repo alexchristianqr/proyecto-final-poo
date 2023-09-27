@@ -4,9 +4,10 @@
  */
 package controllers;
 
+import java.awt.Button;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
+import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
 import models.Habitacion;
 
@@ -21,14 +22,14 @@ public class HabitacionController {
     public DefaultTableModel listarHabitaciones(String buscar) {
         DefaultTableModel modelo;
         String[] columnNames = {"Id", "Descripción", "Tipo", "Precio", "Estado"};
-        String[] data = new String[columnNames.length];
+        Object[] data = new Object[columnNames.length];
         modelo = new DefaultTableModel(null, columnNames);
 
         for (Habitacion oHabitacion : lista) {
-            data[0] = Integer.toString(oHabitacion.getIdHabitacion());
+            data[0] = oHabitacion.getIdHabitacion();
             data[1] = oHabitacion.getDescripcion();
             data[2] = oHabitacion.getTipo();
-            data[3] = Double.toString(oHabitacion.getPrecio());
+            data[3] = oHabitacion.getPrecio();
             data[4] = oHabitacion.getEstado();
             modelo.addRow(data);
         }

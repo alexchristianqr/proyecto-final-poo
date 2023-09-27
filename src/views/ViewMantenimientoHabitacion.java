@@ -5,6 +5,8 @@
 package views;
 
 import controllers.HabitacionController;
+import java.awt.Button;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import models.Habitacion;
@@ -95,13 +97,9 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
     }
 
     protected final void listarHabitaciones(String buscar) {
-        try {
-            DefaultTableModel modelo;
-            modelo = habitacionController.listarHabitaciones(buscar);
-            tblListado.setModel(modelo);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e, "Error", ERROR);
-        }
+        DefaultTableModel modelo;
+        modelo = habitacionController.listarHabitaciones(buscar);
+        tblListado.setModel(modelo);
     }
 
     /**
