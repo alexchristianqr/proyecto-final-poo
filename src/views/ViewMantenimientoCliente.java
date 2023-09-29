@@ -139,7 +139,7 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
         setTitle("Cliente");
 
         jpanelCrearReserva.setBackground(new java.awt.Color(255, 204, 204));
-        jpanelCrearReserva.setBorder(javax.swing.BorderFactory.createTitledBorder("Habitación"));
+        jpanelCrearReserva.setBorder(javax.swing.BorderFactory.createTitledBorder("Cliente"));
         jpanelCrearReserva.setToolTipText("");
         jpanelCrearReserva.setAutoscrolls(true);
 
@@ -294,7 +294,7 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
         );
 
         jpanelListarReservas.setBackground(new java.awt.Color(255, 255, 204));
-        jpanelListarReservas.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de Habitaciones"));
+        jpanelListarReservas.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de Clientes"));
         jpanelListarReservas.setPreferredSize(new java.awt.Dimension(600, 121));
 
         tblListado.setModel(new javax.swing.table.DefaultTableModel(
