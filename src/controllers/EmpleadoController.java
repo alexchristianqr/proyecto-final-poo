@@ -21,7 +21,7 @@ public class EmpleadoController {
         return lista.size() + 1;
     }
 
-    public DefaultTableModel listarEmpleado(String buscar) {
+    public DefaultTableModel listarEmpleados(String buscar) {
         DefaultTableModel modelo;
         String[] columnNames = {"Código", "Nombres", "Apellidos", "DNI", "Edad", "Sexo", "Telefono", "Rol", "Sueldo", "Estado", "Fecha creado", "Fecha actualizado"};
         Object[] data = new Object[columnNames.length];

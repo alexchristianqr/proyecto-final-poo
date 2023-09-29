@@ -97,8 +97,7 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
     }
 
     protected final void listarHabitaciones(String buscar) {
-        DefaultTableModel modelo;
-        modelo = habitacionController.listarHabitaciones(buscar);
+        DefaultTableModel modelo = habitacionController.listarHabitaciones(buscar);
         tblListado.setModel(modelo);
     }
 
