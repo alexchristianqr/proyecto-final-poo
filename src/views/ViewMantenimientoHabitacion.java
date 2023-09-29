@@ -26,7 +26,7 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
      */
     public ViewMantenimientoHabitacion() {
         initComponents();
-        listarHabitaciones("");
+        listarHabitaciones();
         deshabilitarFormulario();
     }
 
@@ -96,8 +96,8 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
         btnCancelar.setEnabled(true);
     }
 
-    protected final void listarHabitaciones(String buscar) {
-        DefaultTableModel modelo = habitacionController.listarHabitaciones(buscar);
+    protected final void listarHabitaciones() {
+        DefaultTableModel modelo = habitacionController.listarHabitaciones("");
         tblListado.setModel(modelo);
     }
 
@@ -334,7 +334,7 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(rootPane, "Guardado con éxito");
 
             // Listar registros
-            listarHabitaciones("");
+            listarHabitaciones();
 
             // Reiniciar formulario
             deshabilitarFormulario();
@@ -349,7 +349,7 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(rootPane, "Actualizado con éxito");
 
             // Listar registros
-            listarHabitaciones("");
+            listarHabitaciones();
 
             // Reiniciar formulario
             deshabilitarFormulario();
