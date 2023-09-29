@@ -5,8 +5,9 @@
 package views;
 
 import controllers.HabitacionController;
-import java.awt.Button;
-import javax.swing.JButton;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import models.Habitacion;
@@ -149,6 +150,7 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblListado.setShowGrid(false);
         tblListado.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblListadoMouseClicked(evt);
@@ -178,11 +180,11 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
         jpanelCrearReserva.setToolTipText("");
         jpanelCrearReserva.setAutoscrolls(true);
 
-        jLabel3.setText("Descripción");
+        jLabel3.setText("Descripción:");
 
         txtDescripcion.setText("Cama de 2 plazas y agua caliente");
 
-        jLabel4.setText("Tipo");
+        jLabel4.setText("Tipo:");
 
         jLabel5.setText("Estado:");
 
@@ -190,7 +192,7 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
 
         cbxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Disponible", "Reservado", "Prestado" }));
 
-        jLabel6.setText("Precio");
+        jLabel6.setText("Precio:");
 
         txtPrecio.setText("229");
 
@@ -318,6 +320,12 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
         habitacion.setTipo(cbxTipo.getSelectedItem().toString());
         habitacion.setPrecio(Double.parseDouble(txtPrecio.getText()));
         habitacion.setEstado(cbxEstado.getSelectedItem().toString());
+
+        LocalDateTime myDateObj = LocalDateTime.now();
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        String formattedDate = myDateObj.format(myFormatObj);
+        habitacion.setFechaCreado(formattedDate);
+        habitacion.setFechaActualizado(formattedDate);
 
         if (accion.equals("GUARDAR")) {
             // Guardar habitación

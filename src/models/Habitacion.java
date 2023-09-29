@@ -7,6 +7,8 @@ public class Habitacion {
     private String tipo;
     private double precio;
     private String estado;
+    private String fechaCreado;
+    private String fechaActualizado;
 
     public Habitacion() {
     }
@@ -16,6 +18,8 @@ public class Habitacion {
         this.tipo = habitacion.getTipo();
         this.precio = habitacion.getPrecio();
         this.estado = habitacion.getEstado();
+        this.fechaCreado = habitacion.getFechaCreado();
+        this.fechaActualizado = habitacion.getFechaActualizado();
     }
 
     public double calcularPrecioBase() {
@@ -68,6 +72,22 @@ public class Habitacion {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public String getFechaCreado() {
+        return fechaCreado;
+    }
+
+    public void setFechaCreado(String fechaCreado) {
+        this.fechaCreado = fechaCreado;
+    }
+
+    public String getFechaActualizado() {
+        return fechaActualizado;
+    }
+
+    public void setFechaActualizado(String fechaActualizado) {
+        this.fechaActualizado = fechaActualizado;
     }
 
 }

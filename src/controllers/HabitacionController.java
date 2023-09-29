@@ -4,10 +4,8 @@
  */
 package controllers;
 
-import java.awt.Button;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
 import models.Habitacion;
 
@@ -21,7 +19,7 @@ public class HabitacionController {
 
     public DefaultTableModel listarHabitaciones(String buscar) {
         DefaultTableModel modelo;
-        String[] columnNames = {"Id", "Descripción", "Tipo", "Precio", "Estado"};
+        String[] columnNames = {"Id", "Descripción", "Tipo", "Precio", "Estado", "Fecha creado", "Fecha actualizado"};
         Object[] data = new Object[columnNames.length];
         modelo = new DefaultTableModel(null, columnNames);
 
@@ -31,6 +29,8 @@ public class HabitacionController {
             data[2] = oHabitacion.getTipo();
             data[3] = oHabitacion.getPrecio();
             data[4] = oHabitacion.getEstado();
+            data[5] = oHabitacion.getFechaCreado();
+            data[6] = oHabitacion.getFechaActualizado();
             modelo.addRow(data);
         }
 
