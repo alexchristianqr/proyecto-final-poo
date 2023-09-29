@@ -2,20 +2,22 @@ package models;
 
 public class Cliente extends Persona {
 
-    private int codigo;
+    private int idCliente;
 
-    public Cliente() {}
-    
+    public Cliente() {
+    }
+
     public Cliente(Cliente cliente) {
-        super(cliente.getDni(), cliente.getNombre(), cliente.getApellidos(), cliente.getSexo(), cliente.getEdad(), cliente.getCiudad(), cliente.getTelefono());
-        this.codigo = cliente.getCodigo();
+        super(cliente.getDni(), cliente.getNombre(), cliente.getApellidos(), cliente.getSexo(), cliente.getEdad(), cliente.getTelefono(), cliente.getEstado(), cliente.getFechaCreado(), cliente.getFechaActualizado());
+        this.idCliente = cliente.getIdCliente();
     }
 
-    public int getCodigo() {
-        return codigo;
+    public int getIdCliente() {
+        return idCliente;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
+
 }

@@ -8,17 +8,16 @@ public class ClienteController {
 
     public void crearCliente(Cliente cliente) {
         oCliente = new Cliente(cliente);
-        oCliente.setIdPersona(1);
+        oCliente.setIdCliente(1);
     }
 
     public String mostrarInfo() {
-        return "Id: " + oCliente.getCodigo()
+        return "Id: " + oCliente.getIdCliente()
                 + "\tDNI: " + oCliente.getDni()
                 + "\tNombres: " + oCliente.getNombre()
                 + "\tApellidos: " + oCliente.getApellidos()
                 + "\tSexo: " + oCliente.getSexo()
                 + "\tEdad: " + oCliente.getEdad()
-                + "\tCiudad: " + oCliente.getCiudad()
                 + "\tTelefono: " + oCliente.getTelefono() + " \n";
 
     }

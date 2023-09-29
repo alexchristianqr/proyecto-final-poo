@@ -21,7 +21,7 @@ public class HabitacionController {
 
     public DefaultTableModel listarHabitaciones(String buscar) {
         DefaultTableModel modelo;
-        String[] columnNames = {"Id", "Descripción", "Tipo", "Precio", "Estado", "Fecha creado", "Fecha actualizado"};
+        String[] columnNames = {"Código", "Descripción", "Tipo", "Precio", "Estado", "Fecha creado", "Fecha actualizado"};
         Object[] data = new Object[columnNames.length];
         modelo = new DefaultTableModel(null, columnNames);
 
@@ -39,7 +39,7 @@ public class HabitacionController {
         return modelo;
     }
 
-    public int generarIdHabitacion() {
+    private int generarIdHabitacion() {
         return lista.size() + 1;
     }
 

@@ -10,7 +10,8 @@ public class Habitacion {
     private String fechaCreado;
     private String fechaActualizado;
 
-    public Habitacion() {}
+    public Habitacion() {
+    }
 
     public Habitacion(Habitacion habitacion) {
         this.descripcion = habitacion.getDescripcion();

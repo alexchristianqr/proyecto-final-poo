@@ -11,12 +11,15 @@ package models;
  */
 public class Empleado extends Persona {
 
-    int idEmpleado;
-    String rol;
-    double sueldo;
+    private int idEmpleado;
+    private String rol;
+    private double sueldo;
+
+    public Empleado() {
+    }
 
     public Empleado(Empleado empleado) {
-        super(empleado.getDni(), empleado.getNombre(), empleado.getApellidos(), empleado.getSexo(), empleado.getEdad(), empleado.getCiudad(), empleado.getTelefono());
+        super(empleado.getDni(), empleado.getNombre(), empleado.getApellidos(), empleado.getSexo(), empleado.getEdad(), empleado.getTelefono(), empleado.getEstado(), empleado.getFechaCreado(), empleado.getFechaActualizado());
         this.rol = empleado.getRol();
         this.sueldo = empleado.getSueldo();
     }

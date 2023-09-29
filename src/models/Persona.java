@@ -2,35 +2,29 @@ package models;
 
 public abstract class Persona {
 
-    private int idPersona;
     private String dni;
     private String nombre;
     private String apellidos;
     private String sexo;
     private String edad;
-    private String ciudad;
     private String telefono;
+    private String estado;
+    private String fechaCreado;
+    private String fechaActualizado;
 
-    public Persona(){
-        
+    public Persona() {
     }
-    
-    public Persona(String dni, String nombre, String apellidos, String sexo, String edad, String ciudad, String telefono) {
+
+    public Persona(String dni, String nombre, String apellidos, String sexo, String edad, String telefono,String estado, String fechaCreado, String fechaActualizado) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.sexo = sexo;
         this.edad = edad;
-        this.ciudad = ciudad;
         this.telefono = telefono;
-    }
-
-    public int getIdPersona() {
-        return idPersona;
-    }
-
-    public void setIdPersona(int idPersona) {
-        this.idPersona = idPersona;
+        this.estado = estado;
+        this.fechaCreado = fechaCreado;
+        this.fechaActualizado = fechaActualizado;
     }
 
     public String getDni() {
@@ -73,20 +67,36 @@ public abstract class Persona {
         this.edad = edad;
     }
 
-    public String getCiudad() {
-        return ciudad;
-    }
-
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
-    }
-
     public String getTelefono() {
         return telefono;
     }
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public String getFechaCreado() {
+        return fechaCreado;
+    }
+
+    public void setFechaCreado(String fechaCreado) {
+        this.fechaCreado = fechaCreado;
+    }
+
+    public String getFechaActualizado() {
+        return fechaActualizado;
+    }
+
+    public void setFechaActualizado(String fechaActualizado) {
+        this.fechaActualizado = fechaActualizado;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
 }

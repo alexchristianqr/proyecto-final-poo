@@ -26,13 +26,11 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txtDni = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         txtApellidos = new javax.swing.JTextField();
         txtEdad = new javax.swing.JTextField();
-        txtCiudad = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtArea = new javax.swing.JTextArea();
@@ -68,8 +66,6 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
         jLabel4.setText("Sexo:");
 
         jLabel5.setText("Edad:");
-
-        jLabel6.setText("Ciudad:");
 
         jLabel7.setText("Telefono:");
 
@@ -115,9 +111,7 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel3)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel7)))
+                                    .addComponent(jLabel5)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(48, 48, 48)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,7 +120,7 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel2))))
                         .addGap(52, 52, 52)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtDni)
+                            .addComponent(txtDni, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
                             .addComponent(txtNombre)
                             .addComponent(txtApellidos)
                             .addComponent(txtEdad)
@@ -136,8 +130,7 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(rbnSi)
                                 .addGap(18, 18, 18)
-                                .addComponent(rbnNo))
-                            .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(rbnNo))))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
@@ -149,6 +142,10 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
                         .addGap(29, 29, 29)
                         .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(40, 40, 40))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(jLabel7)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,7 +164,7 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -185,14 +182,10 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
                         .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                .addGap(72, 72, 72)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCerrar)
@@ -214,13 +207,12 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
 
         cliente = new Cliente();// Crear instancia
-        
-        cliente.setCodigo(Integer.parseInt(txtCodigo.getText()));
+
+        cliente.setIdCliente(Integer.parseInt(txtCodigo.getText()));
         cliente.setDni(txtDni.getText());
         cliente.setNombre(txtNombre.getText());
         cliente.setApellidos(txtApellidos.getText());
         cliente.setEdad(txtEdad.getText());
-        cliente.setCiudad(txtCiudad.getText());
         cliente.setTelefono(txtTelefono.getText());
 
         String sexo;
@@ -229,7 +221,7 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
         } else {
             sexo = "Masculino";
         }
-        
+
         cliente.setSexo(sexo);
 
         // Guardar cliente
@@ -253,7 +245,6 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -264,7 +255,6 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton rbnSi;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextArea txtArea;
-    private javax.swing.JTextField txtCiudad;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtDni;
     private javax.swing.JTextField txtEdad;
