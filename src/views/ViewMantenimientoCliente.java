@@ -131,7 +131,6 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tblListado = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(255, 255, 204));
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
