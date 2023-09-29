@@ -4,9 +4,7 @@ public class Cliente extends Persona {
 
     private int codigo;
 
-    public Cliente() {
-        
-    }
+    public Cliente() {}
     
     public Cliente(Cliente cliente) {
         super(cliente.getDni(), cliente.getNombre(), cliente.getApellidos(), cliente.getSexo(), cliente.getEdad(), cliente.getCiudad(), cliente.getTelefono());
