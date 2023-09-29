@@ -319,12 +319,10 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
         habitacion.setTipo(cbxTipo.getSelectedItem().toString());
         habitacion.setPrecio(Double.parseDouble(txtPrecio.getText()));
         habitacion.setEstado(cbxEstado.getSelectedItem().toString());
-
-        LocalDateTime myDateObj = LocalDateTime.now();
-        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-        String formattedDate = myDateObj.format(myFormatObj);
-        habitacion.setFechaCreado(formattedDate);
-        habitacion.setFechaActualizado(formattedDate);
+        DateTimeFormatter formatoDeFecha = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        String fechaActual = LocalDateTime.now().format(formatoDeFecha);
+        habitacion.setFechaCreado(fechaActual);
+        habitacion.setFechaActualizado(fechaActual);
 
         if (accion.equals("GUARDAR")) {
             // Guardar habitación

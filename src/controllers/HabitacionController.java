@@ -4,6 +4,8 @@
  */
 package controllers;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -64,6 +66,9 @@ public class HabitacionController {
                 oHabitacion.setPrecio(habitacion.getPrecio());
                 oHabitacion.setTipo(habitacion.getTipo());
                 oHabitacion.setEstado(habitacion.getEstado());
+                DateTimeFormatter formatoDeFecha = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+                String fechaActual = LocalDateTime.now().format(formatoDeFecha);
+                oHabitacion.setFechaActualizado(fechaActual);
                 break;
             }
         }
