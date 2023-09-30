@@ -132,6 +132,7 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
         setClosable(true);
         setMaximizable(true);
         setResizable(true);
+        setTitle("Habitación");
 
         jpanelListarReservas.setBackground(new java.awt.Color(255, 255, 204));
         jpanelListarReservas.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de Habitaciones"));
