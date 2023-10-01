@@ -5,16 +5,16 @@
 package views;
 
 import javax.swing.table.DefaultTableModel;
-import models.Habitacion;
+import models.Empleado;
 
-public class DialogListadoHabitaciones extends javax.swing.JDialog {
+public class DialogListadoEmpleados extends javax.swing.JDialog {
 
     public static DefaultTableModel modelo;
 
     /**
      * Creates new form ViewListadoClientes
      */
-    public DialogListadoHabitaciones() {
+    public DialogListadoEmpleados() {
         initComponents();
     }
 
@@ -103,15 +103,12 @@ public class DialogListadoHabitaciones extends javax.swing.JDialog {
         int fila = tblListado.getSelectedRow();
 
         // Crear objeto cliente
-        Habitacion habitacion = new Habitacion();
-        habitacion.setIdHabitacion(Integer.parseInt(tblListado.getValueAt(fila, 0).toString()));
-        habitacion.setDescripcion(tblListado.getValueAt(fila, 1).toString());
-        habitacion.setTipo(tblListado.getValueAt(fila, 2).toString());
-        habitacion.setPrecio(Double.parseDouble(tblListado.getValueAt(fila, 3).toString()));
-        habitacion.setEstado(tblListado.getValueAt(fila, 4).toString());
+        Empleado empleado = new Empleado();
+        empleado.setIdEmpleado(Integer.parseInt(tblListado.getValueAt(fila, 0).toString()));
+        empleado.setNombre(tblListado.getValueAt(fila, 1).toString());
 
         // Actualizar en vista reserva
-        ViewReserva.habitacion = habitacion;
+        ViewReserva.empleado = empleado;
         ViewReserva.refreshView();
 
         // Cerrar dialogo
