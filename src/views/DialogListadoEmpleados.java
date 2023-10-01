@@ -35,12 +35,12 @@ public class DialogListadoEmpleados extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblListado = new javax.swing.JTable();
 
-        setTitle("Seleccionar habitación");
+        setTitle("Seleccionar empleado");
         setAlwaysOnTop(true);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setType(java.awt.Window.Type.POPUP);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Habitaciones"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Empleados"));
 
         tblListado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
