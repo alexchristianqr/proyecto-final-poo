@@ -11,10 +11,6 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import models.Habitacion;
 
-/**
- *
- * @author alex
- */
 public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
 
     HabitacionController habitacionController = new HabitacionController();

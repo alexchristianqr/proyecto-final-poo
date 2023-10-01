@@ -9,10 +9,6 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import models.Empleado;
 
-/**
- *
- * @author alex
- */
 public class EmpleadoController {
 
     List<Empleado> lista = new ArrayList<>();

@@ -5,10 +5,6 @@
  */
 package models;
 
-/**
- *
- * @author Luis
- */
 public class Empleado extends Persona {
 
     private int idEmpleado;

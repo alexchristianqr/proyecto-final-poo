@@ -11,10 +11,6 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import models.Habitacion;
 
-/**
- *
- * @author alex
- */
 public class HabitacionController {
 
     List<Habitacion> lista = new ArrayList<>();

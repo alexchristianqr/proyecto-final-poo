@@ -5,10 +5,6 @@
  */
 package views;
 
-/**
- *
- * @author Alex
- */
 public class ViewMenuPrincipal extends javax.swing.JFrame {
 
     ViewMantenimientoCliente viewMantenimientoCliente = new ViewMantenimientoCliente();
