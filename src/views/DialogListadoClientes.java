@@ -57,9 +57,6 @@ public class DialogListadoClientes extends javax.swing.JDialog {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblListadoMouseClicked(evt);
             }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                tblListadoMousePressed(evt);
-            }
         });
         jScrollPane1.setViewportView(tblListado);
 
@@ -99,13 +96,6 @@ public class DialogListadoClientes extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void tblListadoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblListadoMousePressed
-        // TODO add your handling code here:
-        if (evt.getClickCount() == 2) {
-
-        }
-    }//GEN-LAST:event_tblListadoMousePressed
 
     private void tblListadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblListadoMouseClicked
         // TODO add your handling code here:
