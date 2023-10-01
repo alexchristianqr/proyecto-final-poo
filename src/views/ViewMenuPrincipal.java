@@ -52,7 +52,6 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Programa");
-        setPreferredSize(new java.awt.Dimension(800, 600));
 
         escritorio.setAutoscrolls(true);
         escritorio.setDragMode(javax.swing.JDesktopPane.OUTLINE_DRAG_MODE);
@@ -218,7 +217,7 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemMantenimientoHabitacionActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane escritorio;
+    public javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;

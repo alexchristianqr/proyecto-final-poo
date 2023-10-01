@@ -12,6 +12,7 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
     ClienteController clienteController = new ClienteController();
     Cliente cliente, oCliente;
     String accion = null;
+    DefaultTableModel modelo;
 
     public ViewMantenimientoCliente() {
         initComponents();
@@ -68,8 +69,8 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
         btnGuardar.setEnabled(false);
         btnCancelar.setEnabled(false);
     }
-    
-     protected final void habilitarFormulario() {
+
+    protected final void habilitarFormulario() {
 
         txtNombre.setEnabled(true);
         txtApellidos.setEnabled(true);
@@ -94,7 +95,12 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
     }
 
     protected final void listarClientes() {
-        DefaultTableModel modelo = clienteController.listarClientes("");
+        // Obtener modelo de controlador
+        modelo = clienteController.listarClientes("");
+
+        // Cargar modelo en dialog
+        DialogListadoClientes.modelo = modelo;
+
         tblListado.setModel(modelo);
     }
 

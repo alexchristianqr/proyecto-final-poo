@@ -143,6 +143,9 @@
         <Property name="autoscrolls" type="boolean" value="true"/>
         <Property name="dragMode" type="int" value="1"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">

@@ -8,19 +8,34 @@ package views;
 import controllers.ReservaController;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import models.Cliente;
 import models.Reserva;
 
 public class ViewReserva extends javax.swing.JInternalFrame {
 
-    ReservaController reservaController;
-    Reserva reserva;
+    static Cliente cliente;
+    ReservaController reservaController = new ReservaController();
+    Reserva reserva, oReserva;
+    String accion = null;
     Calendar calendar;
+    DialogListadoClientes dialogListadoClientes = new DialogListadoClientes();
 
     /**
      * Creates new form viewReserva
      */
     public ViewReserva() {
         initComponents();
+        listarReservas();
+    }
+    
+    static void refreshView(){
+        txtCliente.setText(cliente.getNombre());
+    }
+
+    protected final void listarReservas() {
+        DefaultTableModel modelo = reservaController.listarReservas("");
+        tblListado.setModel(modelo);
     }
 
     /**
@@ -58,8 +73,8 @@ public class ViewReserva extends javax.swing.JInternalFrame {
         jdateFechaIngreso = new com.toedter.calendar.JDateChooser();
         jdateFechaSalida = new com.toedter.calendar.JDateChooser();
         jpanelListarReservas = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtLista = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblListado = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
@@ -90,6 +105,11 @@ public class ViewReserva extends javax.swing.JInternalFrame {
         txtCliente.setText("Maria Flores Gallardo");
 
         btnSeleccionarCliente.setText("...");
+        btnSeleccionarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarClienteActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Empleado:");
 
@@ -222,7 +242,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
                 .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel9)
                     .addComponent(jdateFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNuevo)
                     .addComponent(btnGuardar)
@@ -235,9 +255,18 @@ public class ViewReserva extends javax.swing.JInternalFrame {
         jpanelListarReservas.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de Reservas"));
         jpanelListarReservas.setPreferredSize(new java.awt.Dimension(600, 121));
 
-        txtLista.setColumns(20);
-        txtLista.setRows(5);
-        jScrollPane1.setViewportView(txtLista);
+        tblListado.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tblListado);
 
         javax.swing.GroupLayout jpanelListarReservasLayout = new javax.swing.GroupLayout(jpanelListarReservas);
         jpanelListarReservas.setLayout(jpanelListarReservasLayout);
@@ -245,14 +274,14 @@ public class ViewReserva extends javax.swing.JInternalFrame {
             jpanelListarReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanelListarReservasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jpanelListarReservasLayout.setVerticalGroup(
             jpanelListarReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanelListarReservasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -290,30 +319,47 @@ public class ViewReserva extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
 
         reserva = new Reserva();// Crear instancia de la clase Reserva
-        
-        reserva.setIdCliente(1);// ID del objeto Cliente
+        reserva.setIdCliente(cliente.getIdCliente());// ID del objeto Cliente
+        reserva.setCliente(cliente);// ID del objeto Cliente
         reserva.setIdHabitacion(1);// ID del objeto Habitacion
         reserva.setIdEmpleado(1);// ID del objeto Empleado
-
         calendar = jdateFechaReserva.getCalendar();
         reserva.setFechaReservado(calendar.getTime().toString());
         calendar = jdateFechaIngreso.getCalendar();
         reserva.setFechaIngreso(calendar.getTime().toString());
         calendar = jdateFechaSalida.getCalendar();
         reserva.setFechaSalida(calendar.getTime().toString());
-
-        reserva.setEstado("Disponible");
-        reserva.setTipo("Por horas");
+        reserva.setEstado(cbxEstadoReserva.getSelectedItem().toString());
+        reserva.setTipo(cbxTipoReserva.getSelectedItem().toString());
+        reserva.setCostoTotal(Double.parseDouble(txtCosto.getText()));
 
         // Guardar reserva
         reservaController = new ReservaController();// Crear instancia
-        reservaController.crearReserva(reserva);
 
-        // Notificar mensaje creado
-        JOptionPane.showMessageDialog(null, "Reserva creado con éxito");
-        txtLista.append(reservaController.mostrarInfo());
+        // Guardar habitación
+        oReserva = reservaController.crearReserva(reserva);
+
+        // Obtener ID nuevo
+        reserva.setIdHabitacion(oReserva.getIdReserva());
+
+        // Notificar mensaje
+        JOptionPane.showMessageDialog(rootPane, "Guardado con éxito");
+
+        // Listar registros
+        listarReservas();
 
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnSeleccionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarClienteActionPerformed
+        // TODO add your handling code here:
+
+        if (dialogListadoClientes.isVisible()) {
+            dialogListadoClientes.toFront();
+        } else {
+            dialogListadoClientes.setVisible(true);
+        }
+        dialogListadoClientes.listarClientes();
+    }//GEN-LAST:event_btnSeleccionarClienteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -334,16 +380,16 @@ public class ViewReserva extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private com.toedter.calendar.JDateChooser jdateFechaIngreso;
     private com.toedter.calendar.JDateChooser jdateFechaReserva;
     private com.toedter.calendar.JDateChooser jdateFechaSalida;
     private javax.swing.JPanel jpanelCrearReserva;
     private javax.swing.JPanel jpanelListarReservas;
-    private javax.swing.JTextField txtCliente;
+    private javax.swing.JTable tblListado;
+    private static javax.swing.JTextField txtCliente;
     private javax.swing.JTextField txtCosto;
-    private javax.swing.JTextField txtEmpleado;
-    private javax.swing.JTextArea txtLista;
-    private javax.swing.JTextField txtNumeroHabitacion;
+    private static javax.swing.JTextField txtEmpleado;
+    private static javax.swing.JTextField txtNumeroHabitacion;
     // End of variables declaration//GEN-END:variables
 }

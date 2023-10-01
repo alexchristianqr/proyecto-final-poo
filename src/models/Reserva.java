@@ -4,11 +4,17 @@ public class Reserva {
 
     private int idReserva;
     private int idCliente;
+    private Cliente cliente;
     private int idHabitacion;
+    private Habitacion habitacion;
     private int idEmpleado;
+    private Empleado empleado;
     private String tipo;
     private String estado;
-    private String fechaReservado, fechaCreado, fechaActualizado, fechaIngreso, fechaSalida;
+    private String fechaCreado;
+    private String fechaActualizado;
+    private String fechaReservado, fechaIngreso, fechaSalida;
+    private double costoTotal;
 
     public Reserva() {
     }
@@ -22,6 +28,42 @@ public class Reserva {
         this.fechaIngreso = reserva.fechaIngreso;
         this.fechaSalida = reserva.fechaSalida;
         this.estado = reserva.estado;
+        this.cliente = reserva.cliente;
+        this.habitacion = reserva.habitacion;
+        this.empleado = reserva.empleado;
+        this.costoTotal = reserva.costoTotal;
+    }
+
+    public double getCostoTotal() {
+        return costoTotal;
+    }
+
+    public void setCostoTotal(double costoTotal) {
+        this.costoTotal = costoTotal;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Habitacion getHabitacion() {
+        return habitacion;
+    }
+
+    public void setHabitacion(Habitacion habitacion) {
+        this.habitacion = habitacion;
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
     }
 
     public int getIdReserva() {
