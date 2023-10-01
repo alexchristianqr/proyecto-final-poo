@@ -10,16 +10,22 @@ import java.util.Calendar;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import models.Cliente;
+import models.Empleado;
+import models.Habitacion;
 import models.Reserva;
 
 public class ViewReserva extends javax.swing.JInternalFrame {
 
-    static Cliente cliente;
+    static Cliente cliente = null;
+    static Habitacion habitacion = null;
+    static Empleado empleado = null;
+    
+    DialogListadoHabitaciones dialogListadoHabitaciones = new DialogListadoHabitaciones();
+    DialogListadoClientes dialogListadoClientes = new DialogListadoClientes();
     ReservaController reservaController = new ReservaController();
     Reserva reserva, oReserva;
     String accion = null;
     Calendar calendar;
-    DialogListadoClientes dialogListadoClientes = new DialogListadoClientes();
 
     /**
      * Creates new form viewReserva
@@ -28,9 +34,19 @@ public class ViewReserva extends javax.swing.JInternalFrame {
         initComponents();
         listarReservas();
     }
-    
-    static void refreshView(){
-        txtCliente.setText(cliente.getNombre());
+
+    static void refreshView() {
+        if (habitacion != null) {
+            txtNumeroHabitacion.setText(habitacion.getDescripcion());
+        }
+
+        if (cliente != null) {
+            txtCliente.setText(cliente.getNombre());
+        }
+
+        if (empleado != null) {
+            txtEmpleado.setText(empleado.getNombre());
+        }
     }
 
     protected final void listarReservas() {
@@ -72,6 +88,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         jdateFechaIngreso = new com.toedter.calendar.JDateChooser();
         jdateFechaSalida = new com.toedter.calendar.JDateChooser();
+        btnSeleccionarEmpleado = new javax.swing.JButton();
         jpanelListarReservas = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblListado = new javax.swing.JTable();
@@ -94,15 +111,18 @@ public class ViewReserva extends javax.swing.JInternalFrame {
         jLabel1.setText("Habitación:");
 
         txtNumeroHabitacion.setEditable(false);
-        txtNumeroHabitacion.setText("202");
 
         btnSeleccionarHabitacion.setText("...");
+        btnSeleccionarHabitacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarHabitacionActionPerformed(evt);
+            }
+        });
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Cliente:");
 
         txtCliente.setEditable(false);
-        txtCliente.setText("Maria Flores Gallardo");
 
         btnSeleccionarCliente.setText("...");
         btnSeleccionarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -113,7 +133,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Empleado:");
 
-        txtEmpleado.setText("Alex Quispe");
+        txtEmpleado.setEditable(false);
 
         jLabel4.setText("Tipo de reserva:");
 
@@ -151,6 +171,13 @@ public class ViewReserva extends javax.swing.JInternalFrame {
 
         jLabel9.setText("Fecha de salida:");
 
+        btnSeleccionarEmpleado.setText("...");
+        btnSeleccionarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarEmpleadoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jpanelCrearReservaLayout = new javax.swing.GroupLayout(jpanelCrearReserva);
         jpanelCrearReserva.setLayout(jpanelCrearReservaLayout);
         jpanelCrearReservaLayout.setHorizontalGroup(
@@ -164,7 +191,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
                         .addComponent(btnGuardar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                         .addComponent(btnCerrar)
                         .addContainerGap())
                     .addGroup(jpanelCrearReservaLayout.createSequentialGroup()
@@ -180,15 +207,6 @@ public class ViewReserva extends javax.swing.JInternalFrame {
                             .addComponent(jLabel9))
                         .addGap(28, 28, 28)
                         .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jpanelCrearReservaLayout.createSequentialGroup()
-                                .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNumeroHabitacion)
-                                    .addComponent(txtCliente))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnSeleccionarHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnSeleccionarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(6, 6, 6))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelCrearReservaLayout.createSequentialGroup()
                                 .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jdateFechaSalida, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -196,9 +214,23 @@ public class ViewReserva extends javax.swing.JInternalFrame {
                                     .addComponent(jdateFechaReserva, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtCosto, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cbxEstadoReserva, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cbxTipoReserva, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtEmpleado))
-                                .addContainerGap())))))
+                                    .addComponent(cbxTipoReserva, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelCrearReservaLayout.createSequentialGroup()
+                                .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtEmpleado)
+                                    .addComponent(txtNumeroHabitacion, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtCliente, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelCrearReservaLayout.createSequentialGroup()
+                                        .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(btnSeleccionarHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnSeleccionarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(6, 6, 6))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelCrearReservaLayout.createSequentialGroup()
+                                        .addComponent(btnSeleccionarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addContainerGap())))))))
         );
         jpanelCrearReservaLayout.setVerticalGroup(
             jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,7 +250,8 @@ public class ViewReserva extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(txtEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSeleccionarEmpleado))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
@@ -242,7 +275,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
                 .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel9)
                     .addComponent(jdateFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
                 .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNuevo)
                     .addComponent(btnGuardar)
@@ -274,7 +307,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
             jpanelListarReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanelListarReservasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 763, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jpanelListarReservasLayout.setVerticalGroup(
@@ -293,7 +326,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jpanelCrearReserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpanelListarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
+                .addComponent(jpanelListarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -320,9 +353,11 @@ public class ViewReserva extends javax.swing.JInternalFrame {
 
         reserva = new Reserva();// Crear instancia de la clase Reserva
         reserva.setIdCliente(cliente.getIdCliente());// ID del objeto Cliente
-        reserva.setCliente(cliente);// ID del objeto Cliente
-        reserva.setIdHabitacion(1);// ID del objeto Habitacion
-        reserva.setIdEmpleado(1);// ID del objeto Empleado
+        reserva.setCliente(cliente);// Objeto Cliente
+        reserva.setIdHabitacion(habitacion.getIdHabitacion());// ID del objeto Habitación
+        reserva.setHabitacion(habitacion);// Objeto Habitación
+        reserva.setIdEmpleado(empleado.getIdEmpleado());// ID del objeto Empleado
+        reserva.setEmpleado(empleado);// Objeto Empleado
         calendar = jdateFechaReserva.getCalendar();
         reserva.setFechaReservado(calendar.getTime().toString());
         calendar = jdateFechaIngreso.getCalendar();
@@ -361,6 +396,21 @@ public class ViewReserva extends javax.swing.JInternalFrame {
         dialogListadoClientes.listarClientes();
     }//GEN-LAST:event_btnSeleccionarClienteActionPerformed
 
+    private void btnSeleccionarHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarHabitacionActionPerformed
+        // TODO add your handling code here:
+
+        if (dialogListadoHabitaciones.isVisible()) {
+            dialogListadoHabitaciones.toFront();
+        } else {
+            dialogListadoHabitaciones.setVisible(true);
+        }
+        dialogListadoHabitaciones.listarHabitaciones();
+    }//GEN-LAST:event_btnSeleccionarHabitacionActionPerformed
+
+    private void btnSeleccionarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarEmpleadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSeleccionarEmpleadoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
@@ -368,6 +418,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnSeleccionarCliente;
+    private javax.swing.JButton btnSeleccionarEmpleado;
     private javax.swing.JButton btnSeleccionarHabitacion;
     private javax.swing.JComboBox<String> cbxEstadoReserva;
     private javax.swing.JComboBox<String> cbxTipoReserva;

@@ -93,7 +93,12 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
     }
 
     protected final void listarHabitaciones() {
+        // Obtener modelo de controlador
         DefaultTableModel modelo = habitacionController.listarHabitaciones("");
+
+        // Cargar modelo en dialog
+        DialogListadoHabitaciones.modelo = modelo;
+
         tblListado.setModel(modelo);
     }
 
