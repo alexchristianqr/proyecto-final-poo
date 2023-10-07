@@ -79,10 +79,13 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemMantenimientoHabitacionActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="menuItemEmpleado">
+            <MenuItem class="javax.swing.JMenuItem" name="menuItemMantenimientoEmpleado">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Empleado"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemMantenimientoEmpleadoActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

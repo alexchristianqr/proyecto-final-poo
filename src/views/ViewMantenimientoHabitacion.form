@@ -29,7 +29,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jpanelCrearReserva" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jpanelListarReservas" pref="425" max="32767" attributes="0"/>
+              <Component id="jpanelListarReservas" pref="433" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -39,7 +39,7 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jpanelListarReservas" alignment="1" pref="336" max="32767" attributes="0"/>
+                  <Component id="jpanelListarReservas" alignment="1" pref="340" max="32767" attributes="0"/>
                   <Component id="jpanelCrearReserva" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -68,7 +68,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" pref="403" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" pref="397" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -101,7 +101,6 @@
                     <Column editable="true" title="Title 4" type="java.lang.Object"/>
                   </Table>
                 </Property>
-                <Property name="showGrid" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblListadoMouseClicked"/>

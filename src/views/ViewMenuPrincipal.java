@@ -9,6 +9,7 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
 
     ViewMantenimientoCliente viewMantenimientoCliente = new ViewMantenimientoCliente();
     ViewMantenimientoHabitacion viewMantenimientoHabitacion = new ViewMantenimientoHabitacion();
+  ViewMantenimientoEmplead viewMantenimientoEmplead = new ViewMantenimientoEmplead();
     ViewReserva viewReserva = new ViewReserva();
     ViewAcercaDe viewAcercaDe = new ViewAcercaDe();
 
@@ -40,7 +41,7 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
         jmenuMantenimiento = new javax.swing.JMenu();
         menuItemMantenimientoCliente = new javax.swing.JMenuItem();
         menuItemMantenimientoHabitacion = new javax.swing.JMenuItem();
-        menuItemEmpleado = new javax.swing.JMenuItem();
+        menuItemMantenimientoEmpleado = new javax.swing.JMenuItem();
         jmenuAyuda = new javax.swing.JMenu();
         menuItemAcercaDe = new javax.swing.JMenuItem();
 
@@ -112,8 +113,13 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
         });
         jmenuMantenimiento.add(menuItemMantenimientoHabitacion);
 
-        menuItemEmpleado.setText("Empleado");
-        jmenuMantenimiento.add(menuItemEmpleado);
+        menuItemMantenimientoEmpleado.setText("Empleado");
+        menuItemMantenimientoEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemMantenimientoEmpleadoActionPerformed(evt);
+            }
+        });
+        jmenuMantenimiento.add(menuItemMantenimientoEmpleado);
 
         jMenuBar1.add(jmenuMantenimiento);
 
@@ -216,6 +222,20 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_menuItemMantenimientoHabitacionActionPerformed
 
+    private void menuItemMantenimientoEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemMantenimientoEmpleadoActionPerformed
+        // TODO add your handling code here:
+        if (viewMantenimientoEmplead.isShowing()) {
+            viewMantenimientoEmplead.toFront();
+        } else {
+            if (viewMantenimientoEmplead.isSelected()) {
+                escritorio.setSelectedFrame(viewMantenimientoEmplead);
+            } else {
+                escritorio.add(viewMantenimientoEmplead);
+                viewMantenimientoEmplead.show();
+            }
+        }
+    }//GEN-LAST:event_menuItemMantenimientoEmpleadoActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu3;
@@ -227,8 +247,8 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jmenuHotel;
     private javax.swing.JMenu jmenuMantenimiento;
     private javax.swing.JMenuItem menuItemAcercaDe;
-    private javax.swing.JMenuItem menuItemEmpleado;
     private javax.swing.JMenuItem menuItemMantenimientoCliente;
+    private javax.swing.JMenuItem menuItemMantenimientoEmpleado;
     private javax.swing.JMenuItem menuItemMantenimientoHabitacion;
     private javax.swing.JMenuItem menuItemReservar;
     private javax.swing.JMenuItem menuItemSalir;
