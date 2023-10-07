@@ -4,10 +4,11 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
 
     ViewMantenimientoCliente viewMantenimientoCliente = new ViewMantenimientoCliente();
     ViewMantenimientoHabitacion viewMantenimientoHabitacion = new ViewMantenimientoHabitacion();
-  ViewMantenimientoEmplead viewMantenimientoEmplead = new ViewMantenimientoEmplead();
+    ViewMantenimientoEmplead viewMantenimientoEmplead = new ViewMantenimientoEmplead();
     ViewReserva viewReserva = new ViewReserva();
     ViewAcercaDe viewAcercaDe = new ViewAcercaDe();
-
+    ViewMantenimientoProducto  viewMantenimientoProducto= new ViewMantenimientoProducto();
+    ViewVentaProducto viewVentaProducto=new ViewVentaProducto();
     /**
      * Creates new form Principal
      */
@@ -33,10 +34,12 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
         menuItemSalir = new javax.swing.JMenuItem();
         jmenuHotel = new javax.swing.JMenu();
         menuItemReservar = new javax.swing.JMenuItem();
+        menuItemVentaProducto = new javax.swing.JMenuItem();
         jmenuMantenimiento = new javax.swing.JMenu();
         menuItemMantenimientoCliente = new javax.swing.JMenuItem();
         menuItemMantenimientoHabitacion = new javax.swing.JMenuItem();
         menuItemMantenimientoEmpleado = new javax.swing.JMenuItem();
+        menuItemMantenimientoProducto = new javax.swing.JMenuItem();
         jmenuAyuda = new javax.swing.JMenu();
         menuItemAcercaDe = new javax.swing.JMenuItem();
 
@@ -88,6 +91,14 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
         });
         jmenuHotel.add(menuItemReservar);
 
+        menuItemVentaProducto.setText("Venta productos");
+        menuItemVentaProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemVentaProductoActionPerformed(evt);
+            }
+        });
+        jmenuHotel.add(menuItemVentaProducto);
+
         jMenuBar1.add(jmenuHotel);
 
         jmenuMantenimiento.setText("Mantenimiento");
@@ -115,6 +126,14 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
             }
         });
         jmenuMantenimiento.add(menuItemMantenimientoEmpleado);
+
+        menuItemMantenimientoProducto.setText("Producto");
+        menuItemMantenimientoProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemMantenimientoProductoActionPerformed(evt);
+            }
+        });
+        jmenuMantenimiento.add(menuItemMantenimientoProducto);
 
         jMenuBar1.add(jmenuMantenimiento);
 
@@ -231,6 +250,35 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_menuItemMantenimientoEmpleadoActionPerformed
 
+    private void menuItemVentaProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemVentaProductoActionPerformed
+        // TODO add your handling code here:
+      if(  viewVentaProducto.isShowing()){
+          viewVentaProducto.toFront();
+      }else{
+          if(viewVentaProducto.isSelected()){escritorio.setSelectedFrame(viewVentaProducto);}
+          else{ escritorio.add(viewVentaProducto);
+          viewVentaProducto.show();
+          }
+      
+                
+
+      }
+    }//GEN-LAST:event_menuItemVentaProductoActionPerformed
+
+    private void menuItemMantenimientoProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemMantenimientoProductoActionPerformed
+        // TODO add your handling code here:
+        if (viewMantenimientoProducto.isShowing()) {
+            viewMantenimientoProducto.toFront();
+        } else {
+            if (viewMantenimientoProducto.isSelected()) {
+                escritorio.setSelectedFrame(viewMantenimientoProducto);
+            } else {
+                escritorio.add(viewMantenimientoProducto);
+                viewMantenimientoProducto.show();
+            }
+        } 
+    }//GEN-LAST:event_menuItemMantenimientoProductoActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu3;
@@ -245,7 +293,9 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuItemMantenimientoCliente;
     private javax.swing.JMenuItem menuItemMantenimientoEmpleado;
     private javax.swing.JMenuItem menuItemMantenimientoHabitacion;
+    private javax.swing.JMenuItem menuItemMantenimientoProducto;
     private javax.swing.JMenuItem menuItemReservar;
     private javax.swing.JMenuItem menuItemSalir;
+    private javax.swing.JMenuItem menuItemVentaProducto;
     // End of variables declaration//GEN-END:variables
 }
