@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
 package views;
 
 import javax.swing.table.DefaultTableModel;
@@ -11,9 +7,6 @@ public class DialogListadoHabitaciones extends javax.swing.JDialog {
 
     public static DefaultTableModel modelo;
 
-    /**
-     * Creates new form ViewListadoClientes
-     */
     public DialogListadoHabitaciones() {
         initComponents();
     }

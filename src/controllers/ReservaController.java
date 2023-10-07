@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controllers;
 
 import java.util.ArrayList;
@@ -13,6 +9,10 @@ public class ReservaController {
 
     List<Reserva> lista = new ArrayList<>();
 
+    private int generarIdReserva() {
+        return lista.size() + 1;
+    }
+    
     public DefaultTableModel listarReservas(String buscar) {
         DefaultTableModel modelo;
         String[] columnNames = {"Código", "Cliente", "Habitación", "Empleado", "Tipo", "Estado","Total", "Fecha reserva", "Fecha ingreso", "Fecha salida", "Fecha creado", "Fecha actualizado"};
@@ -37,11 +37,7 @@ public class ReservaController {
 
         return modelo;
     }
-
-    private int generarIdReserva() {
-        return lista.size() + 1;
-    }
-
+  
     public Reserva crearReserva(Reserva reserva) {
         Reserva oReserva = new Reserva(reserva);
         oReserva.setIdHabitacion(generarIdReserva());
@@ -49,15 +45,4 @@ public class ReservaController {
         return oReserva;
     }
 
-//    public String mostrarInfo() {
-//        return "Reserva: " + oReserva.getIdReserva()
-//                + "Cliente: " + oReserva.getIdCliente()
-//                + "\tHabitacion: " + oReserva.getIdHabitacion()
-//                + "\tEmpleado: " + oReserva.getIdEmpleado()
-//                + "\tTipo: " + oReserva.getTipo()
-//                + "\tEstado: " + oReserva.getEstado()
-//                + "\tFecha de reserva: " + oReserva.getFechaReservado()
-//                + "\tFecha de ingreso: " + oReserva.getFechaIngreso()
-//                + "\tFecha de salida: " + oReserva.getFechaSalida() + " \n";
-//    }
 }

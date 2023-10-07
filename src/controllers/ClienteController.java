@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import models.Cliente;
-import views.DialogListadoClientes;
 
 public class ClienteController {
 
