@@ -1,18 +1,11 @@
 package controllers;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import models.Empleado;
 
-public class EmpleadoController {
+public class EmpleadoController extends BaseController<Empleado> implements EmpleadoControllerInterface{
 
-    List<Empleado> lista = new ArrayList<>();
-
-    private int generarIdEmpleado() {
-        return lista.size() + 1;
-    }
-
+    @Override
     public DefaultTableModel listarEmpleados(String buscar) {
         DefaultTableModel modelo;
         String[] columnNames = {"Código", "Nombres", "Apellidos", "DNI", "Edad", "Sexo", "Telefono", "Rol", "Sueldo", "Estado", "Fecha creado", "Fecha actualizado"};
@@ -38,9 +31,10 @@ public class EmpleadoController {
         return modelo;
     }
 
+    @Override
     public Empleado crearEmpleado(Empleado empleado) {
         Empleado oEmpleado = new Empleado(empleado);
-        oEmpleado.setIdEmpleado(generarIdEmpleado());
+        oEmpleado.setIdEmpleado(idAutoincrementado());
         lista.add(oEmpleado);
         return oEmpleado;
     }

@@ -1,18 +1,11 @@
 package controllers;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import models.Cliente;
 
-public class ClienteController {
+public class ClienteController extends BaseController<Cliente> implements ClienteControllerInterface{
 
-    List<Cliente> lista = new ArrayList<>();
-
-    private int generarIdCliente() {
-        return lista.size() + 1;
-    }
-
+    @Override
     public DefaultTableModel listarClientes(String buscar) {
         DefaultTableModel modelo;
         String[] columnNames = {"Código", "Nombres", "Apellidos", "DNI", "Edad", "Sexo", "Telefono", "Estado", "Fecha creado", "Fecha actualizado"};
@@ -36,9 +29,10 @@ public class ClienteController {
         return modelo;
     }
 
+    @Override
     public Cliente crearCliente(Cliente cliente) {
         Cliente oCliente = new Cliente(cliente);
-        oCliente.setIdCliente(generarIdCliente());
+        oCliente.setIdCliente(idAutoincrementado());
         lista.add(oCliente);
         return oCliente;
     }

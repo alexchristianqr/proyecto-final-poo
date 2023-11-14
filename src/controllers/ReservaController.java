@@ -1,21 +1,13 @@
 package controllers;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import models.Reserva;
 
-public class ReservaController {
+public class ReservaController extends BaseController<Reserva> {
 
-    List<Reserva> lista = new ArrayList<>();
-
-    private int generarIdReserva() {
-        return lista.size() + 1;
-    }
-    
     public DefaultTableModel listarReservas(String buscar) {
         DefaultTableModel modelo;
-        String[] columnNames = {"Código", "Cliente", "Habitación", "Empleado", "Tipo", "Estado","Total", "Fecha reserva", "Fecha ingreso", "Fecha salida", "Fecha creado", "Fecha actualizado"};
+        String[] columnNames = {"Código", "Cliente", "Habitación", "Empleado", "Tipo", "Estado", "Total", "Fecha reserva", "Fecha ingreso", "Fecha salida", "Fecha creado", "Fecha actualizado"};
         Object[] data = new Object[columnNames.length];
         modelo = new DefaultTableModel(null, columnNames);
 
@@ -37,10 +29,10 @@ public class ReservaController {
 
         return modelo;
     }
-  
+
     public Reserva crearReserva(Reserva reserva) {
         Reserva oReserva = new Reserva(reserva);
-        oReserva.setIdHabitacion(generarIdReserva());
+        oReserva.setIdHabitacion(idAutoincrementado());
         lista.add(oReserva);
         return oReserva;
     }

@@ -2,18 +2,10 @@ package controllers;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import models.Habitacion;
 
-public class HabitacionController {
-
-    List<Habitacion> lista = new ArrayList<>();
-    
-    private int generarIdHabitacion() {
-        return lista.size() + 1;
-    }
+public class HabitacionController extends BaseController<Habitacion> {
 
     public DefaultTableModel listarHabitaciones(String buscar) {
         DefaultTableModel modelo;
@@ -34,10 +26,10 @@ public class HabitacionController {
 
         return modelo;
     }
-  
+
     public Habitacion crearHabitacion(Habitacion habitacion) {
         Habitacion oHabitacion = new Habitacion(habitacion);
-        oHabitacion.setIdHabitacion(generarIdHabitacion());
+        oHabitacion.setIdHabitacion(idAutoincrementado());
         lista.add(oHabitacion);
         return oHabitacion;
     }

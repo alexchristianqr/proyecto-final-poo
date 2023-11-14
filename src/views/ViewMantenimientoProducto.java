@@ -1,11 +1,14 @@
-
 package views;
+
 import models.Producto;
 import controllers.ProductoController;
 import javax.swing.table.DefaultTableModel;
+
 public class ViewMantenimientoProducto extends javax.swing.JInternalFrame {
- ProductoController productoController = new ProductoController();
- Producto producto; 
+
+    ProductoController productoController = new ProductoController();
+    Producto producto;
+
     public ViewMantenimientoProducto() {
         initComponents();
         productoController.cargarLista();
@@ -155,26 +158,26 @@ public class ViewMantenimientoProducto extends javax.swing.JInternalFrame {
 
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
         // TODO add your handling code here:
-                int codigo=  productoController.generarCodProducto();
-        String nombre= txtNombre.getText();
-        double precio=Double.parseDouble(txtPrecio.getText());
-        int cantidad=Integer.parseInt(txtCantidad.getText());
-        DefaultTableModel tabla=(DefaultTableModel) this.tablaDatos.getModel();
+        int codigo = productoController.idAutoincrementado();
+        String nombre = txtNombre.getText();
+        double precio = Double.parseDouble(txtPrecio.getText());
+        int cantidad = Integer.parseInt(txtCantidad.getText());
+        DefaultTableModel tabla = (DefaultTableModel) this.tablaDatos.getModel();
 
-         producto=new Producto(codigo, nombre, precio, cantidad) ;
-         productoController.listaProductos.add(producto);
-            tabla.setRowCount(0);
-            for (int i = 0; i < productoController.listaProductos.size(); i++) {
+        producto = new Producto(codigo, nombre, precio, cantidad);
+        productoController.lista.add(producto);
+        tabla.setRowCount(0);
+        for (int i = 0; i < productoController.lista.size(); i++) {
 
-                Object[] fila={
-                   productoController.listaProductos.get(i).getCodigo(),
-                    productoController.listaProductos.get(i).getNombre(),
-                    productoController.listaProductos.get(i).getPrecio(),
-                    productoController.listaProductos.get(i).getCantidad()
-                };
-                tabla.addRow(fila);
-            }
-        
+            Object[] fila = {
+                productoController.lista.get(i).getCodigo(),
+                productoController.lista.get(i).getNombre(),
+                productoController.lista.get(i).getPrecio(),
+                productoController.lista.get(i).getCantidad()
+            };
+            tabla.addRow(fila);
+        }
+
     }//GEN-LAST:event_btnInsertarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed

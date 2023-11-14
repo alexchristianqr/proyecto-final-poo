@@ -1,25 +1,27 @@
-
 package views;
+
 import models.Producto;
 import controllers.ProductoController;
-import static controllers.ProductoController.listaProductos;
 import javax.swing.table.DefaultTableModel;
 
 public class ViewVentaProducto extends javax.swing.JInternalFrame {
-ProductoController productoController = new ProductoController();
+
+    ProductoController productoController = new ProductoController();
+
     public ViewVentaProducto() {
         initComponents();
-        for (Producto listaProducto:listaProductos) {
-            this.cbxProducto.addItem(listaProducto.getNombre());
-        }
-               
-    }
-    public void actualizar(){
-        
-          for (Producto listaProducto:listaProductos) {
+        for (Producto listaProducto : productoController.lista) {
             this.cbxProducto.addItem(listaProducto.getNombre());
         }
     }
+
+    public void actualizar() {
+
+        for (Producto listaProducto : productoController.lista) {
+            this.cbxProducto.addItem(listaProducto.getNombre());
+        }
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -190,20 +192,20 @@ ProductoController productoController = new ProductoController();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProductoActionPerformed
-     String nombre= this.cbxProducto.getSelectedItem().toString();
-     int cantidad=Integer.parseInt(spnCantidad.getValue().toString());
-     DefaultTableModel tabla=(DefaultTableModel) this.tablaDatos.getModel();
-     double precioU= productoController.obtenerPrecio(nombre);      
-     
-     tabla.addRow(new Object[] {nombre,cantidad,precioU,cantidad*precioU});
-      
-        double sumaTotal=0;
+        String nombre = this.cbxProducto.getSelectedItem().toString();
+        int cantidad = Integer.parseInt(spnCantidad.getValue().toString());
+        DefaultTableModel tabla = (DefaultTableModel) this.tablaDatos.getModel();
+        double precioU = productoController.obtenerPrecio(nombre);
+
+        tabla.addRow(new Object[]{nombre, cantidad, precioU, cantidad * precioU});
+
+        double sumaTotal = 0;
         for (int i = 0; i < tabla.getRowCount(); i++) {
-              double valor= (double) tabla.getValueAt(i, 3);
-                sumaTotal=sumaTotal+valor;
+            double valor = (double) tabla.getValueAt(i, 3);
+            sumaTotal = sumaTotal + valor;
         }
 
-      this.lblTotal.setText("S/  "+sumaTotal);
+        this.lblTotal.setText("S/  " + sumaTotal);
     }//GEN-LAST:event_btnAgregarProductoActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
