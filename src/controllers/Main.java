@@ -1,5 +1,7 @@
 package controllers;
 
+import core.services.IProviderDB;
+import core.services.LocalDBService;
 import views.ViewMenuPrincipal;
 
 public class Main {
@@ -13,7 +15,10 @@ public class Main {
     }
 
     public static void test() {
-        // Metodo no implementado
+        IProviderDB proveedor = new LocalDBService();
+        proveedor.cargarDB();
+        String[] midata = {"alex"};
+        proveedor.guardarDB(midata);
     }
 
 }

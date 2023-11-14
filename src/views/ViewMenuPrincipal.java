@@ -7,8 +7,9 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
     ViewMantenimientoEmplead viewMantenimientoEmplead = new ViewMantenimientoEmplead();
     ViewReserva viewReserva = new ViewReserva();
     ViewAcercaDe viewAcercaDe = new ViewAcercaDe();
-    ViewMantenimientoProducto  viewMantenimientoProducto= new ViewMantenimientoProducto();
-    ViewVentaProducto viewVentaProducto=new ViewVentaProducto();
+    ViewMantenimientoProducto viewMantenimientoProducto = new ViewMantenimientoProducto();
+    ViewVentaProducto viewVentaProducto = new ViewVentaProducto();
+
     /**
      * Creates new form Principal
      */
@@ -176,7 +177,7 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
             }
         });
     }
-    
+
     private void menuItemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSalirActionPerformed
         // TODO add your handling code here:
         dispose();
@@ -223,7 +224,7 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
 
     private void menuItemMantenimientoHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemMantenimientoHabitacionActionPerformed
         // TODO add your handling code here:
-        
+
         if (viewMantenimientoHabitacion.isShowing()) {
             viewMantenimientoHabitacion.toFront();
         } else {
@@ -252,17 +253,17 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
 
     private void menuItemVentaProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemVentaProductoActionPerformed
         // TODO add your handling code here:
-      if(  viewVentaProducto.isShowing()){
-          viewVentaProducto.toFront();
-      }else{
-          if(viewVentaProducto.isSelected()){escritorio.setSelectedFrame(viewVentaProducto);}
-          else{ escritorio.add(viewVentaProducto);
-          viewVentaProducto.show();
-          }
-      
-                
+        if (viewVentaProducto.isShowing()) {
+            viewVentaProducto.toFront();
+        } else {
+            if (viewVentaProducto.isSelected()) {
+                escritorio.setSelectedFrame(viewVentaProducto);
+            } else {
+                escritorio.add(viewVentaProducto);
+                viewVentaProducto.show();
+            }
 
-      }
+        }
     }//GEN-LAST:event_menuItemVentaProductoActionPerformed
 
     private void menuItemMantenimientoProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemMantenimientoProductoActionPerformed
@@ -276,7 +277,7 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
                 escritorio.add(viewMantenimientoProducto);
                 viewMantenimientoProducto.show();
             }
-        } 
+        }
     }//GEN-LAST:event_menuItemMantenimientoProductoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
