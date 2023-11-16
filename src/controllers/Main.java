@@ -13,10 +13,14 @@ public class Main {
         viewMenuPrincipal.setExtendedState(ViewMenuPrincipal.MAXIMIZED_BOTH);
         viewMenuPrincipal.setVisible(true);// Visualizar frame
 
-        queryConsultar();
-        queryInsertar();
-        queryActualizar();
-        queryEliminar();
+        Object[] parametrosSelect = {"ABW"};
+        queryConsultar("SELECT * FROM country where code = ?", parametrosSelect);
+        Object[] parametrosInsert = {"Peru", "per", "Lince", 1045};
+        queryInsertar("insert into city (Name, CountryCode, District, Population) values (?,?,?,?)", parametrosInsert);
+        Object[] parametrosUpdate = {"Arequipa", 1045};
+        queryActualizar("update city set name = ? where id = ?", parametrosUpdate);
+        Object[] parametrosDelete = {1045};
+        queryEliminar("delete from city where id = ?", parametrosDelete);
     }
 
     public static void test() {
@@ -26,15 +30,18 @@ public class Main {
         proveedor.guardarDB(midata);
     }
 
-    public static void queryConsultar() {
+    public static void queryConsultar(String sql, Object[] parametros) {
         Connection conn = null;
         PreparedStatement stmt = null;
 
         try {
+            int tamano = parametros.length;
             conn = Conexion.obtenerConexion();
+            stmt = conn.prepareStatement(sql);
 
-            stmt = conn.prepareStatement("SELECT * FROM country where code = ?");
-            stmt.setString(1, "ABW");
+            for (int i = 0; i < tamano; i++) {
+                stmt.setObject(i + 1, parametros[i]);
+            }
 
             ResultSet rs = stmt.executeQuery();
 
@@ -51,18 +58,18 @@ public class Main {
         }
     }
 
-    public static int queryInsertar() {
+    public static int queryInsertar(String sql, Object[] parametros) {
         Connection conn = null;
         PreparedStatement stmt = null;
 
         try {
+            int tamano = parametros.length;
             conn = Conexion.obtenerConexion();
+            stmt = conn.prepareStatement(sql, tamano);
 
-            stmt = conn.prepareStatement("insert into city (Name, CountryCode, District, Population) values (?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
-            stmt.setString(1, "TEST");
-            stmt.setString(2, "PER");
-            stmt.setString(3, "TEST");
-            stmt.setInt(4, 1045);
+            for (int i = 0; i < tamano; i++) {
+                stmt.setObject(i + 1, parametros[i]);
+            }
 
             ResultSet rs = stmt.getGeneratedKeys();
 
@@ -82,16 +89,18 @@ public class Main {
         }
     }
 
-    public static int queryActualizar() {
+    public static int queryActualizar(String sql, Object[] parametros) {
         Connection conn = null;
         PreparedStatement stmt = null;
 
         try {
+            int tamano = parametros.length;
             conn = Conexion.obtenerConexion();
+            stmt = conn.prepareStatement(sql, tamano);
 
-            stmt = conn.prepareStatement("update city set name = ? where id = ?");
-            stmt.setString(1, "Alex");
-            stmt.setInt(2, 4082);
+            for (int i = 0; i < tamano; i++) {
+                stmt.setObject(i + 1, parametros[i]);
+            }
 
             return stmt.executeUpdate();
 
@@ -104,15 +113,18 @@ public class Main {
         }
     }
 
-    public static int queryEliminar() {
+    public static int queryEliminar(String sql, Object[] parametros) {
         Connection conn = null;
         PreparedStatement stmt = null;
 
         try {
+            int tamano = parametros.length;
             conn = Conexion.obtenerConexion();
+            stmt = conn.prepareStatement(sql);
 
-            stmt = conn.prepareStatement("delete from city where id = ?");
-            stmt.setInt(1, 4082);
+            for (int i = 0; i < tamano; i++) {
+                stmt.setObject(i + 1, parametros[i]);
+            }
 
             return stmt.executeUpdate();
 
