@@ -13,13 +13,13 @@ public class Main {
         viewMenuPrincipal.setExtendedState(ViewMenuPrincipal.MAXIMIZED_BOTH);
         viewMenuPrincipal.setVisible(true);// Visualizar frame
 
-        Object[] parametrosSelect = {"ABW"};
-        queryConsultar("SELECT * FROM country where code = ?", parametrosSelect);
-        Object[] parametrosInsert = {"Peru", "per", "Lince", 1045};
+        Object[] parametrosSelect = {"PER"};
+        queryConsultar("select * from country where code = ?", parametrosSelect);
+        Object[] parametrosInsert = {"Mi Peru", "PER", "Lince", 40880007};
         queryInsertar("insert into city (Name, CountryCode, District, Population) values (?,?,?,?)", parametrosInsert);
-        Object[] parametrosUpdate = {"Arequipa", 1045};
+        Object[] parametrosUpdate = {"Arequipa", 4088};
         queryActualizar("update city set name = ? where id = ?", parametrosUpdate);
-        Object[] parametrosDelete = {1045};
+        Object[] parametrosDelete = {4088};
         queryEliminar("delete from city where id = ?", parametrosDelete);
     }
 
@@ -48,7 +48,7 @@ public class Main {
             while (rs.next()) {
                 String code = rs.getString("code");
                 String name = rs.getString("name");
-                System.out.println("Code: " + code + " Name: " + name);
+                System.out.println("SELECT: Code: " + code + " Name: " + name);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -65,20 +65,23 @@ public class Main {
         try {
             int tamano = parametros.length;
             conn = Conexion.obtenerConexion();
-            stmt = conn.prepareStatement(sql, tamano);
+            stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             for (int i = 0; i < tamano; i++) {
                 stmt.setObject(i + 1, parametros[i]);
             }
 
+            stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
 
+            int newId = -1;
+
             if (rs.next()) {
-                int code = rs.getInt(1);
-                System.out.println("Code: " + code);
+                newId = rs.getInt(1);
+                System.out.println("INSERT: id: " + newId);
             }
 
-            return stmt.executeUpdate();
+            return newId;
 
         } catch (SQLException e) {
             // e.printStackTrace();
