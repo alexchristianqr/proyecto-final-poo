@@ -35,7 +35,7 @@ public class Main {
 
             stmt = conn.prepareStatement("SELECT * FROM country where code = ?");
             stmt.setString(1, "ABW");
-            
+
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
