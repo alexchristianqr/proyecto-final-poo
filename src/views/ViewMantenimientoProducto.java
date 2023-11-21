@@ -166,9 +166,9 @@ public class ViewMantenimientoProducto extends javax.swing.JInternalFrame {
 
         producto = new Producto(codigo, nombre, precio, cantidad);
         productoController.lista.add(producto);
+
         tabla.setRowCount(0);
         for (int i = 0; i < productoController.lista.size(); i++) {
-
             Object[] fila = {
                 productoController.lista.get(i).getCodigo(),
                 productoController.lista.get(i).getNombre(),

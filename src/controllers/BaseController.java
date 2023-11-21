@@ -3,7 +3,7 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BaseController<T> {
+public abstract class BaseController<T> {
 
     public List<T> lista = new ArrayList<>();
 
