@@ -32,7 +32,7 @@ public class ReservaController extends BaseController<Reserva> {
 
     public Reserva crearReserva(Reserva reserva) {
         Reserva oReserva = new Reserva(reserva);
-        oReserva.setIdHabitacion(idAutoincrementado());
+        oReserva.setIdReserva(idAutoincrementado());
         lista.add(oReserva);
         return oReserva;
     }
