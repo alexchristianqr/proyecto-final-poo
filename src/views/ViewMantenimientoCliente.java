@@ -50,7 +50,7 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
 
         txtNombre.setEnabled(false);
         txtApellidos.setEnabled(false);
-        txtDni.setEnabled(false);
+        txtNroDocumento.setEnabled(false);
         txtTelefono.setEnabled(false);
         txtEdad.setEnabled(false);
         rbnFemenino.setEnabled(false);
@@ -60,7 +60,7 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
         // --
         txtNombre.setText(null);
         txtApellidos.setText(null);
-        txtDni.setText(null);
+        txtNroDocumento.setText(null);
         txtTelefono.setText(null);
         txtEdad.setText(null);
 
@@ -74,7 +74,7 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
 
         txtNombre.setEnabled(true);
         txtApellidos.setEnabled(true);
-        txtDni.setEnabled(true);
+        txtNroDocumento.setEnabled(true);
         txtTelefono.setEnabled(true);
         txtEdad.setEnabled(true);
         rbnFemenino.setEnabled(true);
@@ -84,7 +84,7 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
         // --
         txtNombre.setText(null);
         txtApellidos.setText(null);
-        txtDni.setText(null);
+        txtNroDocumento.setText(null);
         txtTelefono.setText(null);
         txtEdad.setText(null);
 
@@ -127,12 +127,14 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        txtDni = new javax.swing.JTextField();
+        txtNroDocumento = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         txtApellidos = new javax.swing.JTextField();
         txtEdad = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
+        cbxTipoDocumento = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jpanelListarReservas = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblListado = new javax.swing.JTable();
@@ -180,6 +182,7 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
         rbnFemenino.setText("F");
 
         buttonGroup1.add(rbnMasculino);
+        rbnMasculino.setSelected(true);
         rbnMasculino.setText("M");
 
         lblIdCliente.setText("Código:");
@@ -189,8 +192,13 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
         jLabel6.setText("Estado:");
 
         cbxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "activo", "inactivo" }));
+        cbxEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxEstadoActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setText("DNI:");
+        jLabel1.setText("Nro doc.:");
 
         jLabel2.setText("Nombre:");
 
@@ -200,7 +208,16 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Edad:");
 
-        jLabel7.setText("Telefono:");
+        cbxTipoDocumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DNI", "RUC", "PASAPORTE", "CARNET DE EXTRANJERIA" }));
+        cbxTipoDocumento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxTipoDocumentoActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Tipo documento:");
+
+        jLabel9.setText("Telefono");
 
         javax.swing.GroupLayout jpanelCrearReservaLayout = new javax.swing.GroupLayout(jpanelCrearReserva);
         jpanelCrearReserva.setLayout(jpanelCrearReservaLayout);
@@ -218,35 +235,39 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                         .addComponent(btnCerrar1))
                     .addGroup(jpanelCrearReservaLayout.createSequentialGroup()
+                        .addComponent(lblIdCliente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelCrearReservaLayout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cbxTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpanelCrearReservaLayout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpanelCrearReservaLayout.createSequentialGroup()
                         .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelCrearReservaLayout.createSequentialGroup()
-                                    .addComponent(lblIdCliente)
-                                    .addGap(72, 72, 72))
-                                .addGroup(jpanelCrearReservaLayout.createSequentialGroup()
-                                    .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel1)
-                                        .addComponent(jLabel2)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jLabel4)
-                                        .addComponent(jLabel5)
-                                        .addComponent(jLabel7))
-                                    .addGap(62, 62, 62)))
-                            .addGroup(jpanelCrearReservaLayout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(76, 76, 76)))
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addGap(62, 62, 62)
                         .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jpanelCrearReservaLayout.createSequentialGroup()
                                 .addComponent(rbnFemenino)
                                 .addGap(18, 18, 18)
                                 .addComponent(rbnMasculino))
-                            .addComponent(txtTelefono)
-                            .addComponent(txtEdad)
+                            .addComponent(txtEdad, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
                             .addComponent(txtApellidos)
                             .addComponent(txtNombre)
-                            .addComponent(txtDni)
-                            .addComponent(cbxEstado, 0, 219, Short.MAX_VALUE)
-                            .addComponent(txtIdCliente))))
+                            .addComponent(txtNroDocumento))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jpanelCrearReservaLayout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cbxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jpanelCrearReservaLayout.setVerticalGroup(
@@ -256,9 +277,13 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
                 .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblIdCliente))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(cbxTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNroDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -281,14 +306,15 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
                         .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))))
+                .addGap(18, 18, 18)
                 .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
+                    .addComponent(jLabel9)
                     .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(cbxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNuevo)
                     .addComponent(btnGuardar)
@@ -325,7 +351,7 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
             jpanelListarReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelListarReservasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jpanelListarReservasLayout.setVerticalGroup(
@@ -351,9 +377,9 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jpanelCrearReserva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jpanelListarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jpanelListarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
+                    .addComponent(jpanelCrearReserva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -378,20 +404,21 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
 
         cliente = new Cliente();// Crear instancia
-        cliente.setDni(txtDni.getText());
+        cliente.setNroDocumento(txtNroDocumento.getText());
         cliente.setNombre(txtNombre.getText());
         cliente.setApellidos(txtApellidos.getText());
         cliente.setEdad(txtEdad.getText());
         cliente.setTelefono(txtTelefono.getText());
         String sexo;
         if (rbnFemenino.isSelected() == true) {
-            sexo = "Femenino";
+            sexo = "F";
         } else {
-            sexo = "Masculino";
+            sexo = "M";
         }
         cliente.setSexo(sexo);
         cliente.setEstado(cbxEstado.getSelectedItem().toString());
-        DateTimeFormatter formatoDeFecha = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        cliente.setTipoDocumento(cbxTipoDocumento.getSelectedIndex() + 1);// 1/2
+        DateTimeFormatter formatoDeFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String fechaActual = LocalDateTime.now().format(formatoDeFecha);
         cliente.setFechaCreado(fechaActual);
         cliente.setFechaActualizado(fechaActual);
@@ -429,17 +456,25 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
         txtIdCliente.setText(tblListado.getValueAt(fila, 0).toString());
         txtNombre.setText(tblListado.getValueAt(fila, 1).toString());
         txtApellidos.setText(tblListado.getValueAt(fila, 2).toString());
-        txtDni.setText(tblListado.getValueAt(fila, 3).toString());
+        txtNroDocumento.setText(tblListado.getValueAt(fila, 3).toString());
         txtEdad.setText(tblListado.getValueAt(fila, 4).toString());
         String sexo = tblListado.getValueAt(fila, 5).toString();
-        if (sexo.equalsIgnoreCase("Femenino")) {
+        if (sexo.equalsIgnoreCase("F")) {
             rbnFemenino.setSelected(true);
-        } else if (sexo.equalsIgnoreCase("Masculino")) {
+        } else if (sexo.equalsIgnoreCase("M")) {
             rbnMasculino.setSelected(true);
         }
         txtTelefono.setText(tblListado.getValueAt(fila, 6).toString());
         cbxEstado.setSelectedItem(tblListado.getValueAt(fila, 7).toString());
     }//GEN-LAST:event_tblListadoMouseClicked
+
+    private void cbxEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEstadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxEstadoActionPerformed
+
+    private void cbxTipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTipoDocumentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxTipoDocumentoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -449,13 +484,15 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnNuevo;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbxEstado;
+    private javax.swing.JComboBox<String> cbxTipoDocumento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField5;
@@ -466,10 +503,10 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton rbnMasculino;
     private javax.swing.JTable tblListado;
     private javax.swing.JTextField txtApellidos;
-    private javax.swing.JTextField txtDni;
     private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtIdCliente;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNroDocumento;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

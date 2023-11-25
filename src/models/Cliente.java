@@ -8,7 +8,7 @@ public class Cliente extends Persona {
     }
 
     public Cliente(Cliente cliente) {
-        super(cliente.getDni(), cliente.getNombre(), cliente.getApellidos(), cliente.getSexo(), cliente.getEdad(), cliente.getTelefono(), cliente.getEstado(), cliente.getFechaCreado(), cliente.getFechaActualizado());
+        super(cliente.getNroDocumento(), cliente.getNombre(), cliente.getApellidos(), cliente.getSexo(), cliente.getEdad(), cliente.getTelefono(), cliente.getEstado(), cliente.getFechaCreado(), cliente.getFechaActualizado());
         this.idCliente = cliente.getIdCliente();
     }
 

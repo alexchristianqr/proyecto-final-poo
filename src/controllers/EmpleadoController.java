@@ -16,7 +16,7 @@ public class EmpleadoController extends BaseController<Empleado> implements Empl
             data[0] = oEmpleado.getIdEmpleado();
             data[1] = oEmpleado.getNombre();
             data[2] = oEmpleado.getApellidos();
-            data[3] = oEmpleado.getDni();
+            data[3] = oEmpleado.getNroDocumento();
             data[4] = oEmpleado.getEdad();
             data[5] = oEmpleado.getSexo();
             data[6] = oEmpleado.getTelefono();

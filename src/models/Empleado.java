@@ -10,7 +10,7 @@ public class Empleado extends Persona {
     }
 
     public Empleado(Empleado empleado) {
-        super(empleado.getDni(), empleado.getNombre(), empleado.getApellidos(), empleado.getSexo(), empleado.getEdad(), empleado.getTelefono(), empleado.getEstado(), empleado.getFechaCreado(), empleado.getFechaActualizado());
+        super(empleado.getNroDocumento(), empleado.getNombre(), empleado.getApellidos(), empleado.getSexo(), empleado.getEdad(), empleado.getTelefono(), empleado.getEstado(), empleado.getFechaCreado(), empleado.getFechaActualizado());
         this.rol = empleado.getRol();
         this.sueldo = empleado.getSueldo();
     }

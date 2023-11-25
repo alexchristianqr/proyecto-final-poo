@@ -201,6 +201,7 @@ public class ViewMantenimientoEmplead extends javax.swing.JInternalFrame {
         rbnFemeninoEmpleado.setText("F");
 
         buttonGroup1.add(rbnMasculinoEmpleado);
+        rbnMasculinoEmpleado.setSelected(true);
         rbnMasculinoEmpleado.setText("M");
 
         jLabel1.setText("Rol:");
@@ -436,7 +437,7 @@ public class ViewMantenimientoEmplead extends javax.swing.JInternalFrame {
     private void btnGuardarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarEmpleadoActionPerformed
         // TODO add your handling code here:
         empleado = new Empleado();// Crear instancia
-        empleado.setDni(txtDniEmpleado.getText());
+        empleado.setNroDocumento(txtDniEmpleado.getText());
         empleado.setNombre(txtNombreEmpleado.getText());
         empleado.setApellidos(txtApellidosEmpleado.getText());
         empleado.setEdad(txtEdadEmpleado.getText());

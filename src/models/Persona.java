@@ -2,21 +2,23 @@ package models;
 
 public abstract class Persona {
 
-    private String dni;
+    private int idPersona;
+    private String nroDocumento;
     private String nombre;
     private String apellidos;
     private String sexo;
     private String edad;
     private String telefono;
     private String estado;
+    private int tipoDocumento;
     private String fechaCreado;
     private String fechaActualizado;
 
     public Persona() {
     }
 
-    public Persona(String dni, String nombre, String apellidos, String sexo, String edad, String telefono,String estado, String fechaCreado, String fechaActualizado) {
-        this.dni = dni;
+    public Persona(String nroDocumento, String nombre, String apellidos, String sexo, String edad, String telefono, String estado, String fechaCreado, String fechaActualizado) {
+        this.nroDocumento = nroDocumento;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.sexo = sexo;
@@ -27,12 +29,28 @@ public abstract class Persona {
         this.fechaActualizado = fechaActualizado;
     }
 
-    public String getDni() {
-        return dni;
+    public int getTipoDocumento() {
+        return tipoDocumento;
     }
 
-    public void setDni(String dni) {
-        this.dni = dni;
+    public void setTipoDocumento(int tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
+    }
+
+    public int getIdPersona() {
+        return idPersona;
+    }
+
+    public void setIdPersona(int idPersona) {
+        this.idPersona = idPersona;
+    }
+
+    public String getNroDocumento() {
+        return nroDocumento;
+    }
+
+    public void setNroDocumento(String nroDocumento) {
+        this.nroDocumento = nroDocumento;
     }
 
     public String getNombre() {
