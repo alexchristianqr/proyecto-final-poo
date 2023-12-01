@@ -17,7 +17,7 @@ public abstract class Persona {
     public Persona() {
     }
 
-    public Persona(String nroDocumento, String nombre, String apellidos, String sexo, String edad, String telefono, String estado, String fechaCreado, String fechaActualizado) {
+    public Persona(String nroDocumento, String nombre, String apellidos, String sexo, String edad, String telefono, String estado, String fechaCreado, String fechaActualizado,int idPersona) {
         this.nroDocumento = nroDocumento;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -27,6 +27,7 @@ public abstract class Persona {
         this.estado = estado;
         this.fechaCreado = fechaCreado;
         this.fechaActualizado = fechaActualizado;
+        this.idPersona = idPersona;
     }
 
     public int getTipoDocumento() {

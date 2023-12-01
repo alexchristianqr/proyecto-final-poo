@@ -198,7 +198,7 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel1.setText("Nro doc.:");
+        jLabel1.setText("Nro documento:");
 
         jLabel2.setText("Nombre:");
 
@@ -217,7 +217,7 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
 
         jLabel8.setText("Tipo documento:");
 
-        jLabel9.setText("Telefono");
+        jLabel9.setText("Telefono:");
 
         javax.swing.GroupLayout jpanelCrearReservaLayout = new javax.swing.GroupLayout(jpanelCrearReserva);
         jpanelCrearReserva.setLayout(jpanelCrearReservaLayout);
@@ -232,7 +232,7 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
                         .addComponent(btnGuardar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                         .addComponent(btnCerrar1))
                     .addGroup(jpanelCrearReservaLayout.createSequentialGroup()
                         .addComponent(lblIdCliente)
@@ -306,15 +306,15 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
                         .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))))
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
                 .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(cbxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                 .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNuevo)
                     .addComponent(btnGuardar)
@@ -351,7 +351,7 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
             jpanelListarReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelListarReservasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jpanelListarReservasLayout.setVerticalGroup(
@@ -370,7 +370,7 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jpanelCrearReserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpanelListarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
+                .addComponent(jpanelListarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -424,11 +424,12 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
         cliente.setFechaActualizado(fechaActual);
 
         // Guardar cliente
-        oCliente = clienteController.crearCliente(cliente);
+        clienteController.crearCliente(cliente);
+        clienteController.listarClientes("");
 
-        // Obtener ID nuevo
-        cliente.setIdCliente(oCliente.getIdCliente());
-
+//        // Obtener ID nuevo
+//        cliente.setIdPersona(oCliente.getIdPersona());
+//        cliente.setIdCliente(oCliente.getIdCliente());
         // Notificar mensaje
         JOptionPane.showMessageDialog(rootPane, "Guardado con éxito");
 

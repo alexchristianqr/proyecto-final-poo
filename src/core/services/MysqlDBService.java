@@ -69,7 +69,6 @@ public class MysqlDBService {
             for (int i = 0; i < tamano; i++) {
                 stmt.setObject(i + 1, parametros[i]);
             }
-
             ResultSet rs = stmt.executeQuery();
 
             return rs;
