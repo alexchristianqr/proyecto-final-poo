@@ -433,7 +433,6 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
             deshabilitarFormulario();
         } else if (accion.equals("ACTUALIZAR")) {
             // Obtener ID guardado
-            cliente.setIdPersona(Integer.parseInt(txtIdCliente.getText()));
             cliente.setIdCliente(Integer.parseInt(txtIdCliente.getText()));
 
             // Actualizar habitación
@@ -471,6 +470,8 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
         txtNombre.setText(tblListado.getValueAt(fila, 1).toString());
         txtApellidos.setText(tblListado.getValueAt(fila, 2).toString());
         cbxTipoDocumento.setSelectedItem(tblListado.getValueAt(fila, 3).toString());
+        int indexTipoDocumento = Integer.parseInt(tblListado.getValueAt(fila, 3).toString()) - 1;
+        cbxTipoDocumento.setSelectedIndex(indexTipoDocumento);
         txtNroDocumento.setText(tblListado.getValueAt(fila, 4).toString());
         txtEdad.setText(tblListado.getValueAt(fila, 5).toString());
         String sexo = tblListado.getValueAt(fila, 6).toString();
