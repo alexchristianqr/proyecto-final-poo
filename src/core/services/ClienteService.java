@@ -1,5 +1,6 @@
 package core.services;
 
+import core.db.MysqlDBService;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -13,7 +14,7 @@ public class ClienteService extends BaseService {
         db = new MysqlDBService();
     }
 
-    public DefaultTableModel listarClientesService(DefaultTableModel modelo, Object[] data) {
+    public DefaultTableModel listarClientes(DefaultTableModel modelo, Object[] data) {
         querySQL_1 = "SELECT c.id, p.telefono, p.`nombre`,p.`apellido`, p.`edad`, p.`nrodocumento`, p.`sexo`, p.`tipo_documento`, p.`fecha_creado` FROM clientes c JOIN personas p ON p.id = c.id_persona";
         Object[] parametrosSQL_1 = {};
         ResultSet rs = db.queryConsultar(querySQL_1, parametrosSQL_1);
@@ -40,7 +41,7 @@ public class ClienteService extends BaseService {
         return modelo;
     }
 
-    public void crearClienteService(Cliente cliente) {
+    public void crearCliente(Cliente cliente) {
         querySQL_1 = "insert into personas (nombre, apellido, tipo_documento, nrodocumento, sexo, edad, telefono, fecha_creado) values (?,?,?,?,?,?,?,?)";
         Object[] parametrosSQL_1 = {cliente.getNombre(), cliente.getApellidos(), cliente.getTipoDocumento(), cliente.getNroDocumento(), cliente.getSexo(), cliente.getEdad(), cliente.getTelefono(), cliente.getFechaCreado()};
         int id_persona = db.queryInsertar(querySQL_1, parametrosSQL_1);

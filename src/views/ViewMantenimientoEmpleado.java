@@ -7,13 +7,13 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import models.Empleado;
 
-public class ViewMantenimientoEmplead extends javax.swing.JInternalFrame {
+public class ViewMantenimientoEmpleado extends javax.swing.JInternalFrame {
     EmpleadoController empleadoController = new EmpleadoController();
     Empleado empleado, oEmpleado;
     String accion = null;
     DefaultTableModel modelo;
 
-    public ViewMantenimientoEmplead() {
+    public ViewMantenimientoEmpleado() {
         initComponents();
         listarEmpleado();
         deshabilitarFormulario();

@@ -1,4 +1,4 @@
-package core.services;
+package core.db;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -7,11 +7,10 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import javax.swing.JOptionPane;
 
-public class LocalDBService implements IProviderDB {
-    
+public class LocalDBService {
+
     private final String path = "data.bin";
 
-    @Override
     public Object cargarDB() {
         try {
             FileInputStream fis = new FileInputStream(path);
@@ -25,7 +24,6 @@ public class LocalDBService implements IProviderDB {
         return null;
     }
 
-    @Override
     public void guardarDB(Object data) {
         System.out.println("data es: " + data);
         try {

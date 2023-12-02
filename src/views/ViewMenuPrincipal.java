@@ -4,7 +4,7 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
 
     ViewMantenimientoCliente viewMantenimientoCliente = new ViewMantenimientoCliente();
     ViewMantenimientoHabitacion viewMantenimientoHabitacion = new ViewMantenimientoHabitacion();
-    ViewMantenimientoEmplead viewMantenimientoEmplead = new ViewMantenimientoEmplead();
+    ViewMantenimientoEmpleado viewMantenimientoEmpleado = new ViewMantenimientoEmpleado();
     ViewReserva viewReserva = new ViewReserva();
     ViewAcercaDe viewAcercaDe = new ViewAcercaDe();
     ViewMantenimientoProducto viewMantenimientoProducto = new ViewMantenimientoProducto();
@@ -239,14 +239,14 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
 
     private void menuItemMantenimientoEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemMantenimientoEmpleadoActionPerformed
         // TODO add your handling code here:
-        if (viewMantenimientoEmplead.isShowing()) {
-            viewMantenimientoEmplead.toFront();
+        if (viewMantenimientoEmpleado.isShowing()) {
+            viewMantenimientoEmpleado.toFront();
         } else {
-            if (viewMantenimientoEmplead.isSelected()) {
-                escritorio.setSelectedFrame(viewMantenimientoEmplead);
+            if (viewMantenimientoEmpleado.isSelected()) {
+                escritorio.setSelectedFrame(viewMantenimientoEmpleado);
             } else {
-                escritorio.add(viewMantenimientoEmplead);
-                viewMantenimientoEmplead.show();
+                escritorio.add(viewMantenimientoEmpleado);
+                viewMantenimientoEmpleado.show();
             }
         }
     }//GEN-LAST:event_menuItemMantenimientoEmpleadoActionPerformed

@@ -16,23 +16,11 @@ public class ClienteController extends BaseController<Cliente, ClienteService> {
         String[] columnNames = {"Código", "Nombres", "Apellidos", "DNI", "Edad", "Sexo", "Telefono", "Estado", "Fecha creado", "Fecha actualizado"};
         Object[] data = new Object[columnNames.length];
         modelo = new DefaultTableModel(null, columnNames);
-
-        modelo = service.listarClientesService(modelo, data);
-
+        modelo = service.listarClientes(modelo, data);
         return modelo;
     }
 
     public void crearCliente(Cliente cliente) {
-        service.crearClienteService(cliente);
+        service.crearCliente(cliente);
     }
-
-//    public Cliente crearCliente(Cliente cliente) {
-//
-//        Cliente oCliente = new Cliente(cliente);
-//        oCliente.setIdPersona(idAutoincrementado());
-//        oCliente.setIdCliente(idAutoincrementado());
-//        lista.add(oCliente);
-//
-//        return oCliente;
-//    }
 }

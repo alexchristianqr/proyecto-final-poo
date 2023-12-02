@@ -1,11 +1,17 @@
 package controllers;
 
+import core.services.HabitacionService;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import javax.swing.table.DefaultTableModel;
 import models.Habitacion;
 
-public class HabitacionController extends BaseController<Habitacion> {
+public class HabitacionController extends BaseController<Habitacion, HabitacionService> {
+
+    public HabitacionController() {
+        lista.clear();
+        service = new HabitacionService();
+    }
 
     public DefaultTableModel listarHabitaciones(String buscar) {
         DefaultTableModel modelo;

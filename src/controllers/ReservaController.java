@@ -1,9 +1,15 @@
 package controllers;
 
+import core.services.ReservaService;
 import javax.swing.table.DefaultTableModel;
 import models.Reserva;
 
-public class ReservaController extends BaseController<Reserva> {
+public class ReservaController extends BaseController<Reserva, ReservaService> {
+
+    public ReservaController() {
+        lista.clear();
+        service = new ReservaService();
+    }
 
     public DefaultTableModel listarReservas(String buscar) {
         DefaultTableModel modelo;

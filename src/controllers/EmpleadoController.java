@@ -1,9 +1,15 @@
 package controllers;
 
+import core.services.EmpleadoService;
 import javax.swing.table.DefaultTableModel;
 import models.Empleado;
 
-public class EmpleadoController extends BaseController<Empleado> implements EmpleadoControllerInterface{
+public class EmpleadoController extends BaseController<Empleado, EmpleadoService> implements EmpleadoControllerInterface {
+
+    public EmpleadoController() {
+        lista.clear();
+        service = new EmpleadoService();
+    }
 
     @Override
     public DefaultTableModel listarEmpleados(String buscar) {
