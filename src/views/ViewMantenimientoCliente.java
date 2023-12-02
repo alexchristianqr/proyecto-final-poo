@@ -189,7 +189,13 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
 
         lblIdCliente.setText("Código:");
 
-        txtIdCliente.setText("1234");
+        txtIdCliente.setText("C1234");
+        txtIdCliente.setEnabled(false);
+        txtIdCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdClienteActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Estado:");
 
@@ -254,14 +260,14 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
                             .addComponent(txtEdad)
                             .addComponent(txtNombre)
                             .addComponent(txtNroDocumento)
-                            .addComponent(txtIdCliente)
                             .addComponent(cbxTipoDocumento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtApellidos)
                             .addGroup(jpanelCrearReservaLayout.createSequentialGroup()
                                 .addComponent(rbnFemenino)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(rbnMasculino)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txtIdCliente))))
                 .addContainerGap())
         );
         jpanelCrearReservaLayout.setVerticalGroup(
@@ -413,18 +419,35 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
         cliente.setFechaCreado(fechaActual);
         cliente.setFechaActualizado(fechaActual);
 
-        // Guardar cliente
-        clienteController.crearCliente(cliente);
-        clienteController.listarClientes("");
+        if (accion.equals("GUARDAR")) {
+            // Guardar cliente
+            clienteController.crearCliente(cliente);
 
-//        // Obtener ID nuevo
-//        cliente.setIdPersona(oCliente.getIdPersona());
-//        cliente.setIdCliente(oCliente.getIdCliente());
-        // Notificar mensaje
-        JOptionPane.showMessageDialog(rootPane, "Guardado con éxito");
+            // Notificar mensaje
+            JOptionPane.showMessageDialog(rootPane, "Guardado con éxito");
 
-        // Listar registros
-        listarClientes();
+            // Listar registros
+            listarClientes();
+
+            // Reiniciar formulario
+            deshabilitarFormulario();
+        } else if (accion.equals("ACTUALIZAR")) {
+            // Obtener ID guardado
+            cliente.setIdPersona(Integer.parseInt(txtIdCliente.getText()));
+            cliente.setIdCliente(Integer.parseInt(txtIdCliente.getText()));
+
+            // Actualizar habitación
+            clienteController.actualizarCliente(cliente);
+
+            // Notificar mensaje
+            JOptionPane.showMessageDialog(rootPane, "Actualizado con éxito");
+
+            // Listar registros
+            listarClientes();
+
+            // Reiniciar formulario
+            deshabilitarFormulario();
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
@@ -447,16 +470,17 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
         txtIdCliente.setText(tblListado.getValueAt(fila, 0).toString());
         txtNombre.setText(tblListado.getValueAt(fila, 1).toString());
         txtApellidos.setText(tblListado.getValueAt(fila, 2).toString());
-        txtNroDocumento.setText(tblListado.getValueAt(fila, 3).toString());
-        txtEdad.setText(tblListado.getValueAt(fila, 4).toString());
-        String sexo = tblListado.getValueAt(fila, 5).toString();
+        cbxTipoDocumento.setSelectedItem(tblListado.getValueAt(fila, 3).toString());
+        txtNroDocumento.setText(tblListado.getValueAt(fila, 4).toString());
+        txtEdad.setText(tblListado.getValueAt(fila, 5).toString());
+        String sexo = tblListado.getValueAt(fila, 6).toString();
         if (sexo.equalsIgnoreCase("F")) {
             rbnFemenino.setSelected(true);
         } else if (sexo.equalsIgnoreCase("M")) {
             rbnMasculino.setSelected(true);
         }
-        txtTelefono.setText(tblListado.getValueAt(fila, 6).toString());
-        cbxEstado.setSelectedItem(tblListado.getValueAt(fila, 7).toString());
+        txtTelefono.setText(tblListado.getValueAt(fila, 7).toString());
+        cbxEstado.setSelectedItem(tblListado.getValueAt(fila, 8).toString());
     }//GEN-LAST:event_tblListadoMouseClicked
 
     private void cbxEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEstadoActionPerformed
@@ -466,6 +490,10 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
     private void cbxTipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTipoDocumentoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxTipoDocumentoActionPerformed
+
+    private void txtIdClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdClienteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -22,7 +22,10 @@ CREATE TABLE personas
     nrodocumento VARCHAR(25) NOT NULL,
     sexo CHAR NOT NULL,
     edad VARCHAR(5),
+    telefono VARCHAR(25),
+    estado VARCHAR(50),
     fecha_creado DATETIME NOT NULL,
+    fecha_actualizado DATETIME,
     PRIMARY KEY (id)
 )
 
@@ -33,6 +36,7 @@ CREATE TABLE clientes
     id_persona INT NOT NULL,
     empresa VARCHAR(250),
     fecha_creado DATETIME NOT NULL,
+    fecha_actualizado DATETIME,
     PRIMARY KEY (id),
     FOREIGN KEY (id_persona) REFERENCES personas(id)
 )
@@ -44,6 +48,7 @@ CREATE TABLE perfiles
     nombre VARCHAR(100) NOT NULL,
     permisos VARCHAR(250) NOT NULL,
     fecha_creado DATETIME NOT NULL,
+    fecha_actualizado DATETIME,
     PRIMARY KEY (id)
 )
 
@@ -55,6 +60,7 @@ CREATE TABLE empleados
     id_perfil INT NOT NULL,
     sueldo DECIMAL NOT NULL,
     fecha_creado DATETIME NOT NULL,
+    fecha_actualizado DATETIME,
     PRIMARY KEY (id),
     FOREIGN KEY (id_persona) REFERENCES personas(id),
     FOREIGN KEY (id_perfil) REFERENCES perfiles(id)
@@ -66,6 +72,7 @@ CREATE TABLE tipo_habitacion
     id INT NOT NULL AUTO_INCREMENT,
     descripcion VARCHAR(250) NOT NULL,
     fecha_creado DATETIME NOT NULL,
+    fecha_actualizado DATETIME,
     PRIMARY KEY (id)
 )
 
@@ -80,6 +87,7 @@ CREATE TABLE habitaciones
     precio DECIMAL NOT NULL,
     cantidad_camas INT NOT NULL,
     fecha_creado DATETIME NOT NULL,
+    fecha_actualizado DATETIME,
     PRIMARY KEY (id),
     FOREIGN KEY (id_tipohabitacion) REFERENCES tipo_habitacion(id)
 )
@@ -92,6 +100,7 @@ CREATE TABLE productos
     precio DECIMAL NOT NULL,
     cantidad_stock INT NOT NULL,
     fecha_creado DATETIME NOT NULL,
+    fecha_actualizado DATETIME,
     PRIMARY KEY (id)
 )
 
@@ -102,7 +111,8 @@ CREATE TABLE reserva_consumos
     id_producto INT NOT NULL,
     cantidad INT NOT NULL,
     precio DECIMAL(2) NOT NULL,
-    fecha_creado DATETIME NOT NULL
+    fecha_creado DATETIME NOT NULL,
+    fecha_actualizado DATETIME
 )
 
 -- # crear tabla reserva
@@ -116,8 +126,9 @@ CREATE TABLE reservas
     fecha_reserva DATETIME,
     fecha_entrada DATETIME,
     fecha_salida DATETIME,
-    fecha_creado DATETIME NOT NULL,
     estado VARCHAR(50) NOT NULL, -- activo, pendiente pago, pagado, cancelado
+    fecha_creado DATETIME NOT NULL,
+    fecha_actualizado DATETIME,
     PRIMARY KEY (id),
     FOREIGN KEY (id_cliente) REFERENCES clientes(id),
     FOREIGN KEY (id_habitacion) REFERENCES habitaciones(id),
@@ -131,9 +142,9 @@ CREATE TABLE comprobantes
     id_reserva INT NOT NULL,
     id_empleado INT NOT NULL,
     tipo_comprobante INT NOT NULL, -- 1: factura, 2: boleta
+    estado VARCHAR(50) NOT NULL, -- activo, pendiente pago, pagado, cancelado
     fecha_creado DATETIME NOT NULL,
     fecha_pagado DATETIME,
-    estado VARCHAR(50) NOT NULL, -- activo, pendiente pago, pagado, cancelado
     PRIMARY KEY (id),
     FOREIGN KEY (id_reserva) REFERENCES reservas(id),
     FOREIGN KEY (id_empleado) REFERENCES empleados(id)
