@@ -125,7 +125,6 @@ public class MysqlDBService {
     public int queryEliminar(String sql, Object[] parametros) {
         try {
             int tamano = parametros.length;
-            conn = Conexion.obtenerConexion();
             stmt = conn.prepareStatement(sql);
 
             for (int i = 0; i < tamano; i++) {
