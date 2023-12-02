@@ -10,7 +10,7 @@ import models.Cliente;
 public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
 
     ClienteController clienteController = new ClienteController();
-    Cliente cliente, oCliente;
+    Cliente cliente;
     String accion = null;
     DefaultTableModel modelo;
 
