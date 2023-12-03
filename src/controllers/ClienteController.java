@@ -26,17 +26,5 @@ public class ClienteController extends BaseController<Cliente, ClienteService> {
 
     public void actualizarCliente(Cliente cliente) {
         service.actualizarCliente(cliente);
-//        for (Habitacion oHabitacion : lista) {
-//            if (oHabitacion.getIdHabitacion() == habitacion.getIdHabitacion()) {
-//                oHabitacion.setDescripcion(habitacion.getDescripcion());
-//                oHabitacion.setPrecio(habitacion.getPrecio());
-//                oHabitacion.setTipo(habitacion.getTipo());
-//                oHabitacion.setEstado(habitacion.getEstado());
-//                DateTimeFormatter formatoDeFecha = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-//                String fechaActual = LocalDateTime.now().format(formatoDeFecha);
-//                oHabitacion.setFechaActualizado(fechaActual);
-//                break;
-//            }
-//        }
     }
 }
