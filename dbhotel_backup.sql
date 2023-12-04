@@ -108,14 +108,18 @@ CREATE TABLE `habitaciones` (
   `numero_piso` varchar(25) NOT NULL,
   `precio` decimal(10,0) NOT NULL,
   `cantidad_camas` int NOT NULL,
+  `estado` varchar(25) NOT NULL,
   `fecha_creado` datetime NOT NULL,
   `fecha_actualizado` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_tipohabitacion` (`id_tipohabitacion`),
   CONSTRAINT `habitaciones_ibfk_1` FOREIGN KEY (`id_tipohabitacion`) REFERENCES `tipo_habitacion` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Data for the table `habitaciones` */
+
+insert  into `habitaciones`(`id`,`id_tipohabitacion`,`descripcion`,`nivel`,`numero_piso`,`precio`,`cantidad_camas`,`estado`,`fecha_creado`,`fecha_actualizado`) values 
+(1,1,'Cama de 1.5 plaza + TV + agua caliente + karaoke','1','101',39,1,'activo','2023-12-04 15:33:57',NULL);
 
 /*Table structure for table `perfiles` */
 
@@ -244,9 +248,12 @@ CREATE TABLE `tipo_habitacion` (
   `fecha_creado` datetime NOT NULL,
   `fecha_actualizado` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Data for the table `tipo_habitacion` */
+
+insert  into `tipo_habitacion`(`id`,`descripcion`,`fecha_creado`,`fecha_actualizado`) values 
+(1,'Clasico','2023-12-04 15:33:05',NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
