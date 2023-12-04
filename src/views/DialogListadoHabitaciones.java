@@ -99,7 +99,7 @@ public class DialogListadoHabitaciones extends javax.swing.JDialog {
         Habitacion habitacion = new Habitacion();
         habitacion.setIdHabitacion(Integer.parseInt(tblListado.getValueAt(fila, 0).toString()));
         habitacion.setDescripcion(tblListado.getValueAt(fila, 1).toString());
-        habitacion.setTipo(tblListado.getValueAt(fila, 2).toString());
+        habitacion.setIdTipoHabitacion(Integer.parseInt(tblListado.getValueAt(fila, 2).toString()));
         habitacion.setPrecio(Double.parseDouble(tblListado.getValueAt(fila, 3).toString()));
         habitacion.setEstado(tblListado.getValueAt(fila, 4).toString());
 

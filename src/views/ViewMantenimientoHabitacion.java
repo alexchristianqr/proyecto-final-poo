@@ -184,9 +184,9 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Estado:");
 
-        cbxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Simple", "Suite Presidencial", "Suite Matrimonial", "Luna de Miel" }));
+        cbxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "clasico", "matrimonial" }));
 
-        cbxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Disponible", "Reservado", "Prestado" }));
+        cbxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "activo", "inactivo" }));
 
         jLabel6.setText("Precio:");
 
@@ -313,7 +313,7 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
 
         habitacion = new Habitacion();// Crear instancia
         habitacion.setDescripcion(txtDescripcion.getText());
-        habitacion.setTipo(cbxTipo.getSelectedItem().toString());
+        habitacion.setIdTipoHabitacion(cbxTipo.getSelectedIndex() + 1);
         habitacion.setPrecio(Double.parseDouble(txtPrecio.getText()));
         habitacion.setEstado(cbxEstado.getSelectedItem().toString());
         DateTimeFormatter formatoDeFecha = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
@@ -323,10 +323,7 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
 
         if (accion.equals("GUARDAR")) {
             // Guardar habitación
-            oHabitacion = habitacionController.crearHabitacion(habitacion);
-
-            // Obtener ID nuevo
-            habitacion.setIdHabitacion(oHabitacion.getIdHabitacion());
+            habitacionController.crearHabitacion(habitacion);
 
             // Notificar mensaje
             JOptionPane.showMessageDialog(rootPane, "Guardado con éxito");

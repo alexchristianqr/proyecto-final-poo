@@ -225,11 +225,9 @@
         <Component class="javax.swing.JComboBox" name="cbxTipo">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Simple"/>
-                <StringItem index="1" value="Suite Presidencial"/>
-                <StringItem index="2" value="Suite Matrimonial"/>
-                <StringItem index="3" value="Luna de Miel"/>
+              <StringArray count="2">
+                <StringItem index="0" value="clasico"/>
+                <StringItem index="1" value="matrimonial"/>
               </StringArray>
             </Property>
           </Properties>
@@ -240,10 +238,9 @@
         <Component class="javax.swing.JComboBox" name="cbxEstado">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
-                <StringItem index="0" value="Disponible"/>
-                <StringItem index="1" value="Reservado"/>
-                <StringItem index="2" value="Prestado"/>
+              <StringArray count="2">
+                <StringItem index="0" value="activo"/>
+                <StringItem index="1" value="inactivo"/>
               </StringArray>
             </Property>
           </Properties>
