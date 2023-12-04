@@ -127,6 +127,7 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
         txtIdHabitacion = new javax.swing.JTextField();
 
         setClosable(true);
+        setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
         setTitle("Habitación");

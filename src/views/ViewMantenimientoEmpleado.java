@@ -146,6 +146,7 @@ public class ViewMantenimientoEmpleado extends javax.swing.JInternalFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tblListado = new javax.swing.JTable();
 
+        setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);

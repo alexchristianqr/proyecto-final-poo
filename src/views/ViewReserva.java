@@ -17,6 +17,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
     
     DialogListadoHabitaciones dialogListadoHabitaciones = new DialogListadoHabitaciones();
     DialogListadoClientes dialogListadoClientes = new DialogListadoClientes();
+    DialogListadoEmpleados dialogListadoEmpleados = new DialogListadoEmpleados();
     ReservaController reservaController = new ReservaController();
     Reserva reserva, oReserva;
     String accion = null;
@@ -407,12 +408,12 @@ public class ViewReserva extends javax.swing.JInternalFrame {
     private void btnSeleccionarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarEmpleadoActionPerformed
         // TODO add your handling code here:
         
-         if (dialogListadoHabitaciones.isVisible()) {
-            dialogListadoHabitaciones.toFront();
+         if (dialogListadoEmpleados.isVisible()) {
+            dialogListadoEmpleados.toFront();
         } else {
-            dialogListadoHabitaciones.setVisible(true);
+            dialogListadoEmpleados.setVisible(true);
         }
-        dialogListadoHabitaciones.listarHabitaciones();
+        dialogListadoEmpleados.listarHabitaciones();
     }//GEN-LAST:event_btnSeleccionarEmpleadoActionPerformed
 
 
