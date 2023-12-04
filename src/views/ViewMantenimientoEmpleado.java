@@ -8,6 +8,7 @@ import javax.swing.table.DefaultTableModel;
 import models.Empleado;
 
 public class ViewMantenimientoEmpleado extends javax.swing.JInternalFrame {
+
     EmpleadoController empleadoController = new EmpleadoController();
     Empleado empleado, oEmpleado;
     String accion = null;
@@ -15,7 +16,7 @@ public class ViewMantenimientoEmpleado extends javax.swing.JInternalFrame {
 
     public ViewMantenimientoEmpleado() {
         initComponents();
-        listarEmpleado();
+        listarEmpleados();
         deshabilitarFormulario();
     }
 
@@ -26,14 +27,14 @@ public class ViewMantenimientoEmpleado extends javax.swing.JInternalFrame {
                 lblIdEmpleado.setEnabled(false);
                 txtIdEmpleado.setVisible(false);
                 txtIdEmpleado.setEnabled(false);
-                btnGuardarEmpleado.setText("Guardar");
+                btnGuardar.setText("Guardar");
                 break;
             case "ACTUALIZAR":
                 lblIdEmpleado.setVisible(true);
                 lblIdEmpleado.setEnabled(false);
                 txtIdEmpleado.setVisible(true);
                 txtIdEmpleado.setEnabled(false);
-                btnGuardarEmpleado.setText("Actualizar");
+                btnGuardar.setText("Actualizar");
                 break;
             default:
                 throw new Error("Error en la acción del formulario");
@@ -47,65 +48,67 @@ public class ViewMantenimientoEmpleado extends javax.swing.JInternalFrame {
         txtIdEmpleado.setVisible(false);
         txtIdEmpleado.setEnabled(false);
 
-        txtNombreEmpleado.setEnabled(false);
-        txtApellidosEmpleado.setEnabled(false);
-        txtDniEmpleado.setEnabled(false);
-        txtTelefonoEmpleado.setEnabled(false);
-        txtEdadEmpleado.setEnabled(false);
-        rbnFemeninoEmpleado.setEnabled(false);
-        rbnMasculinoEmpleado.setEnabled(false);
-        cbxEstadoEmpleado.setEnabled(false);
-        txtRol.setEnabled(false);
+        txtNombre.setEnabled(false);
+        txtApellidos.setEnabled(false);
+        txtNroDocumento.setEnabled(false);
+        txtTelefono.setEnabled(false);
+        txtEdad.setEnabled(false);
+        rbnFemenino.setEnabled(false);
+        rbnMasculino.setEnabled(false);
+        cbxEstado.setEnabled(false);
+        cbxIdPerfil.setEnabled(false);
+        cbxTipoDocumento.setEnabled(false);
         txtSueldo.setEnabled(false);
         // --
-        txtNombreEmpleado.setText(null);
-        txtApellidosEmpleado.setText(null);
-        txtDniEmpleado.setText(null);
-        txtTelefonoEmpleado.setText(null);
-        txtEdadEmpleado.setText(null);
+        txtNombre.setText(null);
+        txtApellidos.setText(null);
+        txtNroDocumento.setText(null);
+        txtTelefono.setText(null);
+        txtEdad.setText(null);
 
         // --
-        btnNuevoEmpleado.setEnabled(true);// Habilitar boton nuevo
-        btnGuardarEmpleado.setEnabled(false);
-        btnCancelarEmpleado.setEnabled(false);
+        btnNuevo.setEnabled(true);// Habilitar boton nuevo
+        btnGuardar.setEnabled(false);
+        btnCancelar.setEnabled(false);
     }
 
     protected final void habilitarFormulario() {
 
-        txtNombreEmpleado.setEnabled(true);
-        txtApellidosEmpleado.setEnabled(true);
-        txtDniEmpleado.setEnabled(true);
-        txtTelefonoEmpleado.setEnabled(true);
-        txtEdadEmpleado.setEnabled(true);
-        rbnFemeninoEmpleado.setEnabled(true);
-        rbnMasculinoEmpleado.setEnabled(true);
-        cbxEstadoEmpleado.setEnabled(true);
-        txtRol.setEnabled(true);
+        txtNombre.setEnabled(true);
+        txtApellidos.setEnabled(true);
+        txtNroDocumento.setEnabled(true);
+        txtTelefono.setEnabled(true);
+        txtEdad.setEnabled(true);
+        rbnFemenino.setEnabled(true);
+        rbnMasculino.setEnabled(true);
+        cbxEstado.setEnabled(true);
+        cbxIdPerfil.setEnabled(true);
+        cbxTipoDocumento.setEnabled(true);
         txtSueldo.setEnabled(true);
 
         // --
-        txtNombreEmpleado.setText(null);
-        txtApellidosEmpleado.setText(null);
-        txtDniEmpleado.setText(null);
-        txtTelefonoEmpleado.setText(null);
-        txtEdadEmpleado.setText(null);
+        txtNombre.setText(null);
+        txtApellidos.setText(null);
+        txtNroDocumento.setText(null);
+        txtTelefono.setText(null);
+        txtEdad.setText(null);
 
         // --
-        btnNuevoEmpleado.setEnabled(false);// Deshabilitar boton nuevo
-        btnGuardarEmpleado.setEnabled(true);
-        btnCancelarEmpleado.setEnabled(true);
+        btnNuevo.setEnabled(false);// Deshabilitar boton nuevo
+        btnGuardar.setEnabled(true);
+        btnCancelar.setEnabled(true);
     }
 
-    protected final void listarEmpleado() {
+    protected final void listarEmpleados() {
         // Obtener modelo de controlador
         modelo = empleadoController.listarEmpleados("");
 
         // Cargar modelo en dialog
         DialogListadoEmpleados.modelo = modelo;
 
-        tblListadoEmpleado.setModel(modelo);
+        tblListado.setModel(modelo);
     }
-                     
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -114,32 +117,34 @@ public class ViewMantenimientoEmpleado extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         lblIdEmpleado = new javax.swing.JLabel();
         lblDniEmpleado = new javax.swing.JLabel();
-        btnNuevoEmpleado = new javax.swing.JButton();
-        btnGuardarEmpleado = new javax.swing.JButton();
-        btnCancelarEmpleado = new javax.swing.JButton();
-        btnCerrarEmpleado = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txtIdEmpleado = new javax.swing.JTextField();
-        txtDniEmpleado = new javax.swing.JTextField();
-        txtNombreEmpleado = new javax.swing.JTextField();
-        txtApellidosEmpleado = new javax.swing.JTextField();
-        txtEdadEmpleado = new javax.swing.JTextField();
-        txtTelefonoEmpleado = new javax.swing.JTextField();
-        rbnFemeninoEmpleado = new javax.swing.JRadioButton();
-        rbnMasculinoEmpleado = new javax.swing.JRadioButton();
+        txtNroDocumento = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtApellidos = new javax.swing.JTextField();
+        txtEdad = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
+        rbnFemenino = new javax.swing.JRadioButton();
+        rbnMasculino = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtRol = new javax.swing.JTextField();
         txtSueldo = new javax.swing.JTextField();
-        cbxEstadoEmpleado = new javax.swing.JComboBox<>();
+        cbxEstado = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        cbxTipoDocumento = new javax.swing.JComboBox<>();
+        cbxIdPerfil = new javax.swing.JComboBox<>();
+        btnNuevo = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        btnCerrar1 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tblListadoEmpleado = new javax.swing.JTable();
+        tblListado = new javax.swing.JTable();
 
         setIconifiable(true);
         setMaximizable(true);
@@ -151,35 +156,7 @@ public class ViewMantenimientoEmpleado extends javax.swing.JInternalFrame {
 
         lblIdEmpleado.setText("Código:");
 
-        lblDniEmpleado.setText("DNI:");
-
-        btnNuevoEmpleado.setText("Nuevo");
-        btnNuevoEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNuevoEmpleadoActionPerformed(evt);
-            }
-        });
-
-        btnGuardarEmpleado.setText("Guardar");
-        btnGuardarEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarEmpleadoActionPerformed(evt);
-            }
-        });
-
-        btnCancelarEmpleado.setText("Cancelar");
-        btnCancelarEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarEmpleadoActionPerformed(evt);
-            }
-        });
-
-        btnCerrarEmpleado.setText("Cerrar");
-        btnCerrarEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCerrarEmpleadoActionPerformed(evt);
-            }
-        });
+        lblDniEmpleado.setText("Nro documento:");
 
         jLabel3.setText("Nombre:");
 
@@ -191,20 +168,22 @@ public class ViewMantenimientoEmpleado extends javax.swing.JInternalFrame {
 
         jLabel7.setText("Teléfono:");
 
-        txtEdadEmpleado.addActionListener(new java.awt.event.ActionListener() {
+        txtIdEmpleado.setText("E001");
+
+        txtEdad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEdadEmpleadoActionPerformed(evt);
+                txtEdadActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(rbnFemeninoEmpleado);
-        rbnFemeninoEmpleado.setText("F");
+        buttonGroup1.add(rbnFemenino);
+        rbnFemenino.setText("F");
 
-        buttonGroup1.add(rbnMasculinoEmpleado);
-        rbnMasculinoEmpleado.setSelected(true);
-        rbnMasculinoEmpleado.setText("M");
+        buttonGroup1.add(rbnMasculino);
+        rbnMasculino.setSelected(true);
+        rbnMasculino.setText("M");
 
-        jLabel1.setText("Rol:");
+        jLabel1.setText("Perfil");
 
         jLabel2.setText("Sueldo:");
 
@@ -214,122 +193,172 @@ public class ViewMantenimientoEmpleado extends javax.swing.JInternalFrame {
             }
         });
 
-        cbxEstadoEmpleado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Labora", "No labora" }));
+        cbxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "activo", "inactivo" }));
 
         jLabel8.setText("Estado:");
+
+        jLabel9.setText("Tipo documento:");
+
+        cbxTipoDocumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DNI", "RUC", "PASAPORTE", "CARNET DE EXTRANJERIA" }));
+        cbxTipoDocumento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxTipoDocumentoActionPerformed(evt);
+            }
+        });
+
+        cbxIdPerfil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "administrador", "recepcionista" }));
+
+        btnNuevo.setText("Nuevo");
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
+
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
+
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+
+        btnCerrar1.setText("Cerrar");
+        btnCerrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrar1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblIdEmpleado)
-                            .addComponent(lblDniEmpleado)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel8))
-                        .addGap(107, 107, 107)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cbxEstadoEmpleado, 0, 155, Short.MAX_VALUE)
-                            .addComponent(txtIdEmpleado)
-                            .addComponent(txtDniEmpleado)
-                            .addComponent(txtNombreEmpleado)
-                            .addComponent(txtApellidosEmpleado)
-                            .addComponent(txtEdadEmpleado)
-                            .addComponent(txtTelefonoEmpleado)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNombre)
+                            .addComponent(txtApellidos)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(rbnFemeninoEmpleado)
+                                .addComponent(rbnFemenino)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rbnMasculinoEmpleado))
-                            .addComponent(txtRol)
+                                .addComponent(rbnMasculino)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(txtSueldo)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnNuevoEmpleado)
-                            .addComponent(btnCancelarEmpleado))
-                        .addGap(42, 42, 42)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnGuardarEmpleado)
-                            .addComponent(btnCerrarEmpleado))))
-                .addContainerGap(70, Short.MAX_VALUE))
+                            .addComponent(txtTelefono)
+                            .addComponent(cbxEstado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtEdad)
+                            .addComponent(cbxIdPerfil, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnNuevo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnGuardar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCancelar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCerrar1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                                .addComponent(lblDniEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblIdEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtIdEmpleado)
+                            .addComponent(txtNroDocumento)
+                            .addComponent(cbxTipoDocumento, 0, 202, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblIdEmpleado)
-                            .addComponent(txtIdEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtDniEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDniEmpleado))
-                        .addGap(18, 18, 18)
-                        .addComponent(txtNombreEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10))
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblIdEmpleado)
+                    .addComponent(txtIdEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbxTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDniEmpleado)
+                    .addComponent(txtNroDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel4))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(txtApellidosEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addGap(2, 2, 2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rbnFemeninoEmpleado)
-                            .addComponent(rbnMasculinoEmpleado)
-                            .addComponent(jLabel5))
-                        .addGap(18, 18, 18)
-                        .addComponent(txtEdadEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(28, 28, 28)
+                    .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbxEstadoEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtTelefonoEmpleado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTelefono, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(26, 26, 26)
+                    .addComponent(jLabel1)
+                    .addComponent(cbxIdPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtSueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnNuevoEmpleado)
-                    .addComponent(btnGuardarEmpleado))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancelarEmpleado)
-                    .addComponent(btnCerrarEmpleado))
-                .addGap(12, 12, 12))
+                    .addComponent(rbnFemenino)
+                    .addComponent(rbnMasculino)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNuevo)
+                    .addComponent(btnGuardar)
+                    .addComponent(btnCancelar)
+                    .addComponent(btnCerrar1))
+                .addContainerGap())
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 204));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Empleados"));
 
-        tblListadoEmpleado.setModel(new javax.swing.table.DefaultTableModel(
+        tblListado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -340,12 +369,12 @@ public class ViewMantenimientoEmpleado extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tblListadoEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblListado.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblListadoEmpleadoMouseClicked(evt);
+                tblListadoMouseClicked(evt);
             }
         });
-        jScrollPane3.setViewportView(tblListadoEmpleado);
+        jScrollPane3.setViewportView(tblListado);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -353,7 +382,7 @@ public class ViewMantenimientoEmpleado extends javax.swing.JInternalFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -378,8 +407,8 @@ public class ViewMantenimientoEmpleado extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -388,103 +417,132 @@ public class ViewMantenimientoEmpleado extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tblListadoEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblListadoEmpleadoMouseClicked
+    private void tblListadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblListadoMouseClicked
         // TODO add your handling code here:
 
         accion = "ACTUALIZAR";
         controlAccionFormulario();
         habilitarFormulario();
 
-        int fila = tblListadoEmpleado.rowAtPoint(evt.getPoint());
+        int fila = tblListado.rowAtPoint(evt.getPoint());
 
-        txtIdEmpleado.setText(tblListadoEmpleado.getValueAt(fila, 0).toString());
-        txtNombreEmpleado.setText(tblListadoEmpleado.getValueAt(fila, 1).toString());
-        txtApellidosEmpleado.setText(tblListadoEmpleado.getValueAt(fila, 2).toString());
-        txtDniEmpleado.setText(tblListadoEmpleado.getValueAt(fila, 3).toString());
-        txtEdadEmpleado.setText(tblListadoEmpleado.getValueAt(fila, 4).toString());
-        String sexo = tblListadoEmpleado.getValueAt(fila, 5).toString();
-        if (sexo.equalsIgnoreCase("Femenino")) {
-            rbnFemeninoEmpleado.setSelected(true);
-        } else if (sexo.equalsIgnoreCase("Masculino")) {
-            rbnMasculinoEmpleado.setSelected(true);
+        txtIdEmpleado.setText(tblListado.getValueAt(fila, 0).toString());
+        txtNombre.setText(tblListado.getValueAt(fila, 1).toString());
+        txtApellidos.setText(tblListado.getValueAt(fila, 2).toString());
+        cbxTipoDocumento.setSelectedItem(tblListado.getValueAt(fila, 3).toString());
+        txtNroDocumento.setText(tblListado.getValueAt(fila, 4).toString());
+        txtSueldo.setText(tblListado.getValueAt(fila, 5).toString());
+        int indexIdPerfil = Integer.parseInt(tblListado.getValueAt(fila, 6).toString()) - 1;
+        cbxIdPerfil.setSelectedIndex(indexIdPerfil);
+        txtEdad.setText(tblListado.getValueAt(fila, 7).toString());
+        String sexo = tblListado.getValueAt(fila, 8).toString();
+        if (sexo.equalsIgnoreCase("F")) {
+            rbnFemenino.setSelected(true);
+        } else if (sexo.equalsIgnoreCase("M")) {
+            rbnMasculino.setSelected(true);
         }
-        txtTelefonoEmpleado.setText(tblListadoEmpleado.getValueAt(fila, 6).toString());
-        txtRol.setText(tblListadoEmpleado.getValueAt(fila, 7).toString());
-        txtSueldo.setText(tblListadoEmpleado.getValueAt(fila, 8).toString());
-        cbxEstadoEmpleado.setSelectedItem(tblListadoEmpleado.getValueAt(fila, 9).toString());
-    }//GEN-LAST:event_tblListadoEmpleadoMouseClicked
+        txtTelefono.setText(tblListado.getValueAt(fila, 9).toString());
+        cbxEstado.setSelectedItem(tblListado.getValueAt(fila, 10).toString());
+    }//GEN-LAST:event_tblListadoMouseClicked
 
     private void txtSueldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSueldoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSueldoActionPerformed
 
-    private void txtEdadEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEdadEmpleadoActionPerformed
+    private void txtEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEdadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEdadEmpleadoActionPerformed
+    }//GEN-LAST:event_txtEdadActionPerformed
 
-    private void btnCerrarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarEmpleadoActionPerformed
+    private void cbxTipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTipoDocumentoActionPerformed
         // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_btnCerrarEmpleadoActionPerformed
+    }//GEN-LAST:event_cbxTipoDocumentoActionPerformed
 
-    private void btnCancelarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarEmpleadoActionPerformed
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         // TODO add your handling code here:
+
         accion = "GUARDAR";
         controlAccionFormulario();
-        deshabilitarFormulario();
-    }//GEN-LAST:event_btnCancelarEmpleadoActionPerformed
+        habilitarFormulario();
+    }//GEN-LAST:event_btnNuevoActionPerformed
 
-    private void btnGuardarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarEmpleadoActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        empleado = new Empleado();// Crear instancia
-        empleado.setNroDocumento(txtDniEmpleado.getText());
-        empleado.setNombre(txtNombreEmpleado.getText());
-        empleado.setApellidos(txtApellidosEmpleado.getText());
-        empleado.setEdad(txtEdadEmpleado.getText());
-        empleado.setTelefono(txtTelefonoEmpleado.getText());
-        empleado.setEstado(cbxEstadoEmpleado.getSelectedItem().toString());
+
+        empleado = new Empleado();
+        empleado.setNroDocumento(txtNroDocumento.getText());
+        empleado.setNombre(txtNombre.getText());
+        empleado.setApellidos(txtApellidos.getText());
+        empleado.setEdad(txtEdad.getText());
+        empleado.setTelefono(txtTelefono.getText());
+        empleado.setEstado(cbxEstado.getSelectedItem().toString());
         String sexo;
-        if (rbnFemeninoEmpleado.isSelected() == true) {
-            sexo = "Femenino";
+        if (rbnFemenino.isSelected() == true) {
+            sexo = "F";
         } else {
-            sexo = "Masculino";
+            sexo = "M";
         }
         empleado.setSexo(sexo);
-        empleado.setRol(txtRol.getText());
+        empleado.setIdPerfil(cbxIdPerfil.getSelectedIndex() + 1);// 1/2
         empleado.setSueldo((Double.parseDouble(txtSueldo.getText())));
         DateTimeFormatter formatoDeFecha = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String fechaActual = LocalDateTime.now().format(formatoDeFecha);
         empleado.setFechaCreado(fechaActual);
         empleado.setFechaActualizado(fechaActual);
 
-        // Guardar cliente
-        oEmpleado = empleadoController.crearEmpleado(empleado);
+        if (accion.equals("GUARDAR")) {
+            // Guardar cliente
+            empleadoController.crearEmpleado(empleado);
 
-        // Obtener ID nuevo
-        empleado.setIdEmpleado(oEmpleado.getIdEmpleado());
+            // Notificar mensaje
+            JOptionPane.showMessageDialog(rootPane, "Guardado con éxito");
 
-        // Notificar mensaje
-        JOptionPane.showMessageDialog(rootPane, "Guardado con éxito");
+            // Listar registros
+            listarEmpleados();
 
-        // Listar registros
-        listarEmpleado();
-    }//GEN-LAST:event_btnGuardarEmpleadoActionPerformed
+            // Reiniciar formulario
+            deshabilitarFormulario();
+        } else if (accion.equals("ACTUALIZAR")) {
+            // Obtener ID guardado
+            empleado.setIdEmpleado(Integer.parseInt(txtIdEmpleado.getText()));
 
-    private void btnNuevoEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoEmpleadoActionPerformed
+            // Actualizar habitación
+            empleadoController.actualizarEmpleado(empleado);
+
+            // Notificar mensaje
+            JOptionPane.showMessageDialog(rootPane, "Actualizado con éxito");
+
+            // Listar registros
+            listarEmpleados();
+
+            // Reiniciar formulario
+            deshabilitarFormulario();
+        }
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
+
         accion = "GUARDAR";
         controlAccionFormulario();
-        habilitarFormulario();
-    }//GEN-LAST:event_btnNuevoEmpleadoActionPerformed
+        deshabilitarFormulario();
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrar1ActionPerformed
+        // TODO add your handling code here:
+
+        dispose();
+    }//GEN-LAST:event_btnCerrar1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancelarEmpleado;
-    private javax.swing.JButton btnCerrarEmpleado;
-    private javax.swing.JButton btnGuardarEmpleado;
-    private javax.swing.JButton btnNuevoEmpleado;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnCerrar1;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnNuevo;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox<String> cbxEstadoEmpleado;
+    private javax.swing.JComboBox<String> cbxEstado;
+    private javax.swing.JComboBox<String> cbxIdPerfil;
+    private javax.swing.JComboBox<String> cbxTipoDocumento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -493,21 +551,21 @@ public class ViewMantenimientoEmpleado extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblDniEmpleado;
     private javax.swing.JLabel lblIdEmpleado;
-    private javax.swing.JRadioButton rbnFemeninoEmpleado;
-    private javax.swing.JRadioButton rbnMasculinoEmpleado;
-    private javax.swing.JTable tblListadoEmpleado;
-    private javax.swing.JTextField txtApellidosEmpleado;
-    private javax.swing.JTextField txtDniEmpleado;
-    private javax.swing.JTextField txtEdadEmpleado;
+    private javax.swing.JRadioButton rbnFemenino;
+    private javax.swing.JRadioButton rbnMasculino;
+    private javax.swing.JTable tblListado;
+    private javax.swing.JTextField txtApellidos;
+    private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtIdEmpleado;
-    private javax.swing.JTextField txtNombreEmpleado;
-    private javax.swing.JTextField txtRol;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNroDocumento;
     private javax.swing.JTextField txtSueldo;
-    private javax.swing.JTextField txtTelefonoEmpleado;
+    private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

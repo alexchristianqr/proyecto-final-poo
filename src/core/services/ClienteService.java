@@ -15,7 +15,7 @@ public class ClienteService extends BaseService {
     }
 
     public DefaultTableModel listarClientes(DefaultTableModel modelo, Object[] data) {
-        querySQL_1 = "SELECT c.id, p.nombre, p.apellido, p.tipo_documento, p.nrodocumento, p.edad, p.sexo, p.telefono, p.estado, p.fecha_creado FROM clientes c JOIN personas p ON p.id = c.id_persona";
+        querySQL_1 = "SELECT c.id, p.nombre, p.apellido, p.tipo_documento, p.nrodocumento, p.edad, p.sexo, p.telefono, p.estado, p.fecha_creado, p.fecha_actualizado FROM clientes c JOIN personas p ON p.id = c.id_persona";
         Object[] parametrosSQL_1 = {};
         ResultSet rs = db.queryConsultar(querySQL_1, parametrosSQL_1);
 
@@ -31,7 +31,7 @@ public class ClienteService extends BaseService {
                 data[7] = rs.getString("telefono");
                 data[8] = rs.getString("estado");
                 data[9] = rs.getString("fecha_creado");
-                data[10] = null;
+                data[10] = rs.getString("fecha_actualizado");
                 modelo.addRow(data);
             }
         } catch (SQLException ex) {

@@ -36,7 +36,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jpanelCrearReserva" max="-2" attributes="0"/>
+              <Component id="jpanelCrearReserva" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jpanelListarReservas" pref="309" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -87,7 +87,7 @@
                           <Component id="btnCerrar1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jLabel3" alignment="1" max="32767" attributes="0"/>
                               <Component id="jLabel8" alignment="0" max="32767" attributes="0"/>
                               <Component id="lblIdCliente" alignment="0" max="32767" attributes="0"/>
@@ -239,7 +239,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtIdCliente">
           <Properties>
-            <Property name="text" type="java.lang.String" value="C1234"/>
+            <Property name="text" type="java.lang.String" value="C001"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -361,7 +361,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane3" min="-2" pref="215" max="-2" attributes="0"/>
+                  <Component id="jScrollPane3" min="-2" pref="164" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
