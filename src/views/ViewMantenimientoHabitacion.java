@@ -54,10 +54,15 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
         cbxIdTipoHabitacion.setEnabled(false);
         txtPrecio.setEnabled(false);
         cbxEstado.setEnabled(false);
+        cbxCantidadCamas.setEnabled(false);
+        cbxNivel.setEnabled(false);
+        cbxIdTipoHabitacion.setEnabled(false);
+        txtNroHabitacion.setEnabled(false);
 
         // --
         txtDescripcion.setText(null);
         txtPrecio.setText(null);
+        txtNroHabitacion.setText(null);
 
         // --
         btnNuevo.setEnabled(true);// Habilitar boton nuevo
@@ -77,10 +82,15 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
         cbxIdTipoHabitacion.setEnabled(true);
         txtPrecio.setEnabled(true);
         cbxEstado.setEnabled(true);
+        cbxCantidadCamas.setEnabled(true);
+        cbxNivel.setEnabled(true);
+        cbxIdTipoHabitacion.setEnabled(true);
+        txtNroHabitacion.setEnabled(true);
 
         // --
         txtDescripcion.setText(null);
         txtPrecio.setText(null);
+        txtNroHabitacion.setText(null);
 
         // --
         btnNuevo.setEnabled(false);// Deshabilitar boton nuevo
@@ -234,8 +244,6 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Nro. Habit.:");
 
-        txtNroHabitacion.setText("jTextField1");
-
         jLabel7.setText("Cantidad camas:");
 
         cbxCantidadCamas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
@@ -348,12 +356,14 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
 
         habitacion = new Habitacion();// Crear instancia
-        habitacion.setDescripcion(txtDescripcion.getText());
         habitacion.setIdTipoHabitacion(cbxIdTipoHabitacion.getSelectedIndex() + 1);
-        habitacion.setNivel(Integer.parseInt(txtPrecio.getText()));
+        habitacion.setDescripcion(txtDescripcion.getText());
+        habitacion.setNivel(cbxNivel.getSelectedItem().toString());
+        habitacion.setNumeroPiso(txtNroHabitacion.getText());
         habitacion.setPrecio(Double.parseDouble(txtPrecio.getText()));
+        habitacion.setCantidadCamas(Integer.parseInt(cbxCantidadCamas.getSelectedItem().toString()));
         habitacion.setEstado(cbxEstado.getSelectedItem().toString());
-        DateTimeFormatter formatoDeFecha = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        DateTimeFormatter formatoDeFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String fechaActual = LocalDateTime.now().format(formatoDeFecha);
         habitacion.setFechaCreado(fechaActual);
         habitacion.setFechaActualizado(fechaActual);

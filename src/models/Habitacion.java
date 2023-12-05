@@ -7,7 +7,7 @@ public class Habitacion {
     private String nivel;
     private String numeroPiso;
     private double precio;
-    private double cantidadCamas;
+    private int cantidadCamas;
     private int idTipoHabitacion;
     private String estado;
     private String fechaCreado;
@@ -56,11 +56,11 @@ public class Habitacion {
         this.numeroPiso = numeroPiso;
     }
 
-    public double getCantidadCamas() {
+    public int getCantidadCamas() {
         return cantidadCamas;
     }
 
-    public void setCantidadCamas(double cantidadCamas) {
+    public void setCantidadCamas(int cantidadCamas) {
         this.cantidadCamas = cantidadCamas;
     }
 
