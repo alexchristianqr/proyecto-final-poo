@@ -189,7 +189,7 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jpanelCrearReserva.setBackground(new java.awt.Color(255, 204, 204));
+        jpanelCrearReserva.setBackground(new java.awt.Color(255, 153, 102));
         jpanelCrearReserva.setBorder(javax.swing.BorderFactory.createTitledBorder("Habitación"));
         jpanelCrearReserva.setToolTipText("");
         jpanelCrearReserva.setAutoscrolls(true);

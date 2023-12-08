@@ -33,7 +33,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
 
     static void refreshView() {
         if (habitacion != null) {
-            txtNumeroHabitacion.setText("P"+habitacion.getNivel() + " - N°" + habitacion.getNumeroPiso());
+            txtNumeroHabitacion.setText("P." + habitacion.getNivel() + " - N°" + habitacion.getNumeroPiso());
         }
 
         if (cliente != null) {
@@ -103,7 +103,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
             }
         });
 
-        jpanelCrearReserva.setBackground(new java.awt.Color(255, 204, 204));
+        jpanelCrearReserva.setBackground(new java.awt.Color(255, 153, 102));
         jpanelCrearReserva.setBorder(javax.swing.BorderFactory.createTitledBorder("Reserva de Habitación"));
         jpanelCrearReserva.setToolTipText("");
         jpanelCrearReserva.setAutoscrolls(true);

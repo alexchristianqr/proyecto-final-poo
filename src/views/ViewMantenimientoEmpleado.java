@@ -154,7 +154,7 @@ public class ViewMantenimientoEmpleado extends javax.swing.JInternalFrame {
         setTitle("Empleados");
         setPreferredSize(new java.awt.Dimension(1200, 640));
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 153, 102));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Empleado"));
 
         lblIdEmpleado.setText("Código:");

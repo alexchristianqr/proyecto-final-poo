@@ -108,7 +108,6 @@ public class DialogListadoHabitaciones extends javax.swing.JDialog {
         habitacion.setCantidadCamas(Integer.parseInt(tblListado.getValueAt(fila, 6).toString()));
         habitacion.setEstado(tblListado.getValueAt(fila, 7).toString());
         habitacion.setFechaCreado(tblListado.getValueAt(fila, 8).toString());
-//        if(tblListado.getValueAt(fila, 9).toString().isBlank()) habitacion.setFechaActualizado(tblListado.getValueAt(fila, 9).toString());
 
         // Actualizar en vista reserva
         ViewReserva.habitacion = habitacion;

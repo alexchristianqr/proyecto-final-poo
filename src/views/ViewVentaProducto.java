@@ -60,7 +60,7 @@ public class ViewVentaProducto extends javax.swing.JInternalFrame {
         setTitle("Venta");
         setPreferredSize(new java.awt.Dimension(1000, 434));
 
-        btnAgregar.setBackground(new java.awt.Color(255, 204, 204));
+        btnAgregar.setBackground(new java.awt.Color(255, 153, 102));
         btnAgregar.setBorder(javax.swing.BorderFactory.createTitledBorder("Venta"));
 
         jLabel2.setText("Producto: ");

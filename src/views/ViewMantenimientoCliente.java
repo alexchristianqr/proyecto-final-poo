@@ -149,7 +149,7 @@ public class ViewMantenimientoCliente extends javax.swing.JInternalFrame {
         setTitle("Cliente");
         setPreferredSize(new java.awt.Dimension(1200, 600));
 
-        jpanelCrearReserva.setBackground(new java.awt.Color(255, 204, 204));
+        jpanelCrearReserva.setBackground(new java.awt.Color(255, 153, 102));
         jpanelCrearReserva.setBorder(javax.swing.BorderFactory.createTitledBorder("Cliente"));
         jpanelCrearReserva.setToolTipText("");
         jpanelCrearReserva.setAutoscrolls(true);

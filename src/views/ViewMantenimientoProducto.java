@@ -39,7 +39,7 @@ public class ViewMantenimientoProducto extends javax.swing.JInternalFrame {
         setTitle("Productos");
         setPreferredSize(new java.awt.Dimension(1200, 402));
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 153, 102));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Ingreso de Productos"));
 
         jLabel1.setText("Nombre:");
