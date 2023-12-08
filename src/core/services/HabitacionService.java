@@ -13,15 +13,15 @@ public class HabitacionService extends BaseService {
     }
 
     public DefaultTableModel listarHabitaciones(DefaultTableModel modelo, Object[] data) {
-        querySQL_1 = "SELECT  * FROM habitaciones";
+        querySQL_1 = "SELECT id,descripcion,id_tipohabitacion,nivel,numero_piso,precio,cantidad_camas,estado,fecha_creado,fecha_actualizado FROM habitaciones";
         Object[] parametrosSQL_1 = {};
         ResultSet rs = db.queryConsultar(querySQL_1, parametrosSQL_1);
 
         try {
             while (rs.next()) {
                 data[0] = rs.getInt("id");
-                data[1] = rs.getString("id_tipohabitacion");
-                data[2] = rs.getString("descripcion");
+                data[1] = rs.getString("descripcion");
+                data[2] = rs.getString("id_tipohabitacion");
                 data[3] = rs.getInt("nivel");
                 data[4] = rs.getString("numero_piso");
                 data[5] = rs.getInt("precio");

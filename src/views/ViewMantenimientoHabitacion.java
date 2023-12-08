@@ -10,7 +10,7 @@ import models.Habitacion;
 public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
 
     HabitacionController habitacionController = new HabitacionController();
-    Habitacion habitacion, oHabitacion;
+    Habitacion habitacion;
     String accion = null;
 
     /**
@@ -142,6 +142,7 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         cbxCantidadCamas = new javax.swing.JComboBox<>();
 
+        setBackground(new java.awt.Color(255, 255, 204));
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
@@ -184,8 +185,8 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
             jpanelListarReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanelListarReservasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jpanelCrearReserva.setBackground(new java.awt.Color(255, 204, 204));
@@ -337,7 +338,7 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jpanelCrearReserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpanelListarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
+                .addComponent(jpanelListarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -345,7 +346,7 @@ public class ViewMantenimientoHabitacion extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jpanelListarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
+                    .addComponent(jpanelListarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
                     .addComponent(jpanelCrearReserva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );

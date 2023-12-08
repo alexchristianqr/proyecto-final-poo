@@ -57,6 +57,7 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Programa");
 
+        escritorio.setBackground(new java.awt.Color(255, 255, 204));
         escritorio.setAutoscrolls(true);
         escritorio.setDragMode(javax.swing.JDesktopPane.OUTLINE_DRAG_MODE);
 

@@ -14,7 +14,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
     static Cliente cliente = null;
     static Habitacion habitacion = null;
     static Empleado empleado = null;
-    
+
     DialogListadoHabitaciones dialogListadoHabitaciones = new DialogListadoHabitaciones();
     DialogListadoClientes dialogListadoClientes = new DialogListadoClientes();
     DialogListadoEmpleados dialogListadoEmpleados = new DialogListadoEmpleados();
@@ -33,7 +33,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
 
     static void refreshView() {
         if (habitacion != null) {
-            txtNumeroHabitacion.setText(habitacion.getDescripcion());
+            txtNumeroHabitacion.setText("P"+habitacion.getNivel() + " - N°" + habitacion.getNumeroPiso());
         }
 
         if (cliente != null) {
@@ -89,6 +89,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblListado = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(255, 255, 204));
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
@@ -316,8 +317,8 @@ public class ViewReserva extends javax.swing.JInternalFrame {
             jpanelListarReservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanelListarReservasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(404, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -411,8 +412,8 @@ public class ViewReserva extends javax.swing.JInternalFrame {
 
     private void btnSeleccionarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarEmpleadoActionPerformed
         // TODO add your handling code here:
-        
-         if (dialogListadoEmpleados.isVisible()) {
+
+        if (dialogListadoEmpleados.isVisible()) {
             dialogListadoEmpleados.toFront();
         } else {
             dialogListadoEmpleados.setVisible(true);
@@ -422,8 +423,8 @@ public class ViewReserva extends javax.swing.JInternalFrame {
 
     private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
         // TODO add your handling code here:
-        System.out.println("Tamano en X: "+evt.getComponent().getWidth());
-        System.out.println("Tamano en Y: "+evt.getComponent().getHeight());
+        System.out.println("Tamano en X: " + evt.getComponent().getWidth());
+        System.out.println("Tamano en Y: " + evt.getComponent().getHeight());
     }//GEN-LAST:event_formComponentResized
 
 

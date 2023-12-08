@@ -159,6 +159,9 @@
   <SubComponents>
     <Container class="javax.swing.JDesktopPane" name="escritorio">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="autoscrolls" type="boolean" value="true"/>
         <Property name="dragMode" type="int" value="1"/>
       </Properties>

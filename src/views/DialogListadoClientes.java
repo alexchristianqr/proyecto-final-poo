@@ -33,6 +33,7 @@ public class DialogListadoClientes extends javax.swing.JDialog {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setType(java.awt.Window.Type.POPUP);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Clientes"));
 
         tblListado.setModel(new javax.swing.table.DefaultTableModel(
