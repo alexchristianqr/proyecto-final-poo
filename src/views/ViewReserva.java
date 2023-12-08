@@ -96,6 +96,11 @@ public class ViewReserva extends javax.swing.JInternalFrame {
         setTitle("Reserva");
         setToolTipText("");
         setPreferredSize(new java.awt.Dimension(1200, 600));
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                formComponentResized(evt);
+            }
+        });
 
         jpanelCrearReserva.setBackground(new java.awt.Color(255, 204, 204));
         jpanelCrearReserva.setBorder(javax.swing.BorderFactory.createTitledBorder("Reserva de Habitación"));
@@ -218,7 +223,6 @@ public class ViewReserva extends javax.swing.JInternalFrame {
                                             .addComponent(txtEmpleado, javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(txtCliente, javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(txtNumeroHabitacion, javax.swing.GroupLayout.Alignment.LEADING))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jpanelCrearReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jpanelCrearReservaLayout.createSequentialGroup()
                                                 .addGap(6, 6, 6)
@@ -313,7 +317,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
             .addGroup(jpanelListarReservasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(404, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -324,7 +328,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jpanelCrearReserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpanelListarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
+                .addComponent(jpanelListarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, 809, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -332,7 +336,7 @@ public class ViewReserva extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jpanelListarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
+                    .addComponent(jpanelListarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
                     .addComponent(jpanelCrearReserva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -415,6 +419,12 @@ public class ViewReserva extends javax.swing.JInternalFrame {
         }
         dialogListadoEmpleados.listarHabitaciones();
     }//GEN-LAST:event_btnSeleccionarEmpleadoActionPerformed
+
+    private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
+        // TODO add your handling code here:
+        System.out.println("Tamano en X: "+evt.getComponent().getWidth());
+        System.out.println("Tamano en Y: "+evt.getComponent().getHeight());
+    }//GEN-LAST:event_formComponentResized
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -1,5 +1,7 @@
 package views;
 
+import java.beans.PropertyVetoException;
+
 public class ViewMenuPrincipal extends javax.swing.JFrame {
 
     ViewMantenimientoCliente viewMantenimientoCliente = new ViewMantenimientoCliente();
@@ -12,9 +14,11 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
 
     /**
      * Creates new form Principal
+     * @throws java.beans.PropertyVetoException
      */
-    public ViewMenuPrincipal() {
+    public ViewMenuPrincipal() throws PropertyVetoException {
         initComponents();
+//        viewReserva.setMaximum(true);
     }
 
     /**
@@ -169,14 +173,14 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ViewMenuPrincipal().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new ViewMenuPrincipal().setVisible(true);
+//            }
+//        });
+//    }
 
     private void menuItemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSalirActionPerformed
         // TODO add your handling code here:
