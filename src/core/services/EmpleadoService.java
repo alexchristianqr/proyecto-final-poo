@@ -46,7 +46,7 @@ public class EmpleadoService extends BaseService {
         Object[] parametrosSQL_1 = {empleado.getNombre(), empleado.getApellidos(), empleado.getTipoDocumento(), empleado.getNroDocumento(), empleado.getSexo(), empleado.getEstado(), empleado.getEdad(), empleado.getTelefono(), empleado.getFechaCreado()};
         int id_persona = db.queryInsertar(querySQL_1, parametrosSQL_1);
 
-        querySQL_2 = "INSERT INTO empleados (id_persona, id_perfil, sueldo, fecha_creado) VALUES (?,?,?,?)";
+        querySQL_2 = "INSERT INTO empleados (id_persona, id_perfil, sueldo, fecha_creado) VALUES (?,?,?,NOW())";
         Object[] parametrosSQL_2 = {id_persona, empleado.getIdPerfil(), empleado.getSueldo(), empleado.getFechaCreado()};
         db.queryInsertar(querySQL_2, parametrosSQL_2);
 

@@ -24,14 +24,12 @@ public class ViewMantenimientoEmpleado extends javax.swing.JInternalFrame {
         switch (accion) {
             case "GUARDAR":
                 lblIdEmpleado.setVisible(false);
-                lblIdEmpleado.setEnabled(false);
                 txtIdEmpleado.setVisible(false);
                 txtIdEmpleado.setEnabled(false);
                 btnGuardar.setText("Guardar");
                 break;
             case "ACTUALIZAR":
                 lblIdEmpleado.setVisible(true);
-                lblIdEmpleado.setEnabled(false);
                 txtIdEmpleado.setVisible(true);
                 txtIdEmpleado.setEnabled(false);
                 btnGuardar.setText("Actualizar");
@@ -44,7 +42,6 @@ public class ViewMantenimientoEmpleado extends javax.swing.JInternalFrame {
     protected final void deshabilitarFormulario() {
 
         lblIdEmpleado.setVisible(false);
-        lblIdEmpleado.setEnabled(false);
         txtIdEmpleado.setVisible(false);
         txtIdEmpleado.setEnabled(false);
 
@@ -487,7 +484,8 @@ public class ViewMantenimientoEmpleado extends javax.swing.JInternalFrame {
         empleado.setSexo(sexo);
         empleado.setIdPerfil(cbxIdPerfil.getSelectedIndex() + 1);// 1/2
         empleado.setSueldo((Double.parseDouble(txtSueldo.getText())));
-        DateTimeFormatter formatoDeFecha = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        
+        DateTimeFormatter formatoDeFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String fechaActual = LocalDateTime.now().format(formatoDeFecha);
         empleado.setFechaCreado(fechaActual);
         empleado.setFechaActualizado(fechaActual);
