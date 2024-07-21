@@ -1,19 +1,24 @@
 package views;
 
+import java.beans.PropertyVetoException;
+
 public class ViewMenuPrincipal extends javax.swing.JFrame {
 
     ViewMantenimientoCliente viewMantenimientoCliente = new ViewMantenimientoCliente();
     ViewMantenimientoHabitacion viewMantenimientoHabitacion = new ViewMantenimientoHabitacion();
-    ViewMantenimientoEmplead viewMantenimientoEmplead = new ViewMantenimientoEmplead();
+    ViewMantenimientoEmpleado viewMantenimientoEmpleado = new ViewMantenimientoEmpleado();
     ViewReserva viewReserva = new ViewReserva();
     ViewAcercaDe viewAcercaDe = new ViewAcercaDe();
-    ViewMantenimientoProducto  viewMantenimientoProducto= new ViewMantenimientoProducto();
-    ViewVentaProducto viewVentaProducto=new ViewVentaProducto();
+    ViewMantenimientoProducto viewMantenimientoProducto = new ViewMantenimientoProducto();
+    ViewVentaProducto viewVentaProducto = new ViewVentaProducto();
+
     /**
      * Creates new form Principal
+     * @throws java.beans.PropertyVetoException
      */
-    public ViewMenuPrincipal() {
+    public ViewMenuPrincipal() throws PropertyVetoException {
         initComponents();
+//        viewReserva.setMaximum(true);
     }
 
     /**
@@ -52,6 +57,7 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Programa");
 
+        escritorio.setBackground(new java.awt.Color(255, 255, 204));
         escritorio.setAutoscrolls(true);
         escritorio.setDragMode(javax.swing.JDesktopPane.OUTLINE_DRAG_MODE);
 
@@ -168,15 +174,15 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ViewMenuPrincipal().setVisible(true);
-            }
-        });
-    }
-    
+//    public static void main(String args[]) {
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new ViewMenuPrincipal().setVisible(true);
+//            }
+//        });
+//    }
+
     private void menuItemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSalirActionPerformed
         // TODO add your handling code here:
         dispose();
@@ -223,7 +229,7 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
 
     private void menuItemMantenimientoHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemMantenimientoHabitacionActionPerformed
         // TODO add your handling code here:
-        
+
         if (viewMantenimientoHabitacion.isShowing()) {
             viewMantenimientoHabitacion.toFront();
         } else {
@@ -238,31 +244,31 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
 
     private void menuItemMantenimientoEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemMantenimientoEmpleadoActionPerformed
         // TODO add your handling code here:
-        if (viewMantenimientoEmplead.isShowing()) {
-            viewMantenimientoEmplead.toFront();
+        if (viewMantenimientoEmpleado.isShowing()) {
+            viewMantenimientoEmpleado.toFront();
         } else {
-            if (viewMantenimientoEmplead.isSelected()) {
-                escritorio.setSelectedFrame(viewMantenimientoEmplead);
+            if (viewMantenimientoEmpleado.isSelected()) {
+                escritorio.setSelectedFrame(viewMantenimientoEmpleado);
             } else {
-                escritorio.add(viewMantenimientoEmplead);
-                viewMantenimientoEmplead.show();
+                escritorio.add(viewMantenimientoEmpleado);
+                viewMantenimientoEmpleado.show();
             }
         }
     }//GEN-LAST:event_menuItemMantenimientoEmpleadoActionPerformed
 
     private void menuItemVentaProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemVentaProductoActionPerformed
         // TODO add your handling code here:
-      if(  viewVentaProducto.isShowing()){
-          viewVentaProducto.toFront();
-      }else{
-          if(viewVentaProducto.isSelected()){escritorio.setSelectedFrame(viewVentaProducto);}
-          else{ escritorio.add(viewVentaProducto);
-          viewVentaProducto.show();
-          }
-      
-                
+        if (viewVentaProducto.isShowing()) {
+            viewVentaProducto.toFront();
+        } else {
+            if (viewVentaProducto.isSelected()) {
+                escritorio.setSelectedFrame(viewVentaProducto);
+            } else {
+                escritorio.add(viewVentaProducto);
+                viewVentaProducto.show();
+            }
 
-      }
+        }
     }//GEN-LAST:event_menuItemVentaProductoActionPerformed
 
     private void menuItemMantenimientoProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemMantenimientoProductoActionPerformed
@@ -276,7 +282,7 @@ public class ViewMenuPrincipal extends javax.swing.JFrame {
                 escritorio.add(viewMantenimientoProducto);
                 viewMantenimientoProducto.show();
             }
-        } 
+        }
     }//GEN-LAST:event_menuItemMantenimientoProductoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

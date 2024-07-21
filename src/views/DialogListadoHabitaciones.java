@@ -30,9 +30,11 @@ public class DialogListadoHabitaciones extends javax.swing.JDialog {
 
         setTitle("Seleccionar habitación");
         setAlwaysOnTop(true);
+        setBackground(new java.awt.Color(255, 255, 204));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setType(java.awt.Window.Type.POPUP);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Habitaciones"));
 
         tblListado.setModel(new javax.swing.table.DefaultTableModel(
@@ -64,7 +66,7 @@ public class DialogListadoHabitaciones extends javax.swing.JDialog {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
                 .addContainerGap())
@@ -99,9 +101,13 @@ public class DialogListadoHabitaciones extends javax.swing.JDialog {
         Habitacion habitacion = new Habitacion();
         habitacion.setIdHabitacion(Integer.parseInt(tblListado.getValueAt(fila, 0).toString()));
         habitacion.setDescripcion(tblListado.getValueAt(fila, 1).toString());
-        habitacion.setTipo(tblListado.getValueAt(fila, 2).toString());
-        habitacion.setPrecio(Double.parseDouble(tblListado.getValueAt(fila, 3).toString()));
-        habitacion.setEstado(tblListado.getValueAt(fila, 4).toString());
+        habitacion.setIdTipoHabitacion(Integer.parseInt(tblListado.getValueAt(fila, 2).toString()));
+        habitacion.setNivel(tblListado.getValueAt(fila, 3).toString());
+        habitacion.setNumeroPiso(tblListado.getValueAt(fila, 4).toString());
+        habitacion.setPrecio(Double.parseDouble(tblListado.getValueAt(fila, 5).toString()));
+        habitacion.setCantidadCamas(Integer.parseInt(tblListado.getValueAt(fila, 6).toString()));
+        habitacion.setEstado(tblListado.getValueAt(fila, 7).toString());
+        habitacion.setFechaCreado(tblListado.getValueAt(fila, 8).toString());
 
         // Actualizar en vista reserva
         ViewReserva.habitacion = habitacion;

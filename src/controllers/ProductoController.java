@@ -1,8 +1,14 @@
 package controllers;
 
+import core.services.ProductoService;
 import models.Producto;
 
-public class ProductoController extends BaseController<Producto> {
+public class ProductoController extends BaseController<Producto, ProductoService> {
+
+    public ProductoController() {
+        lista.clear();
+        service = new ProductoService();
+    }
 
     public void cargarLista() {
         Producto p1 = new Producto(1, "Agua", 2.50, 30);

@@ -4,8 +4,11 @@ public class Habitacion {
 
     private int idHabitacion;
     private String descripcion;
-    private String tipo;
+    private String nivel;
+    private String numeroPiso;
     private double precio;
+    private int cantidadCamas;
+    private int idTipoHabitacion;
     private String estado;
     private String fechaCreado;
     private String fechaActualizado;
@@ -15,8 +18,11 @@ public class Habitacion {
 
     public Habitacion(Habitacion habitacion) {
         this.descripcion = habitacion.getDescripcion();
-        this.tipo = habitacion.getTipo();
+        this.nivel = habitacion.getNivel();
+        this.numeroPiso = habitacion.getNumeroPiso();
         this.precio = habitacion.getPrecio();
+        this.cantidadCamas = habitacion.getCantidadCamas();
+        this.idTipoHabitacion = habitacion.getIdTipoHabitacion();
         this.estado = habitacion.getEstado();
         this.fechaCreado = habitacion.getFechaCreado();
         this.fechaActualizado = habitacion.getFechaActualizado();
@@ -24,14 +30,46 @@ public class Habitacion {
 
     public double calcularPrecioBase() {
         double precioBase = 0;
-        if (tipo.equalsIgnoreCase("simple")) {
+        if (idTipoHabitacion == 1) {
             precioBase = 30;
-        } else if (tipo.equalsIgnoreCase("matrimonial")) {
+        } else if (idTipoHabitacion == 2) {
             precioBase = 40;
         } else {
             precioBase = 50;
         }
         return precioBase;
+    }
+
+    public String getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(String nivel) {
+        this.nivel = nivel;
+    }
+
+    public String getNumeroPiso() {
+        return numeroPiso;
+    }
+
+    public void setNumeroPiso(String numeroPiso) {
+        this.numeroPiso = numeroPiso;
+    }
+
+    public int getCantidadCamas() {
+        return cantidadCamas;
+    }
+
+    public void setCantidadCamas(int cantidadCamas) {
+        this.cantidadCamas = cantidadCamas;
+    }
+
+    public int getIdTipoHabitacion() {
+        return idTipoHabitacion;
+    }
+
+    public void setIdTipoHabitacion(int idTipoHabitacion) {
+        this.idTipoHabitacion = idTipoHabitacion;
     }
 
     public int getIdHabitacion() {
@@ -40,14 +78,6 @@ public class Habitacion {
 
     public void setIdHabitacion(int idHabitacion) {
         this.idHabitacion = idHabitacion;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
     }
 
     public String getDescripcion() {

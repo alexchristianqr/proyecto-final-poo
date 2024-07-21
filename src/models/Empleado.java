@@ -3,16 +3,24 @@ package models;
 public class Empleado extends Persona {
 
     private int idEmpleado;
-    private String rol;
+    private int idPerfil;
     private double sueldo;
 
     public Empleado() {
     }
 
     public Empleado(Empleado empleado) {
-        super(empleado.getDni(), empleado.getNombre(), empleado.getApellidos(), empleado.getSexo(), empleado.getEdad(), empleado.getTelefono(), empleado.getEstado(), empleado.getFechaCreado(), empleado.getFechaActualizado());
-        this.rol = empleado.getRol();
+        super(empleado.getNroDocumento(), empleado.getNombre(), empleado.getApellidos(), empleado.getSexo(), empleado.getEdad(), empleado.getTelefono(), empleado.getEstado(), empleado.getFechaCreado(), empleado.getFechaActualizado(), empleado.getIdPersona());
+        this.idPerfil = empleado.getIdPerfil();
         this.sueldo = empleado.getSueldo();
+    }
+
+    public int getIdPerfil() {
+        return idPerfil;
+    }
+
+    public void setIdPerfil(int idPerfil) {
+        this.idPerfil = idPerfil;
     }
 
     public int getIdEmpleado() {
@@ -21,14 +29,6 @@ public class Empleado extends Persona {
 
     public void setIdEmpleado(int idEmpleado) {
         this.idEmpleado = idEmpleado;
-    }
-
-    public String getRol() {
-        return rol;
-    }
-
-    public void setRol(String rol) {
-        this.rol = rol;
     }
 
     public double getSueldo() {

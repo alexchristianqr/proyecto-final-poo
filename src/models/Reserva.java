@@ -3,35 +3,39 @@ package models;
 public class Reserva {
 
     private int idReserva;
+    private String cliente;
     private int idCliente;
-    private Cliente cliente;
+    private String habitacion;
     private int idHabitacion;
-    private Habitacion habitacion;
+    private String empleado;
     private int idEmpleado;
-    private Empleado empleado;
-    private String tipo;
-    private String estado;
+    private String tipo;// horas|noche
+    private String tiempoReservado;// 3(horas)|2(noches)
+    private double costoTotal;
+    private String estado;// disponible|reservado|mantenimiento
     private String fechaCreado;
     private String fechaActualizado;
-    private String fechaReservado, fechaIngreso, fechaSalida;
-    private double costoTotal;
+    private String fechaReservado, fechaEntrada, fechaSalida;
 
     public Reserva() {
     }
 
     public Reserva(Reserva reserva) {
-        this.idCliente = reserva.idCliente;
-        this.idHabitacion = reserva.idHabitacion;
-        this.idEmpleado = reserva.idEmpleado;
-        this.tipo = reserva.tipo;
-        this.fechaReservado = reserva.fechaReservado;
-        this.fechaIngreso = reserva.fechaIngreso;
-        this.fechaSalida = reserva.fechaSalida;
-        this.estado = reserva.estado;
-        this.cliente = reserva.cliente;
-        this.habitacion = reserva.habitacion;
-        this.empleado = reserva.empleado;
-        this.costoTotal = reserva.costoTotal;
+        this.idCliente = reserva.getIdCliente();
+        this.idHabitacion = reserva.getIdHabitacion();
+        this.idEmpleado = reserva.getIdEmpleado();
+        this.cliente = reserva.getCliente();
+        this.habitacion = reserva.getHabitacion();
+        this.empleado = reserva.getEmpleado();
+        this.tipo = reserva.getTipo();
+        this.tiempoReservado = reserva.getTiempoReservado();
+        this.costoTotal = reserva.getCostoTotal();
+        this.estado = reserva.getEstado();
+        this.fechaReservado = reserva.getFechaReservado();
+        this.fechaEntrada = reserva.getFechaEntrada();
+        this.fechaSalida = reserva.getFechaSalida();
+        this.fechaCreado = reserva.getFechaCreado();
+        this.fechaActualizado = reserva.getFechaActualizado();
     }
 
     public double getCostoTotal() {
@@ -42,27 +46,27 @@ public class Reserva {
         this.costoTotal = costoTotal;
     }
 
-    public Cliente getCliente() {
+    public String getCliente() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(String cliente) {
         this.cliente = cliente;
     }
 
-    public Habitacion getHabitacion() {
+    public String getHabitacion() {
         return habitacion;
     }
 
-    public void setHabitacion(Habitacion habitacion) {
+    public void setHabitacion(String habitacion) {
         this.habitacion = habitacion;
     }
 
-    public Empleado getEmpleado() {
+    public String getEmpleado() {
         return empleado;
     }
 
-    public void setEmpleado(Empleado empleado) {
+    public void setEmpleado(String empleado) {
         this.empleado = empleado;
     }
 
@@ -138,12 +142,12 @@ public class Reserva {
         this.fechaActualizado = fechaActualizado;
     }
 
-    public String getFechaIngreso() {
-        return fechaIngreso;
+    public String getFechaEntrada() {
+        return fechaEntrada;
     }
 
-    public void setFechaIngreso(String fechaIngreso) {
-        this.fechaIngreso = fechaIngreso;
+    public void setFechaEntrada(String fechaEntrada) {
+        this.fechaEntrada = fechaEntrada;
     }
 
     public String getFechaSalida() {
@@ -153,4 +157,13 @@ public class Reserva {
     public void setFechaSalida(String fechaSalida) {
         this.fechaSalida = fechaSalida;
     }
+
+    public String getTiempoReservado() {
+        return tiempoReservado;
+    }
+
+    public void setTiempoReservado(String tiempoReservado) {
+        this.tiempoReservado = tiempoReservado;
+    }
+
 }

@@ -1,40 +1,30 @@
 package controllers;
 
+import core.services.ClienteService;
 import javax.swing.table.DefaultTableModel;
 import models.Cliente;
 
-public class ClienteController extends BaseController<Cliente> implements ClienteControllerInterface{
+public class ClienteController extends BaseController<Cliente, ClienteService> {
 
-    @Override
+    public ClienteController() {
+        lista.clear();
+        service = new ClienteService();
+    }
+
     public DefaultTableModel listarClientes(String buscar) {
         DefaultTableModel modelo;
-        String[] columnNames = {"Código", "Nombres", "Apellidos", "DNI", "Edad", "Sexo", "Telefono", "Estado", "Fecha creado", "Fecha actualizado"};
+        String[] columnNames = {"Código", "Nombres", "Apellidos", "Tipo Doc.", "Nro Doc.", "Edad", "Sexo", "Telefono", "Estado", "Fecha creado", "Fecha actualizado"};
         Object[] data = new Object[columnNames.length];
         modelo = new DefaultTableModel(null, columnNames);
-
-        for (Cliente oCliente : lista) {
-            data[0] = oCliente.getIdCliente();
-            data[1] = oCliente.getNombre();
-            data[2] = oCliente.getApellidos();
-            data[3] = oCliente.getDni();
-            data[4] = oCliente.getEdad();
-            data[5] = oCliente.getSexo();
-            data[6] = oCliente.getTelefono();
-            data[7] = oCliente.getEstado();
-            data[8] = oCliente.getFechaCreado();
-            data[9] = oCliente.getFechaActualizado();
-            modelo.addRow(data);
-        }
-
+        modelo = service.listarClientes(modelo, data);
         return modelo;
     }
 
-    @Override
-    public Cliente crearCliente(Cliente cliente) {
-        Cliente oCliente = new Cliente(cliente);
-        oCliente.setIdCliente(idAutoincrementado());
-        lista.add(oCliente);
-        return oCliente;
+    public void crearCliente(Cliente cliente) {
+        service.crearCliente(cliente);
     }
 
+    public void actualizarCliente(Cliente cliente) {
+        service.actualizarCliente(cliente);
+    }
 }
