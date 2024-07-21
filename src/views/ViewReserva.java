@@ -62,7 +62,6 @@ public class ViewReserva extends javax.swing.JInternalFrame {
 //                txtCliente.setEnabled(false);
 //                txtEmpleado.setEnabled(false);
 //                txtNumeroHabitacion.setEnabled(false);
-
                 btnGuardar.setText("Guardar");
                 break;
             case "ACTUALIZAR":
@@ -610,12 +609,11 @@ public class ViewReserva extends javax.swing.JInternalFrame {
         txtCosto.setText(tblListado.getValueAt(fila, 7).toString());
         cbxEstadoReserva.setSelectedItem(tblListado.getValueAt(fila, 8).toString());
 
-        
-          String formatoDeFecha = "yyyy-MM-dd HH:mm:ss";
+        String formatoDeFecha = "yyyy-MM-dd HH:mm:ss";
         calendar = jdateFechaReserva.getCalendar();
         String fechaReserva = new SimpleDateFormat(formatoDeFecha).format(tblListado.getValueAt(fila, 9).toString());
-        
-        jdateFechaReserva.setDate( calendar.get);
+
+//        jdateFechaReserva.setDate( calendar);
         jdateFechaIngreso.setDate(new Date(tblListado.getValueAt(fila, 10).toString()));
         jdateFechaSalida.setDate(new Date(tblListado.getValueAt(fila, 11).toString()));
     }//GEN-LAST:event_tblListadoMouseClicked

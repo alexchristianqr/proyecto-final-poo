@@ -484,7 +484,7 @@ public class ViewMantenimientoEmpleado extends javax.swing.JInternalFrame {
         empleado.setSexo(sexo);
         empleado.setIdPerfil(cbxIdPerfil.getSelectedIndex() + 1);// 1/2
         empleado.setSueldo((Double.parseDouble(txtSueldo.getText())));
-        
+
         DateTimeFormatter formatoDeFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String fechaActual = LocalDateTime.now().format(formatoDeFecha);
         empleado.setFechaCreado(fechaActual);
