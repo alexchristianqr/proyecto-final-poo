@@ -12,7 +12,7 @@ public class EmpleadoService extends BaseService {
     }
 
     public DefaultTableModel listarEmpleados(DefaultTableModel modelo, Object[] data) {
-        querySQL_1 = "SELECT e.id, p.nombre, p.apellido, p.tipo_documento, p.nrodocumento, e.sueldo, e.id_perfil, p.edad, p.sexo, p.telefono, p.estado, p.fecha_creado, p.fecha_actualizado FROM empleados e JOIN personas p ON p.id = e.id_persona;";
+        querySQL_1 = "SELECT e.id, p.nombre, p.apellido, p.tipo_documento, p.nrodocumento, e.sueldo, e.id_empleado_perfil, p.edad, p.sexo, p.telefono, p.estado, p.fecha_creado, p.fecha_actualizado FROM empleados e JOIN personas p ON p.id = e.id_persona;";
         Object[] parametrosSQL_1 = {};
         ResultSet rs = db.queryConsultar(querySQL_1, parametrosSQL_1);
 
@@ -24,7 +24,7 @@ public class EmpleadoService extends BaseService {
                 data[3] = rs.getInt("tipo_documento");
                 data[4] = rs.getString("nrodocumento");
                 data[5] = rs.getInt("sueldo");
-                data[6] = rs.getInt("id_perfil");
+                data[6] = rs.getInt("id_empleado_perfil");
                 data[7] = rs.getString("edad");
                 data[8] = rs.getString("sexo");
                 data[9] = rs.getString("telefono");

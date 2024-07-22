@@ -13,7 +13,7 @@ public class HabitacionService extends BaseService {
     }
 
     public DefaultTableModel listarHabitaciones(DefaultTableModel modelo, Object[] data) {
-        querySQL_1 = "SELECT id,descripcion,id_tipohabitacion,nivel,numero_piso,precio,cantidad_camas,fecha_creado,fecha_actualizado FROM habitaciones";
+        querySQL_1 = "SELECT id, descripcion, id_tipohabitacion, nivel, numero_piso, precio, cantidad_camas, estado, fecha_creado, fecha_actualizado FROM habitaciones";
         Object[] parametrosSQL_1 = {};
         ResultSet rs = db.queryConsultar(querySQL_1, parametrosSQL_1);
 
@@ -26,8 +26,9 @@ public class HabitacionService extends BaseService {
                 data[4] = rs.getString("numero_piso");
                 data[5] = rs.getInt("precio");
                 data[6] = rs.getInt("cantidad_camas");
-                data[7] = rs.getString("fecha_creado");
-                data[8] = rs.getString("fecha_actualizado");
+                data[7] = rs.getString("estado");
+                data[8] = rs.getString("fecha_creado");
+                data[9] = rs.getString("fecha_actualizado");
                 modelo.addRow(data);
             }
         } catch (SQLException ex) {

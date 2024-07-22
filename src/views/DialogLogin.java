@@ -1,11 +1,7 @@
 package views;
 
 import core.forms.BaseJdialog;
-import java.beans.PropertyVetoException;
 import java.util.Arrays;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 public class DialogLogin extends BaseJdialog {
 
@@ -22,9 +18,9 @@ public class DialogLogin extends BaseJdialog {
         char[] data = pwd.toCharArray();
 
         // Imprimir el arreglo de caracteres
-        for (char caracter : data) {
-            System.out.print(caracter + " ");
-        }
+//        for (char caracter : data) {
+//            System.out.print(caracter + " ");
+//        }
 
         return data;
     }
@@ -148,7 +144,6 @@ public class DialogLogin extends BaseJdialog {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         try {
-btnLogin.setText("");
             String username = txtUsername.getText().toLowerCase();
             char[] password = txtPwd.getPassword();
 
@@ -156,15 +151,16 @@ btnLogin.setText("");
                 viewMenuPrincipal = new ViewMenuPrincipal(); // Crear objeto del JFrame principal
                 viewMenuPrincipal.setExtendedState(ViewMenuPrincipal.MAXIMIZED_BOTH);
                 viewMenuPrincipal.setVisible(true);// Visualizar frame
+                dispose();
             } else {
-                util.alertMessage();
+                txtPwd.setText(null);
+                txtPwd.requestFocus();
+                util.alertMessage("El usuario o la contraseña es incorrecta", true);
             }
 
-            dispose();
-        } catch (NullPointerException ex) {
-            JOptionPane.showMessageDialog(null, "Contraseña inválida. Intententalo nuevamente.", "Mensaje de error", JOptionPane.ERROR_MESSAGE);
-        } catch (PropertyVetoException ex) {
-            Logger.getLogger(DialogLogin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception e) {
+            util.alertMessage("Error al inciar sesión", true);
+            throw new RuntimeException(e.getMessage());
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
